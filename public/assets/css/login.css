@@ -1,0 +1,26 @@
+body {
+  background-image: url("/assets/img/landing/landing1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 25vh 0;
+}
+
+.card {
+  width: 60vw;
+  border: none;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.card-body {
+  padding: 0;
+}
+.banner {
+  background: #e46a67;
+  color: #ffffff;
+}
+.bantuan {
+  margin-left: auto;
+}
