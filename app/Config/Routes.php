@@ -36,6 +36,7 @@ $routes->get('/', 'Login::index');
 $routes->get('/profilku', 'Profile::index');
 $routes->get('/uji-profisiensi', 'UjiProfisiensi::index');
 $routes->get('/uji-profisiensi/pilih-baru', 'UjiProfisiensi::pilihBaru');
+$routes->get('/laboratorium', 'UjiProfisiensi::laboratorium');
 
 /*
  * --------------------------------------------------------------------
