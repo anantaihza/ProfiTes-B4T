@@ -1,0 +1,113 @@
+body {
+  background-color: #ededed;
+}
+h1 {
+  font-weight: lighter;
+  margin-top: 100px;
+}
+.btn-icon {
+  background-color: #369a14;
+  color: white;
+  padding: 10px;
+  border-radius: 3px;
+}
+.btn-icon2 {
+  background-color: #216dc1;
+  color: white;
+  padding: 10px;
+  border-radius: 0px;
+}
+.btn-icon3 {
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  border-radius: 0px;
+}
+.btn2 {
+  background-color: #3eb617;
+  color: white;
+  border-radius: 3px;
+}
+.btn3 {
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 0px;
+}
+.btn4 {
+  background-color: #f5f5f5;
+  color: black;
+  border-radius: 1px;
+  width: 50%;
+  text-align: left;
+}
+.btn5 {
+  background-color: rgb(26, 26, 26);
+  color: #fff;
+  border-radius: 0px;
+}
+
+.content3 {
+  width: 50% !important;
+}
+
+.btnTab {
+  color: black !important;
+  border-radius: 2px !important;
+}
+
+.active {
+  color: white !important;
+}
+
+.tab-pane {
+  color: black !important;
+}
+
+.active span {
+  color: #2780e3;
+  background-color: white !important;
+}
+
+.badge {
+  background-color: #2780e3;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.tabhead {
+  background-color: #f5f5f5;
+  border-bottom: hidden;
+}
+
+.tabhead2 {
+  color: white;
+  background-color: #9854bb;
+}
+
+.unduh {
+  color: #2780e3;
+  text-decoration: underline;
+  background: transparent;
+  border: transparent;
+  padding: 0%;
+}
+
+.navbar {
+  box-shadow: 2px 8px 9px -6px rgba(0, 0, 0, 0.48);
+  -webkit-box-shadow: 2px 8px 9px -6px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 2px 8px 9px -6px rgba(0, 0, 0, 0.48);
+}
+
+.info {
+  color: white;
+  background-color: darkorange;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+footer {
+  width: 100%;
+  height: 7vh;
+  background-color: #ffffff;
+}
