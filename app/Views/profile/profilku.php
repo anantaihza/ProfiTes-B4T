@@ -33,15 +33,15 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="badge rounded-pill bg-primary">User1</span>
+                            <span class="badge rounded-pill bg-primary"><?= session()->get('username'); ?></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Pengaturan Profil</a></li>
+                            <li><a class="dropdown-item" href="/profile">Pengaturan Profil</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="/Login/logout">Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -74,6 +74,7 @@
         <!-- Title -->
 
         <!-- Form -->
+
         <div class="form-profil">
             <div class="row mb-3">
                 <div class="col-1"></div>
@@ -82,7 +83,7 @@
                 <div class="col-5">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="username1"><i class="fas fa-user"></i></span>
-                        <input type="text" class="form-control" id="username" aria-label="username1" aria-describedby="username1" />
+                        <input type="text" class="form-control" id="username" aria-label="username1" aria-describedby="username1" value="<?= $user->username; ?>" readonly />
                     </div>
                 </div>
                 <div class="col-2"></div>
@@ -94,7 +95,7 @@
                 <div class="col-5">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="email1"><i class="fas fa-envelope"></i></span>
-                        <input type="email" class="form-control" id="email" aria-label="email1" aria-describedby="email1" />
+                        <input type="email" class="form-control" id="email" aria-label="email1" aria-describedby="email1" value="<?= $user->email; ?>" readonly />
                     </div>
                 </div>
                 <div class="col-2"></div>
