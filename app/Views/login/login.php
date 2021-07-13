@@ -72,7 +72,7 @@
                                         </div>
                                     <?php endif; ?>
                                     <!-- Form Login  -->
-                                    <form action="/Login/login" method="post">
+                                    <form action="/Login/index" method="post">
                                         <div class="my-3 row">
                                             <label for="staticEmail" class="col-2 col-form-label"><i class="fas fa-user"></i></label>
                                             <div class="col-10">

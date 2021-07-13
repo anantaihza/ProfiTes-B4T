@@ -8,36 +8,37 @@ class Login extends BaseController
 {
 	public function index()
 	{
-		return view('login/login');
-	}
-	public function login()
-	{
-		$users = new UsersModel();
-		$username = $this->request->getVar('username');
-		$password = $this->request->getVar('password');
-		$dataUser = $users->where([
-			'username' => $username,
-		])->first();
-		if ($dataUser) {
-			if (password_verify($password, $dataUser->password)) {
-				session()->set([
-					'username' => $dataUser->username,
-					'logged_in' => TRUE
-				]);
+		if ($this->request->getPost()) {
+			$users = new UsersModel();
+			$username = $this->request->getVar('username');
+			$password = $this->request->getVar('password');
 
-				return redirect()->to(base_url('/uji-profisiensi'));
+			$dataUser = $users->where([
+				'username' => $username,
+			])->first();
+
+			if ($dataUser) {
+				if (password_verify($password, $dataUser->password)) {
+					session()->set([
+						'username' => $dataUser->username,
+						'logged_in' => TRUE
+					]);
+					return redirect()->to(base_url('/uji-profisiensi'));
+				} else {
+					session()->setFlashdata('error', 'Username & Password Salah');
+					return redirect()->back();
+				}
 			} else {
 				session()->setFlashdata('error', 'Username & Password Salah');
 				return redirect()->back();
 			}
-		} else {
-			session()->setFlashdata('error', 'Username & Password Salah');
-			return redirect()->back();
 		}
+		return view('login/login');
 	}
+
 	public function register()
 	{
-		if (!$this->validate([
+		$valid = [
 			'username' => [
 				'rules' => 'required|min_length[4]|max_length[50]|is_unique[users.username]',
 				'errors' => [
@@ -62,10 +63,12 @@ class Login extends BaseController
 					'max_length' => '{field} Maksimal 64 Karakter'
 				]
 			],
-		])) {
+		];
+		if (!$this->validate($valid)) {
 			session()->setFlashdata('error', $this->validator->listErrors());
 			return redirect()->back()->withInput();
 		}
+
 		$users = new UsersModel();
 		$users->insert([
 			'username' => $this->request->getVar('username'),
@@ -75,6 +78,7 @@ class Login extends BaseController
 		]);
 		return redirect()->to('/');
 	}
+
 	public function logout()
 	{
 		session()->destroy();
