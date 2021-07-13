@@ -66,49 +66,68 @@
                             </nav>
                             <div class="tab-content px-4" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <?php if (!empty(session()->getFlashdata('error'))) : ?>
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <?php echo session()->getFlashdata('error'); ?>
+                                        </div>
+                                    <?php endif; ?>
                                     <!-- Form Login  -->
+                                    <form action="/Login/index" method="post">
+                                        <div class="my-3 row">
+                                            <label for="staticEmail" class="col-2 col-form-label"><i class="fas fa-user"></i></label>
+                                            <div class="col-10">
+                                                <input type="text" class="form-control" name="username" id="username" placeholder="Username atau Alamat Email" />
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label for="inputPassword" class="col-2 col-form-label"><i class="fas fa-lock"></i></label>
+                                            <div class="col-10">
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mt-4">
+                                            <i class="fas fa-sign-in-alt"></i> Submit
+                                        </button>
+                                    </form>
 
-                                    <div class="my-3 row">
-                                        <label for="staticEmail" class="col-2 col-form-label"><i class="fas fa-user"></i></label>
-                                        <div class="col-10">
-                                            <input type="text" class="form-control" id="staticEmail" placeholder="Username atau Alamat Email" />
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label for="inputPassword" class="col-2 col-form-label"><i class="fas fa-lock"></i></label>
-                                        <div class="col-10">
-                                            <input type="password" class="form-control" id="inputPassword" placeholder="Password" />
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary mt-4">
-                                        <i class="fas fa-sign-in-alt"></i> Submit
-                                    </button>
                                     <!-- Form login  -->
                                 </div>
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                    <!-- Form Daftar  -->
 
-                                    <div class="my-3 row">
-                                        <label for="staticUsername" class="col-2 col-form-label"><i class="fas fa-user"></i></label>
-                                        <div class="col-10">
-                                            <input type="text" class="form-control" id="staticUsername" placeholder="Username" />
+
+                                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    <?php if (!empty(session()->getFlashdata('error'))) : ?>
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <p>Periksa kembali Form</p>
+                                            </hr />
+                                            <?php echo session()->getFlashdata('error'); ?>
                                         </div>
-                                    </div>
-                                    <div class="my-3 row">
-                                        <label for="Email" class="col-2 col-form-label"><i class="far fa-envelope"></i></label>
-                                        <div class="col-10">
-                                            <input type="text" class="form-control" id="Email" placeholder="Alamat Email" />
+                                    <?php endif; ?>
+
+                                    <!-- Form Daftar  -->
+                                    <form method="post" action="/Login/register">
+                                        <div class="my-3 row">
+                                            <label for="staticUsername" class="col-2 col-form-label"><i class="fas fa-user"></i></label>
+                                            <div class="col-10">
+                                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label for="Password" class="col-2 col-form-label"><i class="fas fa-lock"></i></label>
-                                        <div class="col-10">
-                                            <input type="password" class="form-control" id="Password" placeholder="Password" />
+                                        <div class="my-3 row">
+                                            <label for="Email" class="col-2 col-form-label"><i class="far fa-envelope"></i></label>
+                                            <div class="col-10">
+                                                <input type="text" class="form-control" name="email" id="email" placeholder="Alamat Email" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary mt-4">
-                                        <i class="fas fa-sign-in-alt"></i> Submit
-                                    </button>
+                                        <div class="mb-3 row">
+                                            <label for="Password" class="col-2 col-form-label"><i class="fas fa-lock"></i></label>
+                                            <div class="col-10">
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mt-4">
+                                            <i class="fas fa-sign-in-alt"></i> Submit
+                                        </button>
+                                    </form>
+
                                     <!-- Form Daftar  -->
                                 </div>
                             </div>
