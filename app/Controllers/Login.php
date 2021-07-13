@@ -20,7 +20,8 @@ class Login extends BaseController
 			if ($dataUser) {
 				if (password_verify($password, $dataUser->password)) {
 					session()->set([
-						'username' => $dataUser->username,
+						'id' 		=> $dataUser->id_user,
+						'username' 	=> $dataUser->username,
 						'logged_in' => TRUE
 					]);
 					return redirect()->to(base_url('/uji-profisiensi'));

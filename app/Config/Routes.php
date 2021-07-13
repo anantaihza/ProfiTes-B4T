@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 // $routes->get('/', 'Home::index');
 $routes->get('/', 'Login::index');
 $routes->get('/profilku', 'Profile::index');
+$routes->get('/profilku/update/(:num)', 'Profile::update/$1');
 $routes->get('/uji-profisiensi', 'UjiProfisiensi::index');
 $routes->get('/uji-profisiensi/pilih-baru', 'UjiProfisiensi::pilihBaru');
 $routes->get('/laboratorium', 'UjiProfisiensi::laboratorium');
