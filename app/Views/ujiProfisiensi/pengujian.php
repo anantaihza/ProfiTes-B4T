@@ -191,12 +191,12 @@
                             <p>untuk lembar hasil pengujian, isi dengan angka 0 untuk setiap data yang tidak
                                 tersedia.</p>
                         </div>
-                        <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarHasil" role="button" aria-expanded="false" aria-controls="collapseExample" style="width: 100%;">
+                        <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarHasilP1" role="button" aria-expanded="false" aria-controls="collapseExample" style="width: 100%;">
                             <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
-                            Pengujian Uji Profisiensi Ban; Dimensi
+                            Pengujian Uji Profisiensi Paket 1 (Batubara)
                         </a>
 
-                        <div class="collapse.show row border" id="LembarHasil" style="background-color: white; margin: auto;">
+                        <div class="collapse.show row border" id="LembarHasilP1" style="background-color: white; margin: auto;">
                             <div class="row" style="padding: 20px;">
                                 <div class="col-4">
                                     <p> <strong>Nama Laboratorium</strong> </p>
@@ -210,27 +210,6 @@
                                     <p> <strong>Tanggal Pengujian</strong> </p>
                                     <input class="form-control" type="date">
                                 </div>
-                                <div class="col-4">
-                                    <p> <strong>Suhu Ruangan</strong> </p>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control">
-                                        <div class="input-group-text btn2 text-white">°C</div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <p> <strong>Tekanan</strong> </p>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control">
-                                        <div class="input-group-text btn2 text-white">psi</div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <p> <strong>Kelembaban</strong> </p>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control">
-                                        <div class="input-group-text btn2 text-white">%</div>
-                                    </div>
-                                </div>
                                 <div class="table-responsive">
                                     <table class="table table-bordered mt-4">
                                         <thead style="background-color: slateblue; color: white; text-align: center;">
@@ -238,24 +217,28 @@
                                                 <th rowspan="2" scope="col" class="align-middle">No</th>
                                                 <th rowspan="2" scope="col" class="align-middle">Parameter Uji</th>
                                                 <th rowspan="2" scope="col" class="align-middle">Satuan</th>
-                                                <th rowspan="2" scope="col" class="align-middle">Desimal</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Kode Teknik *)</th>
                                                 <th colspan="3" scope="col">Data Hasil Uji</th>
-                                                <th colspan="2" scope="col">Nilai Ketidakpastian</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Expanded Uncertainty (U95%)</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Standar Acuan</th>
                                             </tr>
                                             <tr>
-                                                <th scope="col">Pembacaan 1</th>
-                                                <th scope="col">Pembacaan 2</th>
-                                                <th scope="col">Rerata</th>
-                                                <th scope="col">Pembacaan 1</th>
-                                                <th scope="col">Pembacaan 2</th>
+                                                <th scope="col">A</th>
+                                                <th scope="col">B</th>
+                                                <th scope="col">Rata-rata</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td>Diameter</td>
-                                                <td>mm</td>
-                                                <td>2</td>
+                                                <td>Gross Calorific Value</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
                                                 <td>
                                                     <input type="text" class="form-control">
                                                 </td>
@@ -274,9 +257,14 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
-                                                <td>Lebar</td>
-                                                <td>mm</td>
-                                                <td>2</td>
+                                                <td>Ash Content</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
                                                 <td>
                                                     <input type="text" class="form-control">
                                                 </td>
@@ -295,9 +283,40 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">3</th>
-                                                <td>TWI</td>
-                                                <td>mm</td>
-                                                <td>2</td>
+                                                <td>Volatile Matter</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Total Sulfur</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
                                                 <td>
                                                     <input type="text" class="form-control">
                                                 </td>
@@ -320,7 +339,849 @@
                             </div>
                         </div>
 
-                        <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarData" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin-top: 30px; width: 100%;">
+                        <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarHasilP2" role="button" aria-expanded="false" aria-controls="collapseExample" style="width: 100%;">
+                            <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
+                            Pengujian Uji Profisiensi Paket 2 (Batubara)
+                        </a>
+
+                        <div class="collapse.show row border" id="LembarHasilP2" style="background-color: white; margin: auto;">
+                            <div class="row" style="padding: 20px;">
+                                <div class="col-4">
+                                    <p> <strong>Nama Laboratorium</strong> </p>
+                                    <input class="form-control" type="text" disabled readonly>
+                                </div>
+                                <div class="col-4">
+                                    <p> <strong>Metode Uji</strong> </p>
+                                    <input class="form-control" type="text" disabled readonly>
+                                </div>
+                                <div class="col-4">
+                                    <p> <strong>Tanggal Pengujian</strong> </p>
+                                    <input class="form-control" type="date">
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered mt-4">
+                                        <thead style="background-color: slateblue; color: white; text-align: center;">
+                                            <tr>
+                                                <th rowspan="2" scope="col" class="align-middle">No</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Parameter Uji</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Satuan</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Kode Teknik *)</th>
+                                                <th colspan="3" scope="col">Data Hasil Uji</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Expanded Uncertainty (U95%)</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Standar Acuan</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">A</th>
+                                                <th scope="col">B</th>
+                                                <th scope="col">Rata-rata</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Gross Calorific Value</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Ash Content</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Volatile Matter</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Total Sulfur</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>Ultimate Carbon</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">6</th>
+                                                <td>Ultimate Hydrogen</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">7</th>
+                                                <td>Ultimate Nitrogen</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">8</th>
+                                                <td>Ash Fusion Temperature (AFT)</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">9</th>
+                                                <td>Hardgrove Grindability Index (HGI)</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">10</th>
+                                                <td>SiO2</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">11</th>
+                                                <td>Al2O3</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">12</th>
+                                                <td>Fe2O3</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">13</th>
+                                                <td>CaO</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">14</th>
+                                                <td>MgO</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">15</th>
+                                                <td>Na2O</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">16</th>
+                                                <td>K2O</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">17</th>
+                                                <td>MnO</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">18</th>
+                                                <td>TiO2</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">19</th>
+                                                <td>SO3</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">20</th>
+                                                <td>LOI</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarHasilP3" role="button" aria-expanded="false" aria-controls="collapseExample" style="width: 100%;">
+                            <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
+                            Pengujian Uji Profisiensi Paket 3 (Nikel Laterit)
+                        </a>
+
+                        <div class="collapse.show row border" id="LembarHasilP3" style="background-color: white; margin: auto;">
+                            <div class="row" style="padding: 20px;">
+                                <div class="col-4">
+                                    <p> <strong>Nama Laboratorium</strong> </p>
+                                    <input class="form-control" type="text" disabled readonly>
+                                </div>
+                                <div class="col-4">
+                                    <p> <strong>Metode Uji</strong> </p>
+                                    <input class="form-control" type="text" disabled readonly>
+                                </div>
+                                <div class="col-4">
+                                    <p> <strong>Tanggal Pengujian</strong> </p>
+                                    <input class="form-control" type="date">
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered mt-4">
+                                        <thead style="background-color: slateblue; color: white; text-align: center;">
+                                            <tr>
+                                                <th rowspan="2" scope="col" class="align-middle">No</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Parameter Uji</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Satuan</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Kode Teknik *)</th>
+                                                <th colspan="3" scope="col">Data Hasil Uji</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Expanded Uncertainty (U95%)</th>
+                                                <th rowspan="2" scope="col" class="align-middle">Standar Acuan</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">A</th>
+                                                <th scope="col">B</th>
+                                                <th scope="col">Rata-rata</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>SiO2</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Fe2O3</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Al2O3</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Ni</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>CaO</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">6</th>
+                                                <td>MgO</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">7</th>
+                                                <td>CO</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">8</th>
+                                                <td>Cr2O3</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">9</th>
+                                                <td>LOI</td>
+                                                <td>%</td>
+                                                <td>
+                                                    <select class="form-control" name="produk" id="produk">
+                                                        <option value="">T-1</option>
+                                                        <option value="">T-5</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarData" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin-top: 30px; width: 100%;">
                             <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Data
                             Pendukung
                         </a>
@@ -375,7 +1236,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                        </div> -->
                         <div style="margin-top: 30px;">
                             <div class="row">
                                 <div class="col">
