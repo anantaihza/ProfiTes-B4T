@@ -42,3 +42,7 @@ hr {
   height: 7vh;
   background-color: #ffffff;
 }
+
+th {
+  width: 150px;
+}
