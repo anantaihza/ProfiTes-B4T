@@ -13,9 +13,9 @@ class UjiProfisiensi extends BaseController
     {
         return view('ujiProfisiensi/ujiProfisiensiBaruPilih');
     }
-    public function laboratorium()
+    public function pengujian()
     {
-        return view('ujiProfisiensi/laboratorium');
+        return view('ujiProfisiensi/pengujian');
     }
     public function profisiensiBaru()
     {

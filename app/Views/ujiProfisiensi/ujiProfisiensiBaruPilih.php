@@ -33,15 +33,15 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="badge rounded-pill bg-primary">User1</span>
+                            <span class="badge rounded-pill bg-primary"><?= session()->get('username'); ?></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Pengaturan Profil</a></li>
+                            <li><a class="dropdown-item" href="/profile">Pengaturan Profil</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="/Login/logout">Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -57,7 +57,7 @@
                 <nav style="--bs-breadcrumb-divider: '/'" aria-label="breadcrumb">
                     <ol class="breadcrumb m-2">
                         <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                        <li class="breadcrumb-item"><a href="#">Uji Profisiensi</a></li>
+                        <li class="breadcrumb-item"><a href="/uji-profisiensi">Uji Profisiensi</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
                             Buat Baru
                         </li>
@@ -80,9 +80,10 @@
             <div class="col-lg-4 col-md-6 col-12 mt-3">
                 <button class="btn btn-produk">
                     <div class="cursor-hover">
-                        <img src="/assets/img/ujiProfisiensi/ban.jpg" alt="Ban" class="image" />
+                        <!-- <img src="/assets/img/ujiProfisiensi/ban.jpg" alt="Ban" class="image" /> -->
+                        <div class="image"></div>
                         <div class="overlay">
-                            <div class="text">Ban</div>
+                            <div class="text">Paket 1</div>
                         </div>
                     </div>
                 </button>
@@ -90,9 +91,10 @@
             <div class="col-lg-4 col-md-6 col-12 mt-3">
                 <button class="btn btn-produk">
                     <div class="cursor-hover">
-                        <img src="/assets/img/ujiProfisiensi/beton.jpg" alt="Beton" class="image" />
+                        <!-- <img src="/assets/img/ujiProfisiensi/beton.jpg" alt="Beton" class="image" /> -->
+                        <div class="image"></div>
                         <div class="overlay">
-                            <div class="text">Beton</div>
+                            <div class="text">Paket 2</div>
                         </div>
                     </div>
                 </button>
@@ -100,39 +102,22 @@
             <div class="col-lg-4 col-md-6 col-12 mt-3">
                 <button class="btn btn-produk">
                     <div class="cursor-hover">
-                        <img src="/assets/img/ujiProfisiensi/klinker.jpg" alt="Klinker" class="image" />
+                        <!-- <img src="/assets/img/ujiProfisiensi/klinker.jpg" alt="Klinker" class="image" /> -->
+                        <div class="image"></div>
                         <div class="overlay">
-                            <div class="text">Klinker</div>
+                            <div class="text">Paket 3</div>
                         </div>
                     </div>
                 </button>
             </div>
-            <div class="col-lg-4 col-md-6 col-12 mt-3">
-                <button class="btn btn-produk">
-                    <div class="cursor-hover">
-                        <img src="/assets/img/ujiProfisiensi/logam.jpg" alt="Logam" class="image" />
-                        <div class="overlay">
-                            <div class="text">Logam</div>
-                        </div>
-                    </div>
-                </button>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 mt-3">
-                <button class="btn btn-produk">
-                    <div class="cursor-hover">
-                        <img src="/assets/img/ujiProfisiensi/semen.jpg" alt="Semen" class="image" />
-                        <div class="overlay">
-                            <div class="text">Semen</div>
-                        </div>
-                    </div>
-                </button>
-            </div>
+
+
         </div>
         <!-- main -->
     </div>
 
     <!-- Footer -->
-    <div class="footer mt-5">
+    <div class="footer mt-5 fixed-bottom">
         <div class="container">
             <p class="mb-0 pt-3 fw-bold">@ B4T 2018</p>
         </div>
