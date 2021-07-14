@@ -86,26 +86,123 @@
 
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#Lunas" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
                     Sudah Lunas
                 </button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#Belum-Lunas" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
                     Belum Lunas
                 </button>
             </div>
         </nav>
-        <div class="tab-content my-5" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <p>Tidak ada data uji yang sudah lunas</p>
+        <!-- Tab Lunas -->
+        <div class="tab-content my-4" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="Lunas" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-lg-2">
+                        <!-- Card Lunas -->
+                        <div class="col">
+                            <div class="card2">
+                                <h4>Sejahtera Sentosa</h4>
+                                <table class="table table-borderless table-responsive-lg">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Produk</th>
+                                            <td>Paket 1</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Pengujian</th>
+                                            <td>Gross Calorific Value, Ash Content, Volatile Matter, Total Sulfur</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Dibuat pada</th>
+                                            <td>13 Jul 2021 - 20:07:40</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Jatuh tempo</th>
+                                            <td>17 Jul 2021 - 20:07:40</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-add">Lihat Detail</button>
+                                <a class="btn btn-add" href="/pengujian">Pengujian</a>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card2">
+                                <h4>Sejahtera Sentosa</h4>
+                                <table class="table table-borderless table-responsive-lg">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Produk</th>
+                                            <td>Paket 1</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Pengujian</th>
+                                            <td>Gross Calorific Value, Ash Content, Volatile Matter, Total Sulfur</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Dibuat pada</th>
+                                            <td>13 Jul 2021 - 20:07:40</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Jatuh tempo</th>
+                                            <td>17 Jul 2021 - 20:07:40</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-add">Lihat Detail</button>
+                                <a class="btn btn-add" href="/pengujian">Pengujian</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <p>Tidak ada data uji yang belum lunas</p>
+            <!-- Tab Belum Lunas -->
+            <div class="tab-pane fade" id="Belum-Lunas" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-lg-2">
+                        <!-- Card Belum Lunas -->
+                        <div class="col">
+                            <div class="card2">
+                                <h4>Sejahtera Sentosa</h4>
+                                <table class="table table-borderless table-responsive-lg">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Produk</th>
+                                            <td>Paket 1</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Pengujian</th>
+                                            <td>Gross Calorific Value, Ash Content, Volatile Matter, Total Sulfur</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Dibuat pada</th>
+                                            <td>13 Jul 2021 - 20:07:40</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Jatuh tempo</th>
+                                            <td>17 Jul 2021 - 20:07:40</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-add">Lihat Detail</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <div class="footer">
+    <div class="footer" style="margin-top: 63px;">
         <div class="container">
             <p class="mb-0 pt-3 fw-bold">@ B4T 2018</p>
         </div>
