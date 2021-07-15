@@ -7,21 +7,25 @@ use CodeIgniter\Validation\Rules;
 
 class Profile extends BaseController
 {
+    protected $user;
+    function __construct()
+    {
+        $this->user = new UsersModel();
+    }
+
     public function index()
     {
-        $usersModel = new UsersModel();
-        $usersModel = $usersModel->where([
+        $dataUsers = $this->user->where([
             'username' => session()->get('username')
         ])->first();
         $data = [
-            'user' => $usersModel
+            'user' => $dataUsers
         ];
         return view('profile/profilku', $data);
     }
 
     public function update($id)
     {
-        $user = new UsersModel();
         $valid = [
             'nama_user' => [
                 'rules' => 'required',
@@ -67,13 +71,13 @@ class Profile extends BaseController
         $password = $this->request->getVar('password-old');
 
 
-        $dataUser = $user->where([
+        $dataUser = $this->user->where([
             'id_user' => $id
         ])->first();
 
         if ($this->request->getVar('password-new')) {
             if (password_verify($password, $dataUser->password)) {
-                $user->update($id, [
+                $this->user->update($id, [
                     'password'      => password_hash($this->request->getVar('password-new'), PASSWORD_BCRYPT),
                     'nama_user'     => $nama_user,
                     'detail_alamat' => $detail_alamat,
@@ -89,7 +93,7 @@ class Profile extends BaseController
         }
 
 
-        $user->update($id, [
+        $this->user->update($id, [
             'nama_user'     => $nama_user,
             'detail_alamat' => $detail_alamat,
             'no_telepon'    => $this->request->getVar('no_telepon'),

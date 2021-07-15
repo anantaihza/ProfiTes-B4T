@@ -19,7 +19,7 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand fw-bold" href="#">ProfiTes B4T</a>
+            <a class="navbar-brand fw-bold" href="/ujiProfisiensi">ProfiTes B4T</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfites" aria-controls="navbarProfites" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -56,7 +56,7 @@
             <div class="card-body p-1">
                 <nav style="--bs-breadcrumb-divider: '/'" aria-label="breadcrumb">
                     <ol class="breadcrumb m-2">
-                        <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="/ujiProfisiensi">Beranda</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
                             Profilku
                         </li>
