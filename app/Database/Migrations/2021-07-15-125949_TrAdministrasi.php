@@ -43,12 +43,12 @@ class TrAdministrasi extends Migration
 				'constraint' => '64'
 			],
 			'telpon_laboratorium' => [
-				'type' => 'INT',
-				'constraint' => 15
+				'type' => 'VARCHAR',
+				'constraint' => '15'
 			],
 			'fax_laboratorium' => [
-				'type' => 'INT',
-				'constraint' => 15
+				'type' => 'VARCHAR',
+				'constraint' => '15'
 			],
 			'alamat_laboratorium' => [
 				'type' => 'VARCHAR',
@@ -67,8 +67,8 @@ class TrAdministrasi extends Migration
 				'constraint' => '32'
 			],
 			'telpon_pic' => [
-				'type' => 'INT',
-				'constraint' => 15
+				'type' => 'VARCHAR',
+				'constraint' => '15'
 			],
 			'email_pic' => [
 				'type' => 'VARCHAR',
