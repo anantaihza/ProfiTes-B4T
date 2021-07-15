@@ -6,14 +6,19 @@ use App\Models\UsersModel;
 
 class Login extends BaseController
 {
+	protected $users;
+	function __construct()
+	{
+		$this->users = new UsersModel();
+	}
+
 	public function index()
 	{
 		if ($this->request->getPost()) {
-			$users = new UsersModel();
 			$username = $this->request->getVar('username');
 			$password = $this->request->getVar('password');
 
-			$dataUser = $users->where([
+			$dataUser = $this->users->where([
 				'username' => $username,
 			])->first();
 
@@ -24,7 +29,7 @@ class Login extends BaseController
 						'username' 	=> $dataUser->username,
 						'logged_in' => TRUE
 					]);
-					return redirect()->to(base_url('/uji-profisiensi'));
+					return redirect()->to(base_url('/ujiProfisiensi'));
 				} else {
 					session()->setFlashdata('error', 'Username & Password Salah');
 					return redirect()->back();
@@ -70,8 +75,7 @@ class Login extends BaseController
 			return redirect()->back()->withInput();
 		}
 
-		$users = new UsersModel();
-		$users->insert([
+		$this->users->insert([
 			'username' => $this->request->getVar('username'),
 			'email' => $this->request->getVar('email'),
 			'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT)

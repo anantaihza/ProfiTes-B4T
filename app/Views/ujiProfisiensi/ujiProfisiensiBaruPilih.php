@@ -19,7 +19,7 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand fw-bold" href="#">ProfiTes B4T</a>
+            <a class="navbar-brand fw-bold" href="/ujiProfisiensi">ProfiTes B4T</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfites" aria-controls="navbarProfites" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -74,42 +74,25 @@
         </div>
         <!-- Title -->
 
+
         <!-- main -->
         <p>Silahkan pilih Produk yang hendak dilakukan Uji Profisiensi</p>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12 mt-3">
-                <button class="btn btn-produk">
-                    <div class="cursor-hover">
-                        <!-- <img src="/assets/img/ujiProfisiensi/ban.jpg" alt="Ban" class="image" /> -->
-                        <div class="image"></div>
-                        <div class="overlay">
-                            <div class="text">Paket 1</div>
+
+            <?php foreach ($pengujian as $row) { ?>
+                <div class="col-lg-4 col-md-6 col-12 mt-3">
+
+                    <a class="btn btn-produk" href="profisiensiBaru/<?= $row->id_pengujian; ?>">
+                        <div class="cursor-hover">
+                            <div class="image"></div>
+                            <div class="overlay">
+                                <div class="text"><?= $row->nama_pengujian; ?></div>
+                            </div>
                         </div>
-                    </div>
-                </button>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 mt-3">
-                <button class="btn btn-produk">
-                    <div class="cursor-hover">
-                        <!-- <img src="/assets/img/ujiProfisiensi/beton.jpg" alt="Beton" class="image" /> -->
-                        <div class="image"></div>
-                        <div class="overlay">
-                            <div class="text">Paket 2</div>
-                        </div>
-                    </div>
-                </button>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 mt-3">
-                <button class="btn btn-produk">
-                    <div class="cursor-hover">
-                        <!-- <img src="/assets/img/ujiProfisiensi/klinker.jpg" alt="Klinker" class="image" /> -->
-                        <div class="image"></div>
-                        <div class="overlay">
-                            <div class="text">Paket 3</div>
-                        </div>
-                    </div>
-                </button>
-            </div>
+                    </a>
+
+                </div>
+            <?php } ?>
 
 
         </div>

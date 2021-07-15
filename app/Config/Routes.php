@@ -35,10 +35,13 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Login::index');
 $routes->get('/profilku', 'Profile::index');
 $routes->get('/profilku/update/(:num)', 'Profile::update/$1');
-$routes->get('/uji-profisiensi', 'UjiProfisiensi::index');
-$routes->get('/uji-profisiensi/pilih-baru', 'UjiProfisiensi::pilihBaru');
+
+$routes->get('/ujiProfisiensi', 'UjiProfisiensi::index');
+$routes->get('/ujiProfisiensi/pilih-baru', 'UjiProfisiensi::pilihBaru');
+// $routes->get('/ujiProfisiensiBaru', 'UjiProfisiensi::profisiensiBaru');
+$routes->get('/ujiProfisiensi/profisiensiBaru/(:num)', 'UjiProfisiensi::profisiensiBaru/$1');
+
 $routes->get('/pengujian', 'UjiProfisiensi::pengujian');
-$routes->get('/ujiProfisiensiBaru', 'UjiProfisiensi::profisiensiBaru');
 
 /*
  * --------------------------------------------------------------------

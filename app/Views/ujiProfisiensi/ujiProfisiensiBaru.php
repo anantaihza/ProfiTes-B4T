@@ -6,19 +6,20 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/ujiProfisiensiBaru.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="assets/css/ujiProfisiensiBaru.css">
     <title>Uji Profites</title>
+
 </head>
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand fw-bold" href="#">ProfiTes B4T</a>
+            <a class="navbar-brand fw-bold" href="/ujiProfisiensi">ProfiTes B4T</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfites" aria-controls="navbarProfites" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -77,7 +78,7 @@
                                 <legend>Rincian mengenai produk yang akan dilakukan pengujian</legend>
 
                                 <div class="row">
-                                    <div class="col">
+                                    <!-- <div class="col">
                                         <label class="form-label">Produk</label>
                                         <div class="col">
                                             <select class="form-control" name="produk" id="produk">
@@ -85,6 +86,10 @@
                                                 <option value="">Roda</option>
                                             </select>
                                         </div>
+                                    </div> -->
+                                    <div class="col">
+                                        <label class="form-label">Produk</label>
+                                        <input type="text" class="form-control" id="produk" value="<?= $pengujian->nama_pengujian; ?>" readonly>
                                     </div>
                                     <div class="col">
                                         <label class="form-label">Metode Pengujian</label>
