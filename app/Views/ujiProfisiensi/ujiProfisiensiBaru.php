@@ -210,11 +210,7 @@
                                                         <input type="text" class="form-control" id="jabatan">
                                                     </div>
                                                 </div>
-                                                <div>
-                                                    <label style="padding-left: 0" class="control-label col-sm-6" for="">Gunakan Kontrak Pembayaran</label>
-                                                    <input type="checkbox" id="" name="" value="1">
-                                                    Ya
-                                                </div>
+
                                             </div>
                                             <div class="col-md-6">
                                                 <div>
@@ -229,12 +225,7 @@
                                                         <input type="email" class="form-control" id="email">
                                                     </div>
                                                 </div>
-                                                <div>
-                                                    <label for="">Nomor Kontrak</label>
-                                                    <div>
-                                                        <input type="text" class="form-control" id="alamatKontrak">
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
