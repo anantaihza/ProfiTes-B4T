@@ -57,7 +57,7 @@
             <div class="card-body p-1">
                 <nav style="--bs-breadcrumb-divider: '/'" aria-label="breadcrumb">
                     <ol class="breadcrumb m-2">
-                        <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="/ujiProfisiensi">Beranda</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
                             Uji Profisiensi
                         </li>
@@ -138,7 +138,6 @@
                                         </div>
                                         <div>
                                             <button class="btn btn-add ">Pengujian</button>
-
                                         </div>
                                     </div>
                                 </div>
