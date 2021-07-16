@@ -18,8 +18,10 @@ class UjiProfisiensi extends BaseController
     public function index()
     {
 
-
-        return view('ujiProfisiensi/landing',);
+        $data = [
+            'administrasi' => $this->administrasi->getAdministrasi()
+        ];
+        return view('ujiProfisiensi/landing', $data);
     }
 
     public function pilihBaru()
@@ -148,6 +150,6 @@ class UjiProfisiensi extends BaseController
             'no_va' => '9908214569873',
             'no_refrensi' => '336598',
         ]);
-        return view('ujiProfisiensi/landing');
+        return redirect()->to('/ujiProfisiensi');
     }
 }

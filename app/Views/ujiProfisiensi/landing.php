@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
             <a class="navbar-brand fw-bold" href="/ujiProfisiensi">ProfiTes B4T</a>
@@ -100,65 +101,45 @@
                 <div class="container">
                     <div class="row row-cols-1 row-cols-lg-2">
                         <!-- Card Lunas -->
-                        <div class="col">
-                            <div class="card2">
-                                <h4>Sejahtera Sentosa</h4>
-                                <table class="table table-borderless table-responsive-lg">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Produk</th>
-                                            <td>Paket 1</td>
+                        <?php foreach ($administrasi as $adm) : ?>
+                            <?php if ($adm->status_pembayaran === "Sudah Lunas") : ?>
+                                <div class="col">
+                                    <div class="card2">
+                                        <h4><?= $adm->nama_laboratorium; ?></h4>
+                                        <table class="table table-borderless table-responsive-lg">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Produk</th>
+                                                    <td><?= $adm->nama_pengujian; ?></td>
 
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Pengujian</th>
-                                            <td>Gross Calorific Value, Ash Content, Volatile Matter, Total Sulfur</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Dibuat pada</th>
-                                            <td>13 Jul 2021 - 20:07:40</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Pengujian</th>
+                                                    <td><?= $adm->keterangan; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Biaya</th>
+                                                    <td><?= $adm->biaya; ?></td>
 
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Jatuh tempo</th>
-                                            <td>17 Jul 2021 - 20:07:40</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button class="btn btn-add">Lihat Detail</button>
-                                <a class="btn btn-add" href="/pengujian">Pengujian</a>
-                            </div>
-                        </div>
+                                                </tr>
+                                                <!-- <tr>
+                                                <th scope="row">Dibuat pada</th>
+                                                <td>13 Jul 2021 - 20:07:40</td>
 
-                        <div class="col">
-                            <div class="card2">
-                                <h4>Sejahtera Sentosa</h4>
-                                <table class="table table-borderless table-responsive-lg">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Produk</th>
-                                            <td>Paket 1</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Jatuh tempo</th>
+                                                <td>17 Jul 2021 - 20:07:40</td>
+                                            </tr> -->
+                                            </tbody>
+                                        </table>
+                                        <button class="btn btn-add">Lihat Detail</button>
+                                    </div>
+                                </div>
+                            <?php endif ?>
+                        <?php endforeach; ?>
 
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Pengujian</th>
-                                            <td>Gross Calorific Value, Ash Content, Volatile Matter, Total Sulfur</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Dibuat pada</th>
-                                            <td>13 Jul 2021 - 20:07:40</td>
 
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Jatuh tempo</th>
-                                            <td>17 Jul 2021 - 20:07:40</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button class="btn btn-add">Lihat Detail</button>
-                                <a class="btn btn-add" href="/pengujian">Pengujian</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -167,34 +148,49 @@
                 <div class="container">
                     <div class="row row-cols-1 row-cols-lg-2">
                         <!-- Card Belum Lunas -->
-                        <div class="col">
-                            <div class="card2">
-                                <h4>Sejahtera Sentosa</h4>
-                                <table class="table table-borderless table-responsive-lg">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Produk</th>
-                                            <td>Paket 1</td>
 
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Pengujian</th>
-                                            <td>Gross Calorific Value, Ash Content, Volatile Matter, Total Sulfur</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Dibuat pada</th>
-                                            <td>13 Jul 2021 - 20:07:40</td>
+                        <?php foreach ($administrasi as $adm) : ?>
+                            <?php if ($adm->status_pembayaran === "Belum Lunas") : ?>
+                                <div class="col">
+                                    <div class="card2">
+                                        <h4><?= $adm->nama_laboratorium; ?></h4>
+                                        <table class="table table-borderless table-responsive-lg">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Produk</th>
+                                                    <td><?= $adm->nama_pengujian; ?></td>
 
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Jatuh tempo</th>
-                                            <td>17 Jul 2021 - 20:07:40</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button class="btn btn-add">Lihat Detail</button>
-                            </div>
-                        </div>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Pengujian</th>
+                                                    <td><?= $adm->keterangan; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Biaya</th>
+                                                    <td><?= $adm->biaya; ?></td>
+
+                                                </tr>
+                                                <!-- <tr>
+                                                <th scope="row">Dibuat pada</th>
+                                                <td>13 Jul 2021 - 20:07:40</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Jatuh tempo</th>
+                                                <td>17 Jul 2021 - 20:07:40</td>
+                                            </tr> -->
+                                            </tbody>
+                                        </table>
+                                        <button class="btn btn-add">Lihat Detail</button>
+                                    </div>
+                                </div>
+                            <?php endif ?>
+                        <?php endforeach; ?>
+
+
+
+
+
                     </div>
                 </div>
             </div>

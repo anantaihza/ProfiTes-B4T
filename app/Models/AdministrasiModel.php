@@ -18,4 +18,11 @@ class AdministrasiModel extends Model
         'email_pic', 'no_va', 'no_refrensi', 'sistem_pembayaran',
         'status_pembayaran'
     ];
+
+    public function getAdministrasi()
+    {
+        return $this->db->table('tr_administrasi')
+            ->join('mas_pengujian', 'mas_pengujian.id_pengujian=tr_administrasi.id_pengujian')
+            ->get()->getResult();
+    }
 }
