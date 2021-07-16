@@ -52,8 +52,7 @@
         <div class="breadcrumb1" style="margin-top: 80px;">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                    <li class="breadcrumb-item"><a href="#" style="text-decoration: none;">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="/uji-profisiensi" style="text-decoration: none;">Uji Profisiensi</a></li>
+                    <li class="breadcrumb-item"><a href="/ujiProfisiensi" style="text-decoration: none;">Beranda</a></li>
                     <li class="breadcrumb-item gray" aria-current="page">Pengujian</li>
                 </ol>
             </nav>

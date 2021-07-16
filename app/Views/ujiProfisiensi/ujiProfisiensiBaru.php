@@ -86,29 +86,13 @@
                                             <label class="form-label">Produk</label>
                                             <input type="text" class="form-control" id="produk" value="<?= $pengujian->nama_pengujian; ?>" readonly>
                                         </div>
-
                                         <div class="col">
                                             <label class="form-label">Metode Pengujian</label>
                                             <input type="text" class="form-control" name="metode_pengujian" id="metode_pengujian" placeholder="Metode Pengujian">
                                         </div>
 
                                     </div>
-
-                                    <div class="row">
-
-                                        <div class="col">
-
-                                            <label class="form-label">Pengujian</label>
-                                            <div class="col">
-
-                                                <select class="form-control" name="pengujian" id="pengujian">
-                                                    <option value="dimensi">Dimensi</option>
-                                                    <option value="berat">Berat</option>
-                                                </select>
-
-                                            </div>
-
-                                        </div>
+                                    <!-- <div class="row">
                                         <div class="col">
 
                                             <label class="form-label">Status Akreditasi</label>
@@ -119,7 +103,7 @@
                                                     Tidak</label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                 </div>
 
@@ -151,6 +135,8 @@
                                             <input type="text" class="form-control" name="telpon_laboratorium" id="telpon_laboratorium">
                                             <label for="">No Fax</label>
                                             <input type="text" class="form-control" name="fax_laboratorium" id="fax_laboratorium">
+                                            <label for="">Status Akreditasi</label>
+                                            <input type="text" class="form-control" name="status_akreditasi" id="status_akreditasi">
                                         </div>
                                         <div class=" col-md-6">
                                             <label for="">Alamat</label>

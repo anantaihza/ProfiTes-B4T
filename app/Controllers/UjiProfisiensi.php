@@ -4,22 +4,25 @@ namespace App\Controllers;
 
 use App\Models\PengujianModel;
 use App\Models\AdministrasiModel;
+use App\Models\UjiProfisiensiModel;
 
 class UjiProfisiensi extends BaseController
 {
     protected $pengujian;
     protected $administrasi;
+    protected $ujiprofisiensi;
     function __construct()
     {
         $this->pengujian = new PengujianModel();
         $this->administrasi = new AdministrasiModel();
+        $this->ujiprofisiensi = new UjiProfisiensiModel();
     }
 
     public function index()
     {
 
         $data = [
-            'administrasi' => $this->administrasi->getAdministrasi()
+            'administrasi' => $this->administrasi->getMasPengujian()
         ];
         return view('ujiProfisiensi/landing', $data);
     }
@@ -81,6 +84,12 @@ class UjiProfisiensi extends BaseController
                     'required' => '{field} Harus diisi'
                 ]
             ],
+            'status_akreditasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
             'alamat_pengiriman' => [
                 'rules' => 'required',
                 'errors' => [
@@ -119,7 +128,6 @@ class UjiProfisiensi extends BaseController
         }
 
         // passing data post
-        $pengujian = $this->request->getVar('pengujian');
         $metode_pengujian = $this->request->getVar('metode_pengujian');
         $status_akreditasi = $this->request->getVar('status_akreditasi');
         $nama_laboratorium = $this->request->getVar('nama_laboratorium');
@@ -135,7 +143,6 @@ class UjiProfisiensi extends BaseController
         $this->administrasi->insert([
             'id_pengujian' => $id_pengujian,
             'id_user' => $id,
-            'pengujian' => $pengujian,
             'metode_pengujian' => $metode_pengujian,
             'status_akreditasi' => $status_akreditasi,
             'nama_laboratorium' => $nama_laboratorium,
