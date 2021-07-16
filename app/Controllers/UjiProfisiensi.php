@@ -157,6 +157,10 @@ class UjiProfisiensi extends BaseController
             'no_va' => '9908214569873',
             'no_refrensi' => '336598',
         ]);
-        return redirect()->to('/ujiProfisiensi');
+        return redirect()->to('/ujiProfisiensi/requestPembayaran');
+    }
+    public function requestPembayaran()
+    {
+        return view('ujiProfisiensi/requestPembayaran');
     }
 }

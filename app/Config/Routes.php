@@ -42,6 +42,7 @@ $routes->get('/ujiProfisiensi/pilih-baru', 'UjiProfisiensi::pilihBaru');
 $routes->get('/ujiProfisiensi/profisiensiBaru/(:num)', 'UjiProfisiensi::profisiensiBaru/$1');
 
 $routes->get('/pengujian', 'UjiProfisiensi::pengujian');
+$routes->get('/requestPembayaran', 'UjiProfisiensi::requestPembayaran');
 
 /*
  * --------------------------------------------------------------------
