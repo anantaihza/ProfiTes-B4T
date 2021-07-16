@@ -104,36 +104,42 @@
                         <?php foreach ($administrasi as $adm) : ?>
                             <?php if ($adm->status_pembayaran === "Sudah Lunas") : ?>
                                 <div class="col">
-                                    <div class="card2">
+                                    <div class="card2 d-flex flex-column justify-content-between">
                                         <h4><?= $adm->nama_laboratorium; ?></h4>
-                                        <table class="table table-borderless table-responsive-lg">
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">Produk</th>
-                                                    <td><?= $adm->nama_pengujian; ?></td>
+                                        <div>
 
+                                            <table class="table table-borderless table-responsive-lg">
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Produk</th>
+                                                        <td><?= $adm->nama_pengujian; ?></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Pengujian</th>
+                                                        <td><?= $adm->keterangan; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Biaya</th>
+                                                        <td><?= $adm->biaya; ?></td>
+
+                                                    </tr>
+                                                    <!-- <tr>
+                                                    <th scope="row">Dibuat pada</th>
+                                                    <td>13 Jul 2021 - 20:07:40</td>
+    
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Pengujian</th>
-                                                    <td><?= $adm->keterangan; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Biaya</th>
-                                                    <td><?= $adm->biaya; ?></td>
+                                                    <th scope="row">Jatuh tempo</th>
+                                                    <td>17 Jul 2021 - 20:07:40</td>
+                                                </tr> -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-add ">Pengujian</button>
 
-                                                </tr>
-                                                <!-- <tr>
-                                                <th scope="row">Dibuat pada</th>
-                                                <td>13 Jul 2021 - 20:07:40</td>
-
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Jatuh tempo</th>
-                                                <td>17 Jul 2021 - 20:07:40</td>
-                                            </tr> -->
-                                            </tbody>
-                                        </table>
-                                        <button class="btn btn-add">Lihat Detail</button>
+                                        </div>
                                     </div>
                                 </div>
                             <?php endif ?>
@@ -152,36 +158,42 @@
                         <?php foreach ($administrasi as $adm) : ?>
                             <?php if ($adm->status_pembayaran === "Belum Lunas") : ?>
                                 <div class="col">
-                                    <div class="card2">
+                                    <div class="card2 d-flex flex-column justify-content-between">
                                         <h4><?= $adm->nama_laboratorium; ?></h4>
-                                        <table class="table table-borderless table-responsive-lg">
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">Produk</th>
-                                                    <td><?= $adm->nama_pengujian; ?></td>
+                                        <div>
 
+                                            <table class="table table-borderless table-responsive-lg">
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Produk</th>
+                                                        <td><?= $adm->nama_pengujian; ?></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Pengujian</th>
+                                                        <td><?= $adm->keterangan; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Biaya</th>
+                                                        <td><?= $adm->biaya; ?></td>
+
+                                                    </tr>
+                                                    <!-- <tr>
+                                                    <th scope="row">Dibuat pada</th>
+                                                    <td>13 Jul 2021 - 20:07:40</td>
+    
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Pengujian</th>
-                                                    <td><?= $adm->keterangan; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Biaya</th>
-                                                    <td><?= $adm->biaya; ?></td>
+                                                    <th scope="row">Jatuh tempo</th>
+                                                    <td>17 Jul 2021 - 20:07:40</td>
+                                                </tr> -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div>
 
-                                                </tr>
-                                                <!-- <tr>
-                                                <th scope="row">Dibuat pada</th>
-                                                <td>13 Jul 2021 - 20:07:40</td>
-
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Jatuh tempo</th>
-                                                <td>17 Jul 2021 - 20:07:40</td>
-                                            </tr> -->
-                                            </tbody>
-                                        </table>
-                                        <button class="btn btn-add">Lihat Detail</button>
+                                            <button class="btn btn-add">Lihat Detail</button>
+                                        </div>
                                     </div>
                                 </div>
                             <?php endif ?>
