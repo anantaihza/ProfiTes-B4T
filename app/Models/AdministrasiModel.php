@@ -25,4 +25,11 @@ class AdministrasiModel extends Model
             ->join('mas_pengujian', 'mas_pengujian.id_pengujian=tr_administrasi.id_pengujian')
             ->get()->getResult();
     }
+    public function getIdMasPengujian($id_administrasi)
+    {
+        return $this->db->table('tr_administrasi')
+            ->join('mas_pengujian', 'mas_pengujian.id_pengujian=tr_administrasi.id_pengujian')
+            ->where('id_administrasi', $id_administrasi)
+            ->get()->getResult();
+    }
 }

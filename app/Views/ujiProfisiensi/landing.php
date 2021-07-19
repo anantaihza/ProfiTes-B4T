@@ -137,6 +137,7 @@
                                             </table>
                                         </div>
                                         <div>
+
                                             <button class="btn btn-add ">Pengujian</button>
                                         </div>
                                     </div>
@@ -190,8 +191,10 @@
                                             </table>
                                         </div>
                                         <div>
+                                            <form action="/UjiProfisiensi/getAdministrasi/<?= $adm->id_administrasi; ?>" method="post">
 
-                                            <button class="btn btn-add">Lihat Detail</button>
+                                                <button class="btn btn-add">Lihat Detail</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
