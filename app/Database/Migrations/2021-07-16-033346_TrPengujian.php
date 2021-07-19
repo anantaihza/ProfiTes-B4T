@@ -20,11 +20,6 @@ class TrPengujian extends Migration
 				'constraint' => 11,
 				'unsigned'	 => TRUE
 			],
-			'id_teknik' => [
-				'type'		 => 'INT',
-				'constraint' => 11,
-				'unsigned'	 => TRUE
-			],
 			'id_parameter' => [
 				'type'		 => 'INT',
 				'constraint' => 11,
@@ -57,7 +52,6 @@ class TrPengujian extends Migration
 		]);
 		$this->forge->addKey('id_tr_pengujian', TRUE);
 		$this->forge->addForeignKey('id_administrasi', 'tr_administrasi', 'id_administrasi', 'CASCADE', 'CASCADE');
-		$this->forge->addForeignKey('id_teknik', 'mas_mas_teknik', 'id_teknik', 'CASCADE', 'CASCADE');
 		$this->forge->addForeignKey('id_parameter', 'mas_parameter', 'id_parameter', 'CASCADE', 'CASCADE');
 		$this->forge->createTable('tr_pengujian');
 	}

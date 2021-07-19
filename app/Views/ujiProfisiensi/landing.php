@@ -121,7 +121,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">Biaya</th>
-                                                        <td><?= $adm->biaya; ?></td>
+                                                        <td>Rp. <?= $adm->biaya; ?></td>
 
                                                     </tr>
                                                     <!-- <tr>
@@ -137,8 +137,9 @@
                                             </table>
                                         </div>
                                         <div>
-
-                                            <button class="btn btn-add ">Pengujian</button>
+                                            <form action="/UjiProfisiensi/pengujian/<?= $adm->id_administrasi; ?>" method="post">
+                                                <button class="btn btn-add ">Pengujian</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +176,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">Biaya</th>
-                                                        <td><?= $adm->biaya; ?></td>
+                                                        <td>Rp. <?= $adm->biaya; ?></td>
 
                                                     </tr>
                                                     <!-- <tr>

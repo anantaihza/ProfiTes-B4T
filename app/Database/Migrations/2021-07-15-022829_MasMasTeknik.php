@@ -15,11 +15,6 @@ class MasMasTeknik extends Migration
 				'unsigned' 		 => TRUE,
 				'auto_increment' => TRUE
 			],
-			'id_parameter' => [
-				'type'		 => 'INT',
-				'constraint' => 11,
-				'unsigned'	 => TRUE
-			],
 			'nama_teknik' => [
 				'type' => 'VARCHAR',
 				'constraint' => '128'
@@ -28,7 +23,6 @@ class MasMasTeknik extends Migration
 		]);
 
 		$this->forge->addKey('id_teknik', TRUE);
-		$this->forge->addForeignKey('id_parameter', 'mas_parameter', 'id_parameter', 'CASCADE', 'CASCADE');
 		$this->forge->createTable('mas_mas_teknik');
 	}
 

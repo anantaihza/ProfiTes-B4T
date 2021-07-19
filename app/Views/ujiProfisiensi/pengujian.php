@@ -6,16 +6,16 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/laboratorium.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="assets/css/laboratorium.css">
+
+
+
     <title>Uji Profites</title>
 </head>
 
 <body>
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
             <a class="navbar-brand fw-bold" href="/ujiProfisiensi">ProfiTes B4T</a>
@@ -48,6 +48,7 @@
             </div>
         </div>
     </nav>
+
     <div class="container">
         <div class="breadcrumb1" style="margin-top: 80px;">
             <nav aria-label="breadcrumb">
@@ -78,6 +79,7 @@
             </div>
         </div>
 
+        <!-- main -->
         <div class="row">
             <div class="col-12">
                 <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
@@ -92,7 +94,7 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
-                    <!-- Pertama -->
+                    <!-- Pertama pengiriman -->
                     <div class="tab-pane fade show active" id="pills-pengiriman" role="tabpanel" aria-labelledby="pills-pengiriman-tab" style="margin-top: 20px;">
                         <div class="table-responsive">
                             <table class="table border">
@@ -183,7 +185,7 @@
 
                     </div>
 
-                    <!-- Kedua -->
+                    <!-- Kedua pengujian -->
                     <div class="tab-pane fade" id="pills-pengujian" role="tabpanel" aria-labelledby="pills-pengujian-tab">
                         <div class="col info">
                             <p class="fas fa-info-circle pt-3"></i> Info</p>
@@ -192,18 +194,18 @@
                         </div>
                         <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarHasilP1" role="button" aria-expanded="false" aria-controls="collapseExample" style="width: 100%;">
                             <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
-                            Pengujian Uji Profisiensi Paket 1 (Batubara)
+                            Pengujian Uji Profisiensi <?= $dataAdm[0]->nama_pengujian; ?>
                         </a>
 
                         <div class="collapse.show row border" id="LembarHasilP1" style="background-color: white; margin: auto;">
                             <div class="row" style="padding: 20px;">
                                 <div class="col-4">
                                     <p> <strong>Nama Laboratorium</strong> </p>
-                                    <input class="form-control" type="text" disabled readonly>
+                                    <input class="form-control" type="text" value="<?= $dataAdm[0]->nama_laboratorium; ?>" disabled readonly>
                                 </div>
                                 <div class="col-4">
                                     <p> <strong>Metode Uji</strong> </p>
-                                    <input class="form-control" type="text" disabled readonly>
+                                    <input class="form-control" type="text" value="<?= $dataAdm[0]->metode_pengujian; ?>" disabled readonly>
                                 </div>
                                 <div class="col-4">
                                     <p> <strong>Tanggal Pengujian</strong> </p>
@@ -228,7 +230,54 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <form action="" method="post">
+                                                <?php
+                                                $i = 1;
+                                                foreach ($dataParam as $param) : ?>
+                                                    <tr>
+                                                        <th scope="row"><?= $i; ?></th>
+                                                        <td><?= $param->nama_parameter; ?></td>
+                                                        <td><?= $param->satuan; ?></td>
+                                                        <td>
+                                                            <input type="text" value="<?= $param->nama_teknik; ?>" class="form-control" readonly>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control">
+                                                        </td>
+                                                    </tr>
+                                                    <?php $i++ ?>
+                                                <?php endforeach; ?>
+                                                <div style="margin-top: 30px;">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p><strong>Diuji oleh</strong></p>
+                                                            <input class="form-control" type="text">
+                                                        </div>
+                                                        <div class="col">
+                                                            <p><strong>Disetujui oleh</strong></p>
+                                                            <input class="form-control" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row-10 float-end mt-4" style="margin-bottom: 50px;">
+                                                        <button type="button" class="btnNext2 btn btn-primary "><i class="fas fa-paper-plane"></i> Kirim
+                                                            Hasil
+                                                            Pengujian</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <!-- <tr>
                                                 <th scope="row">1</th>
                                                 <td>Gross Calorific Value</td>
                                                 <td>%</td>
@@ -331,19 +380,20 @@
                                                 <td>
                                                     <input type="text" class="form-control">
                                                 </td>
-                                            </tr>
+                                            </tr> -->
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
 
-                        <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarHasilP2" role="button" aria-expanded="false" aria-controls="collapseExample" style="width: 100%;">
+                        <!-- <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarHasilP2" role="button" aria-expanded="false" aria-controls="collapseExample" style="width: 100%;">
                             <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
                             Pengujian Uji Profisiensi Paket 2 (Batubara)
-                        </a>
+                        </a> -->
 
-                        <div class="collapse.show row border" id="LembarHasilP2" style="background-color: white; margin: auto;">
+                        <!-- <div class="collapse.show row border" id="LembarHasilP2" style="background-color: white; margin: auto;">
                             <div class="row" style="padding: 20px;">
                                 <div class="col-4">
                                     <p> <strong>Nama Laboratorium</strong> </p>
@@ -900,14 +950,14 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarHasilP3" role="button" aria-expanded="false" aria-controls="collapseExample" style="width: 100%;">
+                        <!-- <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarHasilP3" role="button" aria-expanded="false" aria-controls="collapseExample" style="width: 100%;">
                             <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
                             Pengujian Uji Profisiensi Paket 3 (Nikel Laterit)
-                        </a>
+                        </a> -->
 
-                        <div class="collapse.show row border" id="LembarHasilP3" style="background-color: white; margin: auto;">
+                        <!-- <div class="collapse.show row border" id="LembarHasilP3" style="background-color: white; margin: auto;">
                             <div class="row" style="padding: 20px;">
                                 <div class="col-4">
                                     <p> <strong>Nama Laboratorium</strong> </p>
@@ -1178,7 +1228,7 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- <a class=" text-left btn btn4 border" data-bs-toggle="collapse" href="#LembarData" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin-top: 30px; width: 100%;">
                             <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Data
@@ -1236,7 +1286,7 @@
                                 </table>
                             </div>
                         </div> -->
-                        <div style="margin-top: 30px;">
+                        <!-- <div style="margin-top: 30px;">
                             <div class="row">
                                 <div class="col">
                                     <p><strong>Diuji oleh</strong></p>
@@ -1252,7 +1302,7 @@
                                     Hasil
                                     Pengujian</button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- Ketiga -->
@@ -1328,5 +1378,9 @@
         </div>
     </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 </html>
