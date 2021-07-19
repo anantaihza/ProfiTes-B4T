@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\PengujianModel;
 use App\Models\AdministrasiModel;
+use App\Models\ParameterModel;
 use App\Models\UjiProfisiensiModel;
 
 class UjiProfisiensi extends BaseController
@@ -16,6 +17,7 @@ class UjiProfisiensi extends BaseController
         $this->pengujian = new PengujianModel();
         $this->administrasi = new AdministrasiModel();
         $this->ujiprofisiensi = new UjiProfisiensiModel();
+        $this->parameter = new ParameterModel();
     }
 
     public function index()
@@ -34,10 +36,21 @@ class UjiProfisiensi extends BaseController
 
         return view('ujiProfisiensi/ujiProfisiensiBaruPilih', $data);
     }
-    public function pengujian()
+
+
+    public function pengujian($id_administrasi)
     {
-        return view('ujiProfisiensi/pengujian');
+        $dataAdministrasi = $this->administrasi->getIdMasPengujian($id_administrasi);
+        $dataParameter = $this->parameter->getPaketParameter($dataAdministrasi[0]->id_pengujian);
+        $data = [
+            'dataAdm' => $dataAdministrasi,
+            'dataParam' => $dataParameter
+        ];
+
+        return view('ujiProfisiensi/pengujian', $data);
     }
+
+
     public function profisiensiBaru($id)
     {
         $pengujian = $this->pengujian->where([
