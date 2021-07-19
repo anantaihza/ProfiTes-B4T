@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
             <a class="navbar-brand fw-bold" href="/ujiProfisiensi">ProfiTes B4T</a>
@@ -79,25 +80,19 @@
                                                 <tr class="bg-white">
                                                     <th scope="row">No Order</th>
                                                     <td>
-                                                        19
+                                                        <?= session()->get('dataAdministrasi')[0]->id_administrasi; ?>
                                                     </td>
                                                 </tr>
                                                 <tr class="bg-white">
                                                     <th scope="row">Nomor VA</th>
                                                     <td>
-                                                        gelap
+                                                        <?= session()->get('dataAdministrasi')[0]->no_va; ?>
                                                     </td>
                                                 </tr>
                                                 <tr class="bg-white">
                                                     <th scope="row">Nomor Refrensi</th>
                                                     <td>
-                                                        gelap
-                                                    </td>
-                                                </tr>
-                                                <tr class="bg-white">
-                                                    <th scope="row">Nominal</th>
-                                                    <td>
-                                                        IDR 1,500,000.00
+                                                        <?= session()->get('dataAdministrasi')[0]->no_refrensi; ?>
                                                     </td>
                                                 </tr>
                                                 <tr class="bg-white">
@@ -107,11 +102,25 @@
                                                     </td>
                                                 </tr>
                                                 <tr class="bg-white">
-                                                    <th scope="row">Status</th>
+                                                    <th scope="row">Paket</th>
                                                     <td>
-                                                        Belum Lunas
+                                                        <?= session()->get('dataAdministrasi')[0]->nama_pengujian; ?>
                                                     </td>
                                                 </tr>
+                                                <tr class="bg-white">
+                                                    <th scope="row">Nominal</th>
+                                                    <td>
+                                                        IDR <?= session()->get('dataAdministrasi')[0]->biaya; ?>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="bg-white">
+                                                    <th scope="row">Status</th>
+                                                    <td>
+                                                        <?= session()->get('dataAdministrasi')[0]->status_pembayaran; ?>
+                                                    </td>
+                                                </tr>
+
                                                 <tr class="bg-white">
                                                     <th scope="row">Invoice</th>
                                                     <td>

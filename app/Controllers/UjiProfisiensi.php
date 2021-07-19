@@ -20,7 +20,7 @@ class UjiProfisiensi extends BaseController
 
     public function index()
     {
-
+        session()->remove('dataAdministrasi');
         $data = [
             'administrasi' => $this->administrasi->getMasPengujian()
         ];
@@ -50,6 +50,16 @@ class UjiProfisiensi extends BaseController
         $data['pengujian'] = $pengujian;
 
         return view('ujiProfisiensi/ujiProfisiensiBaru', $data);
+    }
+    public function getAdministrasi($id_administrasi)
+    {
+        $dataAdministrasi = $this->administrasi->getIdMasPengujian($id_administrasi);
+
+        session()->set([
+            'dataAdministrasi' => $dataAdministrasi
+        ]);
+
+        return redirect()->to('/ujiProfisiensi/requestPembayaran');
     }
     public function administrasi($id, $id_pengujian)
     {
@@ -157,6 +167,13 @@ class UjiProfisiensi extends BaseController
             'no_va' => '9908214569873',
             'no_refrensi' => '336598',
         ]);
+        $id_administrasi = $this->administrasi->getInsertID();
+        $dataAdministrasi = $this->administrasi->getIdMasPengujian($id_administrasi);
+
+        session()->set([
+            'dataAdministrasi' => $dataAdministrasi
+        ]);
+
         return redirect()->to('/ujiProfisiensi/requestPembayaran');
     }
     public function requestPembayaran()
