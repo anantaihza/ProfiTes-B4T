@@ -22,6 +22,10 @@ class MasPengujian extends Migration
 			'biaya' => [
 				'type' => 'INT'
 			],
+			'biaya_terbilang' => [
+				'type' => 'VARCHAR',
+				'constraint' => '256'
+			],
 			'keterangan' => [
 				'type' => 'VARCHAR',
 				'constraint' => '1280',
