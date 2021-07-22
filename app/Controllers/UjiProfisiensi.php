@@ -193,4 +193,25 @@ class UjiProfisiensi extends BaseController
     {
         return view('ujiProfisiensi/requestPembayaran');
     }
+    public function invoicePembayaran()
+    {
+        $idUser = session()->get('dataAdministrasi')[0]->id_user;
+        $idAdministrasi = session()->get('dataAdministrasi')[0]->id_administrasi;
+        $dataAdministrasi = $this->administrasi->getUser($idUser, $idAdministrasi);
+        $data = [
+            'dataAdministrasi' => $dataAdministrasi
+        ];
+        return view('ujiProfisiensi/pembayaranpdf', $data);
+    }
+    function generatePDF()
+    {
+        // $dompdf = new \Dompdf\Dompdf();
+
+        // $dompdf->loadHtml(view('pdf/pembayaran'));
+        // $dompdf->setPaper('A4', 'portrait'); //ukuran kertas dan orientasi
+        // $dompdf->render();
+        // $dompdf->stream("laporan-iklan"); //nama file pdf
+
+        // return view('ujiProfisiensi/requestPembayaran'); //arahkan ke list-iklan setelah laporan di unduh
+    }
 }
