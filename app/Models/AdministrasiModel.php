@@ -16,7 +16,7 @@ class AdministrasiModel extends Model
         'telpon_laboratorium', 'fax_laboratorium', 'alamat_laboratorium',
         'alamat_pengiriman', 'nama_pic', 'jabatan_pic', 'telpon_pic',
         'email_pic', 'no_va', 'no_refrensi', 'sistem_pembayaran',
-        'status_pembayaran'
+        'status_pembayaran', 'status_pengujian'
     ];
 
     public function getMasPengujian()

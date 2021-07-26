@@ -122,8 +122,11 @@ class UjiProfisiensi extends BaseController
             ]);
             $idParam++;
         }
+        $this->administrasi->update($id_administrasi, [
+            'status_pengujian'      => 'Sudah'
+        ]);
         // passing data post
-        return redirect()->to('/ujiProfisiensi');
+        return redirect()->to("UjiProfisiensi/pengujian/$id_administrasi");
     }
 
     public function profisiensiBaru($id)
