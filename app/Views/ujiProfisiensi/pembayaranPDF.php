@@ -6,16 +6,51 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <style>
+        table th {
+            background: #0c1c60 !important;
+            color: #fff !important;
+            border: 1px solid #ddd !important;
+            line-height: 15px !important;
+            text-align: center !important;
+            vertical-align: middle !important;
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        table td {
+            line-height: 15px !important;
+            text-align: center !important;
+            border: 1px solid;
+        }
+    </style> -->
+
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <title>Uji Profites</title>
 
 </head>
 
 <body>
+    <!-- <div class="container">
+        <h2>Laporan Iklan Tayang</h2>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>judul</th>
+                    <th>deskripsi</th>
+                </tr>
+            </thead>
+            <tbody>
 
+                <tr>
+                    <td><?= $dataAdministrasi->nama_user ?></td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div> -->
     <div class="container" style=" height: 100%;">
         <div class="row justify-content-md-center">
             <div class="col-12">
@@ -23,7 +58,7 @@
                     <div class="row">
                         <div class="col-4">
 
-                            <img src="/assets/img/ujiProfisiensi/LOGO BARU KEMENTERIAN PERINDUSTRIAN.png" alt="" style="float: right; display: block; margin-top: 22px; width: 50%;">
+                            <img src="/assets/img/ujiProfisiensi/logo_kementrian_perindustrian.png" alt="" style="float: right; display: block; margin-top: 22px; width: 50%;">
                         </div>
                         <div class="col-8" style="  line-height:1px;">
                             <div style="float: left;">
@@ -62,17 +97,10 @@
                                                 <p>: <?= session()->get('dataAdministrasi')[0]->no_refrensi; ?></p>
                                             </div>
                                         </div>
-                                        <!-- <div style="line-height: 1px;">
-
-                                            <p>Tanggal : 11/11/11</p>
-                                            <p>No : 1</p>
-                                            <p>No order</p>
-                                            <p>no reff</p>
-                                        </div> -->
 
                                     </td>
                                     <td scope="row" colspan="2">
-                                        <b style="color: fff; font-size: 30px;">INVOICE</b>
+                                        <p style="color: fff; font-size: 30px;"> </p>
                                         <div class="row">
 
                                             <div class="col-2">
@@ -143,7 +171,7 @@
                 </div>
             </div>
         </div>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 
