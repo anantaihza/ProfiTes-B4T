@@ -87,6 +87,11 @@ class TrAdministrasi extends Migration
 				'constraint' => '32',
 				'default'	 => 'Belum Lunas'
 			],
+			'status_pengujian' => [
+				'type' => 'VARCHAR',
+				'constraint' => '32',
+				'default'	 => 'Belum'
+			],
 
 		]);
 		$this->forge->addKey('id_administrasi', TRUE);
