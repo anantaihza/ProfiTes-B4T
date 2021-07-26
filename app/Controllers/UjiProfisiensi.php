@@ -203,15 +203,18 @@ class UjiProfisiensi extends BaseController
         $data = [
             'dataAdministrasi' => $dataAdministrasi
         ];
-        return view('ujiProfisiensi/pembayaranpdf', $data);
+        return view('ujiProfisiensi/pembayaranpdf2', $data);
     }
     function generatePDF()
     {
         $idUser = session()->get('dataAdministrasi')[0]->id_user;
         $idAdministrasi = session()->get('dataAdministrasi')[0]->id_administrasi;
         $dataAdministrasi = $this->administrasi->getUser($idUser, $idAdministrasi);
+        // $src = 'https://i.ibb.co/s155Wm2/logo-kementrian-perindustrian.png';
+        // $src = '/assets/img/ujiProfisiensi/logo_kementrian_perindustrian.png';
+
         $data = [
-            'dataAdministrasi' => $dataAdministrasi
+            'dataAdministrasi' => $dataAdministrasi,
         ];
 
 
@@ -220,13 +223,16 @@ class UjiProfisiensi extends BaseController
         // $options->setDefaultFont('courier');
 
 
+        // $options = new Options();
+        // $options->set('isRemoteEnabled', true);
+        // $dompdf = new Dompdf($options);
 
         $dompdf = new Dompdf();
 
-        $dompdf->loadHtml(view('ujiProfisiensi/pembayaranPDF', $data));
+        $dompdf->loadHtml(view('ujiProfisiensi/pembayaranPdf2', $data));
         $dompdf->setPaper('A4', 'potrait'); //ukuran kertas dan orientasi
         $dompdf->render();
-        $dompdf->stream(); //nama file pdf
+        $dompdf->stream('Invoice_Uji'); //nama file pdf
 
         return view('ujiProfisiensi/requestPembayaran'); //arahkan ke list-iklan setelah laporan di unduh
     }

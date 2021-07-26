@@ -2,66 +2,35 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" , srhink-to-fit="no">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- <style>
-        table th {
-            background: #0c1c60 !important;
-            color: #fff !important;
-            border: 1px solid #ddd !important;
-            line-height: 15px !important;
-            text-align: center !important;
-            vertical-align: middle !important;
-
+    <style>
+        table {
+            border-collapse: collapse;
         }
 
-        table td {
-            line-height: 15px !important;
-            text-align: center !important;
-            border: 1px solid;
+        td {
+            border: 1px solid #000;
+            padding: 4px;
         }
-    </style> -->
-
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    </style>
     <title>Uji Profites</title>
 
 </head>
 
 <body>
-    <!-- <div class="container">
-        <h2>Laporan Iklan Tayang</h2>
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>judul</th>
-                    <th>deskripsi</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr>
-                    <td><?= $dataAdministrasi->nama_user ?></td>
-
-                </tr>
-
-            </tbody>
-        </table>
-    </div> -->
     <div class="container" style=" height: 100%;">
-        <div class="row justify-content-md-center">
+        <div class="row">
             <div class="col-12">
                 <div>
                     <div class="row">
                         <div class="col-4">
-
-                            <img src="/assets/img/ujiProfisiensi/logo_kementrian_perindustrian.png" alt="" style="float: right; display: block; margin-top: 22px; width: 50%;">
+                            <!-- <img src="/assets/img/ujiProfisiensi/logo_kementrian_perindustrian.png" alt="" style="float: right; display: block; margin-top: 22px; width: 50%;"> -->
                         </div>
-                        <div class="col-8" style="  line-height:1px;">
-                            <div style="float: left;">
+                        <div class="col-8" style="line-height:1px;">
+                            <div>
                                 <h5 class="text-center">BADAN PENELITIAN DAN PENGEMBANGAN INDUSTRI</h5>
                                 <h2 class="text-center">BALAI BESAR BAHAN DAN BARANG TEKNIK</h2>
                                 <p class="text-center">Jl. Sangkuriang No.14 Bandung 40135 JAWA BARAT - INDONESIA</p>
@@ -72,8 +41,8 @@
 
                         </div>
                     </div>
-                    <div class="row" style=" height: 100%;">
-                        <table class="table table-bordered">
+                    <div class="" style=" height: 100%;">
+                        <table class="table">
 
                             <tbody>
                                 <tr>
