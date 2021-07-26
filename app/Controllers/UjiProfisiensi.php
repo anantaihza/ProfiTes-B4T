@@ -51,8 +51,13 @@ class UjiProfisiensi extends BaseController
         return view('ujiProfisiensi/pengujian', $data);
     }
 
-    public function insertPengujian()
+    public function insertPengujian($id_administrasi)
     {
+        $dataAdministrasi = $this->administrasi->getIdMasPengujian($id_administrasi);
+        $dataParameter = $this->parameter->getPaketParameter($dataAdministrasi[0]->id_pengujian);
+        $i = count($dataParameter);
+        $idParam = $dataParameter[0]->id_parameter;
+
         $valid = [
             'hasilUji_A_1' => [
                 'rules' => 'required',
@@ -92,31 +97,32 @@ class UjiProfisiensi extends BaseController
             ],
 
         ];
-        // for ($j = 1; $j <= 4; $j++) {
-        //     echo $i;
-        // }
-        // if (!$this->validate($valid)) {
-        //     session()->setFlashdata('error', $this->validator->listErrors());
-        //     return redirect()->back();
-        // }
-        // passing data post
-        $tgl_pengujian = $this->request->getVar('tgl_pengujian');
-        $hasilUji_A = $this->request->getVar('hasilUji_A_1');
-        $hasilUji_B = $this->request->getVar('hasilUji_B_1');
-        $rerata = $this->request->getVar('rerata_1');
-        $u95 = $this->request->getVar('u95_1');
-        $standar_acuan = $this->request->getVar('standar_acuan_1');
 
-        $this->ujiprofisiensi->insert([
-            'id_administrasi' => 1,
-            'id_parameter' => 1,
-            'tgl_pengujian' => $tgl_pengujian,
-            'hasilUji_A' => $hasilUji_A,
-            'hasilUji_B' => $hasilUji_B,
-            'rerata' => $rerata,
-            'u95' => $u95,
-            'standar_acuan' => $standar_acuan,
-        ]);
+        if (!$this->validate($valid)) {
+            session()->setFlashdata('error', $this->validator->listErrors());
+            return redirect()->back();
+        }
+        for ($j = 1; $j <= $i; $j++) {
+            $tgl_pengujian = $this->request->getVar('tgl_pengujian');
+            $hasilUji_A = $this->request->getVar("hasilUji_A_$j");
+            $hasilUji_B = $this->request->getVar("hasilUji_B_$j");
+            $rerata = $this->request->getVar("rerata_$j");
+            $u95 = $this->request->getVar("u95_$j");
+            $standar_acuan = $this->request->getVar("standar_acuan_$j");
+
+            $this->ujiprofisiensi->insert([
+                'id_administrasi' => $id_administrasi,
+                'id_parameter' => $idParam,
+                'tgl_pengujian' => $tgl_pengujian,
+                'hasilUji_A' => $hasilUji_A,
+                'hasilUji_B' => $hasilUji_B,
+                'rerata' => $rerata,
+                'u95' => $u95,
+                'standar_acuan' => $standar_acuan,
+            ]);
+            $idParam++;
+        }
+        // passing data post
         return redirect()->to('/ujiProfisiensi');
     }
 

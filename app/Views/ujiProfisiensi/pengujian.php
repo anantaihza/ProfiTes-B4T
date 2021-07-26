@@ -207,7 +207,7 @@
                         </a>
 
                         <div class="collapse.show row border" id="LembarHasilP1" style="background-color: white; margin: auto;">
-                            <form action="/UjiProfisiensi/insertPengujian" method="post">
+                            <form action="/UjiProfisiensi/insertPengujian/<?= $dataAdm[0]->id_administrasi; ?>" method="post">
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-4">
                                         <p> <strong>Nama Laboratorium</strong> </p>
@@ -273,7 +273,7 @@
                                             </tbody>
                                         </table>
                                         <div style="margin-top: 30px;">
-                                            <div class="row">
+                                            <!-- <div class="row">
                                                 <div class="col">
                                                     <p><strong>Diuji oleh</strong></p>
                                                     <input class="form-control" type="text">
@@ -282,7 +282,7 @@
                                                     <p><strong>Disetujui oleh</strong></p>
                                                     <input class="form-control" type="text">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="row-10 float-end mt-4" style="margin-bottom: 10px;">
                                                 <button type="submit" class="btnNext2 btn btn-primary "><i class="fas fa-paper-plane"></i>
                                                     Kirim Hasil Pengujian
