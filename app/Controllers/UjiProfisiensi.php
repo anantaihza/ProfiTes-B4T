@@ -6,6 +6,8 @@ use App\Models\PengujianModel;
 use App\Models\AdministrasiModel;
 use App\Models\ParameterModel;
 use App\Models\UjiProfisiensiModel;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class UjiProfisiensi extends BaseController
 {
@@ -205,13 +207,27 @@ class UjiProfisiensi extends BaseController
     }
     function generatePDF()
     {
-        // $dompdf = new \Dompdf\Dompdf();
+        $idUser = session()->get('dataAdministrasi')[0]->id_user;
+        $idAdministrasi = session()->get('dataAdministrasi')[0]->id_administrasi;
+        $dataAdministrasi = $this->administrasi->getUser($idUser, $idAdministrasi);
+        $data = [
+            'dataAdministrasi' => $dataAdministrasi
+        ];
 
-        // $dompdf->loadHtml(view('pdf/pembayaran'));
-        // $dompdf->setPaper('A4', 'portrait'); //ukuran kertas dan orientasi
-        // $dompdf->render();
-        // $dompdf->stream("laporan-iklan"); //nama file pdf
 
-        // return view('ujiProfisiensi/requestPembayaran'); //arahkan ke list-iklan setelah laporan di unduh
+        // $options = new Options();
+        // $options->setChroot("/var/www/html/ProfiTes-B4T");
+        // $options->setDefaultFont('courier');
+
+
+
+        $dompdf = new Dompdf();
+
+        $dompdf->loadHtml(view('ujiProfisiensi/pembayaranPDF', $data));
+        $dompdf->setPaper('A4', 'potrait'); //ukuran kertas dan orientasi
+        $dompdf->render();
+        $dompdf->stream(); //nama file pdf
+
+        return view('ujiProfisiensi/requestPembayaran'); //arahkan ke list-iklan setelah laporan di unduh
     }
 }

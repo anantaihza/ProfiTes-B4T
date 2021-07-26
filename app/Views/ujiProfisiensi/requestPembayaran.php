@@ -124,10 +124,13 @@
                                                 <tr class="bg-white">
                                                     <th scope="row">Invoice</th>
                                                     <td>
-                                                        <button href="<?php echo base_url('UjiProfisiensi/generatePDF') ?>" class="unduh">
-                                                            <i class="fa fa-download" style="margin-right: 5px;"></i>
-                                                            Unduh
-                                                        </button>
+                                                        <form action="/UjiProfisiensi/generatePDF" method="post">
+                                                            <button class="unduh">
+                                                                <i class="fa fa-download" style="margin-right: 5px;"></i>
+                                                                Unduh
+                                                            </button>
+
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             </tbody>
