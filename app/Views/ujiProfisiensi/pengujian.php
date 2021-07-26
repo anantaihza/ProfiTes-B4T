@@ -185,18 +185,29 @@
 
                     <!-- Kedua pengujian -->
                     <div class="tab-pane fade" id="pills-pengujian" role="tabpanel" aria-labelledby="pills-pengujian-tab">
+
                         <div class="col info">
                             <p class="fas fa-info-circle pt-3"></i> Info</p>
                             <p>untuk lembar hasil pengujian, isi dengan angka 0 untuk setiap data yang tidak
                                 tersedia.</p>
                         </div>
+                        <?php if (!empty(session()->getFlashdata('error'))) : ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <?php echo session()->getFlashdata('error'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty(session()->getFlashdata('message'))) : ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <?php echo session()->getFlashdata('message'); ?>
+                            </div>
+                        <?php endif; ?>
                         <a class=" text-left btn btn4 border" style="width: 100%;">
                             <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
                             Pengujian Uji Profisiensi <?= $dataAdm[0]->nama_pengujian; ?>
                         </a>
 
                         <div class="collapse.show row border" id="LembarHasilP1" style="background-color: white; margin: auto;">
-                            <form action="" method="post">
+                            <form action="/UjiProfisiensi/insertPengujian/<?= $dataAdm[0]->id_administrasi; ?>" method="post">
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-4">
                                         <p> <strong>Nama Laboratorium</strong> </p>
@@ -242,19 +253,19 @@
                                                             <input type="text" value="<?= $param->nama_teknik; ?>" class="form-control" readonly>
                                                         </td>
                                                         <td>
-                                                            <input name="hasilUji_A" id="hasilUji_A" type="text" class="form-control">
+                                                            <input name="hasilUji_A_<?= $i; ?>" id="hasilUji_A_<?= $i; ?>" type="text" class="form-control">
                                                         </td>
                                                         <td>
-                                                            <input name="hasilUji_B" id="hasilUji_B" type="text" class="form-control">
+                                                            <input name="hasilUji_B_<?= $i; ?>" id="hasilUji_B_<?= $i; ?>" type="text" class="form-control">
                                                         </td>
                                                         <td>
-                                                            <input name="rerata" id="rerata" type="text" class="form-control">
+                                                            <input name="rerata_<?= $i; ?>" id="rerata_<?= $i; ?>" type="text" class="form-control">
                                                         </td>
                                                         <td>
-                                                            <input name="u95" id="u95" type="text" class="form-control">
+                                                            <input name="u95_<?= $i; ?>" id="u95_<?= $i; ?>" type="text" class="form-control">
                                                         </td>
                                                         <td>
-                                                            <input name="standar_acuan" id="standar_acuan" type="text" class="form-control">
+                                                            <input name="standar_acuan_<?= $i; ?>" id="standar_acuan_<?= $i; ?>" type="text" class="form-control">
                                                         </td>
                                                     </tr>
                                                     <?php $i++ ?>
@@ -262,7 +273,7 @@
                                             </tbody>
                                         </table>
                                         <div style="margin-top: 30px;">
-                                            <div class="row">
+                                            <!-- <div class="row">
                                                 <div class="col">
                                                     <p><strong>Diuji oleh</strong></p>
                                                     <input class="form-control" type="text">
@@ -271,7 +282,7 @@
                                                     <p><strong>Disetujui oleh</strong></p>
                                                     <input class="form-control" type="text">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="row-10 float-end mt-4" style="margin-bottom: 10px;">
                                                 <button type="submit" class="btnNext2 btn btn-primary "><i class="fas fa-paper-plane"></i>
                                                     Kirim Hasil Pengujian

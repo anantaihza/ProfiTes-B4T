@@ -7,7 +7,6 @@ use App\Models\AdministrasiModel;
 use App\Models\ParameterModel;
 use App\Models\UjiProfisiensiModel;
 use Dompdf\Dompdf;
-use Dompdf\Options;
 
 class UjiProfisiensi extends BaseController
 {
@@ -52,6 +51,80 @@ class UjiProfisiensi extends BaseController
         return view('ujiProfisiensi/pengujian', $data);
     }
 
+    public function insertPengujian($id_administrasi)
+    {
+        $dataAdministrasi = $this->administrasi->getIdMasPengujian($id_administrasi);
+        $dataParameter = $this->parameter->getPaketParameter($dataAdministrasi[0]->id_pengujian);
+        $i = count($dataParameter);
+        $idParam = $dataParameter[0]->id_parameter;
+
+        $valid = [
+            'hasilUji_A_1' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'hasilUji_B_1' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'rerata_1' => [
+                'rules' => 'required',
+                'errors' => [
+                    'matches' => '{field} Harus diisi'
+                ]
+            ],
+            'u95_1' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'standar_acuan_1' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'tgl_pengujian' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+
+        ];
+
+        if (!$this->validate($valid)) {
+            session()->setFlashdata('error', $this->validator->listErrors());
+            return redirect()->back();
+        }
+        for ($j = 1; $j <= $i; $j++) {
+            $tgl_pengujian = $this->request->getVar('tgl_pengujian');
+            $hasilUji_A = $this->request->getVar("hasilUji_A_$j");
+            $hasilUji_B = $this->request->getVar("hasilUji_B_$j");
+            $rerata = $this->request->getVar("rerata_$j");
+            $u95 = $this->request->getVar("u95_$j");
+            $standar_acuan = $this->request->getVar("standar_acuan_$j");
+
+            $this->ujiprofisiensi->insert([
+                'id_administrasi' => $id_administrasi,
+                'id_parameter' => $idParam,
+                'tgl_pengujian' => $tgl_pengujian,
+                'hasilUji_A' => $hasilUji_A,
+                'hasilUji_B' => $hasilUji_B,
+                'rerata' => $rerata,
+                'u95' => $u95,
+                'standar_acuan' => $standar_acuan,
+            ]);
+            $idParam++;
+        }
+        // passing data post
+        return redirect()->to('/ujiProfisiensi');
+    }
 
     public function profisiensiBaru($id)
     {
@@ -210,22 +283,10 @@ class UjiProfisiensi extends BaseController
         $idUser = session()->get('dataAdministrasi')[0]->id_user;
         $idAdministrasi = session()->get('dataAdministrasi')[0]->id_administrasi;
         $dataAdministrasi = $this->administrasi->getUser($idUser, $idAdministrasi);
-        // $src = 'https://i.ibb.co/s155Wm2/logo-kementrian-perindustrian.png';
-        // $src = '/assets/img/ujiProfisiensi/logo_kementrian_perindustrian.png';
 
         $data = [
             'dataAdministrasi' => $dataAdministrasi,
         ];
-
-
-        // $options = new Options();
-        // $options->setChroot("/var/www/html/ProfiTes-B4T");
-        // $options->setDefaultFont('courier');
-
-
-        // $options = new Options();
-        // $options->set('isRemoteEnabled', true);
-        // $dompdf = new Dompdf($options);
 
         $dompdf = new Dompdf();
 
