@@ -59,31 +59,31 @@ class UjiProfisiensi extends BaseController
         $idParam = $dataParameter[0]->id_parameter;
 
         $valid = [
-            'hasilUji_A_1' => [
+            'hasilUji_A' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Harus diisi'
                 ]
             ],
-            'hasilUji_B_1' => [
+            'hasilUji_B' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Harus diisi'
                 ]
             ],
-            'rerata_1' => [
+            'rerata' => [
                 'rules' => 'required',
                 'errors' => [
                     'matches' => '{field} Harus diisi'
                 ]
             ],
-            'u95_1' => [
+            'u95' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Harus diisi'
                 ]
             ],
-            'standar_acuan_1' => [
+            'standar_acuan' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Harus diisi'

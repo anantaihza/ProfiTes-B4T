@@ -62,14 +62,11 @@
                         <button class="nav-link active btnTab" id="pills-produk-tab" data-bs-toggle="pill" data-bs-target="#pills-produk" type="button" role="tab" aria-controls="pills-produk" aria-selected="true"><span class="badge">1</span>Produk</button>
                     </li>
                     <li class="dua nav-item" role="presentation">
-                        <button class="nav-link btnTab" id="pills-detail-tab" data-bs-toggle="pill" data-bs-target="#pills-detail" type="button" role="tab" aria-controls="pills-detail" aria-selected="false"><span class="badge">2</span>Detail</button>
+                        <button disabled class="nav-link btnTab" id="pills-detail-tab" data-bs-toggle="pill" data-bs-target="#pills-detail" type="button" role="tab" aria-controls="pills-detail" aria-selected="false"><span class="badge">2</span>Detail</button>
                     </li>
                     <li class="tiga nav-item" role="presentation">
-                        <button class="nav-link btnTab" id="pills-kontak-tab" data-bs-toggle="pill" data-bs-target="#pills-kontak" type="button" role="tab" aria-controls="pills-kontak" aria-selected="false"><span class="badge">3</span>Kontak & Lain-lain</button>
+                        <button disabled class="nav-link btnTab" id="pills-kontak-tab" data-bs-toggle="pill" data-bs-target="#pills-kontak" type="button" role="tab" aria-controls="pills-kontak" aria-selected="false"><span class="badge">3</span>Kontak & Lain-lain</button>
                     </li>
-                    <!-- <li class="empat nav-item" role="presentation">
-                        <button class="nav-link btnTab" id="pills-pembayaran-tab" data-bs-toggle="pill" data-bs-target="#pills-pembayaran" type="button" role="tab" aria-controls="pills-pembayaran" aria-selected="false"><span class="badge">4</span>Pembayaran</button>
-                    </li> -->
                 </ul>
                 <form action="/UjiProfisiensi/administrasi/<?= session()->get('id'); ?>/<?= session()->get('id_pengujian'); ?>" method="post">
                     <div class="tab-content" id="pills-tabContent">
@@ -92,19 +89,6 @@
                                         </div>
 
                                     </div>
-                                    <!-- <div class="row">
-                                        <div class="col">
-
-                                            <label class="form-label">Status Akreditasi</label>
-                                            <div>
-                                                <label class="radio-inline"><input type="radio" name="status_akreditasi" value="ya">
-                                                    Ya</label>
-                                                <label class="radio-inline"><input type="radio" name="status_akreditasi" value="tidak" checked>
-                                                    Tidak</label>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
                                 </div>
 
                             </div>
@@ -222,80 +206,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Keempat -->
-                        <!-- <div class="tab-pane fade" id="pills-pembayaran" role="tabpanel" aria-labelledby="pills-pembayaran-tab" style="margin-top: 20px;">
-                        <div class="row ">
-                            <div class="col">
-                                <div class="container">
-                                    <div class="row justify-content-md-center">
-                                        <div class="col-12 mt-5">
-                                            <div class="row justify-content-md-center">
-
-                                                <a class="btn btn4 border" data-bs-toggle="collapse" href="#LaporanSertifikat" role="button" aria-expanded="false" aria-controls="LaporanSertifikat">
-                                                    <i class="far fa-money-bill-alt" style="margin-right: 2px;"></i>Detail Pembayaran
-                                                </a>
-                                            </div>
-
-                                            <div class="collapse.show row" id="LaporanSertifikat">
-                                                <div>
-                                                    <table class="table border" style=" width: 51%; margin:
-                                                            auto;">
-                                                        <tbody>
-                                                            <tr class="bg-white">
-                                                                <th scope="row">No Order</th>
-                                                                <td>
-                                                                    19
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="bg-white">
-                                                                <th scope="row">Nomor VA</th>
-                                                                <td>
-                                                                    gelap
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="bg-white">
-                                                                <th scope="row">Nomor Refrensi</th>
-                                                                <td>
-                                                                    gelap
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="bg-white">
-                                                                <th scope="row">Nominal</th>
-                                                                <td>
-                                                                    IDR 1,500,000.00
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="bg-white">
-                                                                <th scope="row">Sistem Pembayaran</th>
-                                                                <td>
-                                                                    Pembayaran Secara Langsung
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="bg-white">
-                                                                <th scope="row">Status</th>
-                                                                <td>
-                                                                    Belum Lunas
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="bg-white">
-                                                                <th scope="row">Invoice</th>
-                                                                <td>
-                                                                    <button class="unduh">
-                                                                        <i class="fa fa-download" style="margin-right: 5px;"></i>
-                                                                        Unduh
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     </div>
                 </form>
             </div>
@@ -305,21 +215,19 @@
     <script type="text/javascript">
         /**** JQuery *******/
         $('.btnNext1').click(function() {
+            $('.dua').find('button').prop('disabled', false);
             $('.dua').find('button').trigger('click');
         });
         $('.btnNext2').click(function() {
+            $('.tiga').find('button').prop('disabled', false);
             $('.tiga').find('button').trigger('click');
         });
-        // $('.btnNext3').click(function() {
-        //     $('.empat').find('button').trigger('click');
-        // });
-
         $('.btnPrevious2').click(function() {
             $('.satu').find('button').trigger('click');
         });
-        // $('.btnPrevious3').click(function() {
-        //     $('.dua').find('button').trigger('click');
-        // });
+        $('.btnPrevious3').click(function() {
+            $('.dua').find('button').trigger('click');
+        });
     </script>
 </body>
 <footer class="fixed-bottom">
