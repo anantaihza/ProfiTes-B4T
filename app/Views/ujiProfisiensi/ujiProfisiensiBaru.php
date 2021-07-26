@@ -132,17 +132,17 @@
                                             <label for="">Nama Laboratorium</label>
                                             <input type="text" class="form-control" name="nama_laboratorium" id="nama_laboratorium">
                                             <label for="">No Telepon</label>
-                                            <input type="text" class="form-control" name="telpon_laboratorium" id="telpon_laboratorium">
+                                            <input type="number" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" name="telpon_laboratorium" id="telpon_laboratorium">
                                             <label for="">No Fax</label>
-                                            <input type="text" class="form-control" name="fax_laboratorium" id="fax_laboratorium">
+                                            <input type="number" class="form-control" name="fax_laboratorium" id="fax_laboratorium">
                                             <label for="">Status Akreditasi</label>
                                             <input type="text" class="form-control" name="status_akreditasi" id="status_akreditasi">
                                         </div>
                                         <div class=" col-md-6">
                                             <label for="">Alamat</label>
-                                            <textarea id="alamat_laboratorium" name="alamat_laboratorium" cols="65" rows="2"></textarea>
+                                            <textarea type="text" class="form-control" id="alamat_laboratorium" name="alamat_laboratorium"></textarea>
                                             <label for="">Alamat Pengiriman</label>
-                                            <textarea id="alamat_pengiriman" name="alamat_pengiriman" cols="65" rows="2"></textarea>
+                                            <textarea type="text" class="form-control" id="alamat_pengiriman" name="alamat_pengiriman"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                                             <div>
                                                 <label for="">No Telepon</label>
                                                 <div>
-                                                    <input type="text" class="form-control" name="telpon_pic" id="telpon_pic">
+                                                    <input type="number" class="form-control" name="telpon_pic" id="telpon_pic">
                                                 </div>
                                             </div>
                                             <div>
