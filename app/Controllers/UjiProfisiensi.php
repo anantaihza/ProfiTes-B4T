@@ -7,7 +7,6 @@ use App\Models\AdministrasiModel;
 use App\Models\ParameterModel;
 use App\Models\UjiProfisiensiModel;
 use Dompdf\Dompdf;
-use Dompdf\Options;
 
 class UjiProfisiensi extends BaseController
 {
@@ -52,6 +51,74 @@ class UjiProfisiensi extends BaseController
         return view('ujiProfisiensi/pengujian', $data);
     }
 
+    public function insertPengujian()
+    {
+        $valid = [
+            'hasilUji_A_1' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'hasilUji_B_1' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'rerata_1' => [
+                'rules' => 'required',
+                'errors' => [
+                    'matches' => '{field} Harus diisi'
+                ]
+            ],
+            'u95_1' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'standar_acuan_1' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'tgl_pengujian' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+
+        ];
+        // for ($j = 1; $j <= 4; $j++) {
+        //     echo $i;
+        // }
+        // if (!$this->validate($valid)) {
+        //     session()->setFlashdata('error', $this->validator->listErrors());
+        //     return redirect()->back();
+        // }
+        // passing data post
+        $tgl_pengujian = $this->request->getVar('tgl_pengujian');
+        $hasilUji_A = $this->request->getVar('hasilUji_A_1');
+        $hasilUji_B = $this->request->getVar('hasilUji_B_1');
+        $rerata = $this->request->getVar('rerata_1');
+        $u95 = $this->request->getVar('u95_1');
+        $standar_acuan = $this->request->getVar('standar_acuan_1');
+
+        $this->ujiprofisiensi->insert([
+            'id_administrasi' => 1,
+            'id_parameter' => 1,
+            'tgl_pengujian' => $tgl_pengujian,
+            'hasilUji_A' => $hasilUji_A,
+            'hasilUji_B' => $hasilUji_B,
+            'rerata' => $rerata,
+            'u95' => $u95,
+            'standar_acuan' => $standar_acuan,
+        ]);
+        return redirect()->to('/ujiProfisiensi');
+    }
 
     public function profisiensiBaru($id)
     {
@@ -210,22 +277,10 @@ class UjiProfisiensi extends BaseController
         $idUser = session()->get('dataAdministrasi')[0]->id_user;
         $idAdministrasi = session()->get('dataAdministrasi')[0]->id_administrasi;
         $dataAdministrasi = $this->administrasi->getUser($idUser, $idAdministrasi);
-        // $src = 'https://i.ibb.co/s155Wm2/logo-kementrian-perindustrian.png';
-        // $src = '/assets/img/ujiProfisiensi/logo_kementrian_perindustrian.png';
 
         $data = [
             'dataAdministrasi' => $dataAdministrasi,
         ];
-
-
-        // $options = new Options();
-        // $options->setChroot("/var/www/html/ProfiTes-B4T");
-        // $options->setDefaultFont('courier');
-
-
-        // $options = new Options();
-        // $options->set('isRemoteEnabled', true);
-        // $dompdf = new Dompdf($options);
 
         $dompdf = new Dompdf();
 
