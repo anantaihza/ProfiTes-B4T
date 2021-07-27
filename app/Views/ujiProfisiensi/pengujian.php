@@ -193,16 +193,6 @@
                                 <p>untuk lembar hasil pengujian, isi dengan angka 0 untuk setiap data yang tidak
                                     tersedia.</p>
                             </div>
-                            <?php if (!empty(session()->getFlashdata('error'))) : ?>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <?php echo session()->getFlashdata('error'); ?>
-                                </div>
-                            <?php endif; ?>
-                            <?php if (!empty(session()->getFlashdata('message'))) : ?>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <?php echo session()->getFlashdata('message'); ?>
-                                </div>
-                            <?php endif; ?>
                             <a class=" text-left btn btn4 border" style="width: 100%;">
                                 <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
                                 Pengujian Uji Profisiensi <?= $dataAdm[0]->nama_pengujian; ?>
@@ -216,12 +206,8 @@
                                             <input class="form-control" type="text" value="<?= $dataAdm[0]->nama_laboratorium; ?>" disabled readonly>
                                         </div>
                                         <div class="col-4">
-                                            <p> <strong>Metode Uji</strong> </p>
-                                            <input class="form-control" type="text" value="<?= $dataAdm[0]->metode_pengujian; ?>" disabled readonly>
-                                        </div>
-                                        <div class="col-4">
                                             <p> <strong>Tanggal Pengujian</strong> </p>
-                                            <input name="tgl_pengujian" id="tgl_pengujian" class="form-control" type="date">
+                                            <input name="tgl_pengujian" id="tgl_pengujian" class="form-control" type="date" required>
                                         </div>
                                         <div class="table-responsive">
 
@@ -456,16 +442,6 @@
                                 <p>untuk lembar hasil pengujian, isi dengan angka 0 untuk setiap data yang tidak
                                     tersedia.</p>
                             </div>
-                            <?php if (!empty(session()->getFlashdata('error'))) : ?>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <?php echo session()->getFlashdata('error'); ?>
-                                </div>
-                            <?php endif; ?>
-                            <?php if (!empty(session()->getFlashdata('message'))) : ?>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <?php echo session()->getFlashdata('message'); ?>
-                                </div>
-                            <?php endif; ?>
                             <a class=" text-left btn btn4 border" style="width: 100%;">
                                 <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
                                 Pengujian Uji Profisiensi <?= $dataAdm[0]->nama_pengujian; ?>
@@ -479,12 +455,8 @@
                                             <input class="form-control" type="text" value="<?= $dataAdm[0]->nama_laboratorium; ?>" disabled readonly>
                                         </div>
                                         <div class="col-4">
-                                            <p> <strong>Metode Uji</strong> </p>
-                                            <input class="form-control" type="text" value="<?= $dataAdm[0]->metode_pengujian; ?>" disabled readonly>
-                                        </div>
-                                        <div class="col-4">
                                             <p> <strong>Tanggal Pengujian</strong> </p>
-                                            <input name="tgl_pengujian" id="tgl_pengujian" class="form-control" type="date">
+                                            <input name="tgl_pengujian" id="tgl_pengujian" class="form-control" type="date" required>
                                         </div>
                                         <div class="table-responsive">
 
@@ -518,19 +490,19 @@
                                                                 <input type="text" value="<?= $param->nama_teknik; ?>" class="form-control" readonly>
                                                             </td>
                                                             <td>
-                                                                <input name="hasilUji_A_<?= $i; ?>" id="hasilUji_A_<?= $i; ?>" type="text" class="form-control">
+                                                                <input name="hasilUji_A_<?= $i; ?>" id="hasilUji_A_<?= $i; ?>" type="text" class="form-control" required>
                                                             </td>
                                                             <td>
-                                                                <input name="hasilUji_B_<?= $i; ?>" id="hasilUji_B_<?= $i; ?>" type="text" class="form-control">
+                                                                <input name="hasilUji_B_<?= $i; ?>" id="hasilUji_B_<?= $i; ?>" type="text" class="form-control" required>
                                                             </td>
                                                             <td>
-                                                                <input name="rerata_<?= $i; ?>" id="rerata_<?= $i; ?>" type="text" class="form-control">
+                                                                <input name="rerata_<?= $i; ?>" id="rerata_<?= $i; ?>" type="text" class="form-control" required>
                                                             </td>
                                                             <td>
-                                                                <input name="u95_<?= $i; ?>" id="u95_<?= $i; ?>" type="text" class="form-control">
+                                                                <input name="u95_<?= $i; ?>" id="u95_<?= $i; ?>" type="text" class="form-control" required>
                                                             </td>
                                                             <td>
-                                                                <input name="standar_acuan_<?= $i; ?>" id="standar_acuan_<?= $i; ?>" type="text" class="form-control">
+                                                                <input name="standar_acuan_<?= $i; ?>" id="standar_acuan_<?= $i; ?>" type="text" class="form-control" required>
                                                             </td>
                                                         </tr>
                                                         <?php $i++ ?>

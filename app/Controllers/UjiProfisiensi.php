@@ -47,7 +47,9 @@ class UjiProfisiensi extends BaseController
             'dataAdm' => $dataAdministrasi,
             'dataParam' => $dataParameter
         ];
-
+        session()->set([
+            'dataAdministrasi' => $dataAdministrasi
+        ]);
         return view('ujiProfisiensi/pengujian', $data);
     }
 
@@ -58,50 +60,6 @@ class UjiProfisiensi extends BaseController
         $i = count($dataParameter);
         $idParam = $dataParameter[0]->id_parameter;
 
-        // $valid = [
-        //     'hasilUji_A' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => '{field} Harus diisi'
-        //         ]
-        //     ],
-        //     'hasilUji_B' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => '{field} Harus diisi'
-        //         ]
-        //     ],
-        //     'rerata' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'matches' => '{field} Harus diisi'
-        //         ]
-        //     ],
-        //     'u95' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => '{field} Harus diisi'
-        //         ]
-        //     ],
-        //     'standar_acuan' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => '{field} Harus diisi'
-        //         ]
-        //     ],
-        //     'tgl_pengujian' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => '{field} Harus diisi'
-        //         ]
-        //     ],
-
-        // ];
-
-        // if (!$this->validate($valid)) {
-        //     session()->setFlashdata('error', $this->validator->listErrors());
-        //     return redirect()->back();
-        // }
         for ($j = 1; $j <= $i; $j++) {
             $tgl_pengujian = $this->request->getVar('tgl_pengujian');
             $hasilUji_A = $this->request->getVar("hasilUji_A_$j");
@@ -154,80 +112,6 @@ class UjiProfisiensi extends BaseController
     }
     public function administrasi($id, $id_pengujian)
     {
-        $valid = [
-            'penanggung_jawab_lab' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'nama_laboratorium' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'telpon_laboratorium' => [
-                'rules' => 'required',
-                'errors' => [
-                    'matches' => '{field} Harus diisi'
-                ]
-            ],
-            'fax_laboratorium' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'alamat_laboratorium' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'status_akreditasi' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'alamat_pengiriman' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'nama_pic' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'jabatan_pic' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'telpon_pic' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'email_pic' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-
-        ];
-        if (!$this->validate($valid)) {
-            session()->setFlashdata('error', $this->validator->listErrors());
-            return redirect()->back();
-        }
-
         // passing data post
         $penanggung_jawab_lab = $this->request->getVar('penanggung_jawab_lab');
         $status_akreditasi = $this->request->getVar('status_akreditasi');
@@ -297,6 +181,36 @@ class UjiProfisiensi extends BaseController
         $dompdf->setPaper('A4', 'potrait'); //ukuran kertas dan orientasi
         $dompdf->render();
         $dompdf->stream('Invoice_Uji'); //nama file pdf
+
+        return view('ujiProfisiensi/requestPembayaran'); //arahkan ke list-iklan setelah laporan di unduh
+    }
+    public function LaporanAkhir()
+    {
+        // $idAdministrasi = session()->get('dataAdministrasi')[0]->id_administrasi;
+        // $dataAdministrasi = $this->administrasi->getIdMasPengujian($idAdministrasi);
+        // $dataParameter = $this->ujiprofisiensi->getPaketParameter($dataAdministrasi[0]->id_pengujian);
+        // $data = [
+        //     'dataAdm' => $dataAdministrasi,
+        //     'dataParam' => $dataParameter
+        // ];
+
+        return view('ujiProfisiensi/laporanAkhirPDF');
+    }
+    function generateLaporanAkhirPDF()
+    {
+        $id_tr_pengujian = session()->get('dataAdministrasi')[0]->id_administrasi;
+        $dataAdministrasi = $this->ujiprofisiensi->getIdAdministrasi($id_tr_pengujian);
+
+        $data = [
+            'dataAdministrasi' => $dataAdministrasi,
+        ];
+
+        $dompdf = new Dompdf();
+
+        $dompdf->loadHtml(view('ujiProfisiensi/laporanAkhirPDF', $data));
+        $dompdf->setPaper('A4', 'potrait'); //ukuran kertas dan orientasi
+        $dompdf->render();
+        $dompdf->stream('Laporan Akhir'); //nama file pdf
 
         return view('ujiProfisiensi/requestPembayaran'); //arahkan ke list-iklan setelah laporan di unduh
     }

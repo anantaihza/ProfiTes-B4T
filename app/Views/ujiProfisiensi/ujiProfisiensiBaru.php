@@ -69,7 +69,7 @@
                     <div class="tab-content" id="pills-tabContent">
                         <!-- Pertama -->
 
-                        <div class="tab-pane fade show active" id="pills-produk" role="tabpanel" aria-labelledby="pills-produk-tab" style="margin-top: 20px;">
+                        <div class="tab-pane fade show active" id="pills-produk" role="tabpanel" aria-labelledby="pills-produk-tab" style="margin-top: 0px;">
                             <div class="row justify-content-md-center">
 
                                 <div class="col-8 mt-5">
@@ -81,27 +81,27 @@
                                             <input type="text" class="form-control" id="produk" value="<?= $pengujian->nama_pengujian; ?>" readonly>
                                             <p></p>
                                             <label for="">Nama Laboratorium</label>
-                                            <input type="text" class="form-control" name="nama_laboratorium" id="nama_laboratorium">
+                                            <input type="text" class="form-control" name="nama_laboratorium" id="nama_laboratorium" required>
                                             <p></p>
                                             <label for="">No Telepon</label>
-                                            <input type="number" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" name="telpon_laboratorium" id="telpon_laboratorium">
+                                            <input type="number" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" name="telpon_laboratorium" id="telpon_laboratorium" required>
                                             <p></p>
                                             <label for="">No Fax</label>
-                                            <input type="number" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" name="fax_laboratorium" id="fax_laboratorium">
+                                            <input type="number" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" name="fax_laboratorium" id="fax_laboratorium" required>
 
                                         </div>
                                         <div class="col">
                                             <label class="form-label">Penanggung Jawab Laboratorium</label>
-                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab" required>
                                             <p> </p>
                                             <label for="">Status Akreditasi</label>
-                                            <input type="text" class="form-control" name="status_akreditasi" id="status_akreditasi">
+                                            <input type="text" class="form-control" name="status_akreditasi" id="status_akreditasi" required>
                                             <p></p>
                                             <label for="">Alamat</label>
-                                            <textarea type="text" class="form-control" id="alamat_laboratorium" name="alamat_laboratorium"></textarea>
+                                            <textarea type="text" class="form-control" id="alamat_laboratorium" name="alamat_laboratorium" required></textarea>
                                             <p></p>
                                             <label for="">Alamat Pengiriman</label>
-                                            <textarea type="text" class="form-control" id="alamat_pengiriman" name="alamat_pengiriman"></textarea>
+                                            <textarea type="text" class="form-control" id="alamat_pengiriman" name="alamat_pengiriman" required></textarea>
                                             <p></p>
                                         </div>
 
@@ -124,24 +124,24 @@
                             </div>
                         </div>
                         <!-- Ketiga -->
-                        <div class=" tab-pane fade" id="pills-kontak" role="tabpanel" aria-labelledby="pills-kontak-tab" style="margin-top: 20px;">
+                        <div class=" tab-pane fade" id="pills-kontak" role="tabpanel" aria-labelledby="pills-kontak-tab" style="margin-top: 0px;">
                             <div class="row justify-content-md-center">
                                 <div class="col-8 mt-5">
                                     <legend>Rincian mengenai kontak yang terkait pengujian</legend>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="">Nama</label>
-                                            <input type="text" class="form-control" name="nama_pic" id="nama_pic">
+                                            <input type="text" class="form-control" name="nama_pic" id="nama_pic" required>
                                             <p></p>
                                             <label for="">Jabatan</label>
-                                            <input type="text" class="form-control" name="jabatan_pic" id="jabatan_pic">
+                                            <input type="text" class="form-control" name="jabatan_pic" id="jabatan_pic" required>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="">No Telepon</label>
-                                            <input type="number" class="form-control" name="telpon_pic" id="telpon_pic">
+                                            <input type="number" class="form-control" name="telpon_pic" id="telpon_pic" required>
                                             <p></p>
                                             <label for="">Alamat Email</label>
-                                            <input type="email" class="form-control" name="email_pic" id="email_pic">
+                                            <input type="email" class="form-control" name="email_pic" id="email_pic" required>
                                             <p></p>
                                         </div>
                                     </div>
