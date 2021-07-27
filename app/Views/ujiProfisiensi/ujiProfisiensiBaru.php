@@ -59,13 +59,10 @@
             <div class="col-12">
                 <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
                     <li class="satu nav-item" role="presentation">
-                        <button class="nav-link active btnTab" id="pills-produk-tab" data-bs-toggle="pill" data-bs-target="#pills-produk" type="button" role="tab" aria-controls="pills-produk" aria-selected="true"><span class="badge">1</span>Produk</button>
-                    </li>
-                    <li class="dua nav-item" role="presentation">
-                        <button disabled class="nav-link btnTab" id="pills-detail-tab" data-bs-toggle="pill" data-bs-target="#pills-detail" type="button" role="tab" aria-controls="pills-detail" aria-selected="false"><span class="badge">2</span>Detail</button>
+                        <button class="nav-link active btnTab" id="pills-produk-tab" data-bs-toggle="pill" data-bs-target="#pills-produk" type="button" role="tab" aria-controls="pills-produk" aria-selected="true"><span class="badge">1</span>Produk & Detail</button>
                     </li>
                     <li class="tiga nav-item" role="presentation">
-                        <button disabled class="nav-link btnTab" id="pills-kontak-tab" data-bs-toggle="pill" data-bs-target="#pills-kontak" type="button" role="tab" aria-controls="pills-kontak" aria-selected="false"><span class="badge">3</span>Kontak & Lain-lain</button>
+                        <button disabled class="nav-link btnTab" id="pills-kontak-tab" data-bs-toggle="pill" data-bs-target="#pills-kontak" type="button" role="tab" aria-controls="pills-kontak" aria-selected="false"><span class="badge">2</span>Kontak & Lain-lain</button>
                     </li>
                 </ul>
                 <form action="/UjiProfisiensi/administrasi/<?= session()->get('id'); ?>/<?= session()->get('id_pengujian'); ?>" method="post">
@@ -76,16 +73,36 @@
                             <div class="row justify-content-md-center">
 
                                 <div class="col-8 mt-5">
-                                    <legend>Rincian mengenai produk yang akan dilakukan pengujian</legend>
+                                    <legend>Rincian mengenai informasi detail pengujian & laboratorium</legend>
                                     <div class="row">
 
                                         <div class="col">
                                             <label class="form-label">Produk</label>
                                             <input type="text" class="form-control" id="produk" value="<?= $pengujian->nama_pengujian; ?>" readonly>
+                                            <p></p>
+                                            <label for="">Nama Laboratorium</label>
+                                            <input type="text" class="form-control" name="nama_laboratorium" id="nama_laboratorium">
+                                            <p></p>
+                                            <label for="">No Telepon</label>
+                                            <input type="number" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" name="telpon_laboratorium" id="telpon_laboratorium">
+                                            <p></p>
+                                            <label for="">No Fax</label>
+                                            <input type="number" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" name="fax_laboratorium" id="fax_laboratorium">
+
                                         </div>
                                         <div class="col">
-                                            <label class="form-label">Metode Pengujian</label>
-                                            <input type="text" class="form-control" name="metode_pengujian" id="metode_pengujian" placeholder="Metode Pengujian">
+                                            <label class="form-label">Penanggung Jawab Laboratorium</label>
+                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                            <p> </p>
+                                            <label for="">Status Akreditasi</label>
+                                            <input type="text" class="form-control" name="status_akreditasi" id="status_akreditasi">
+                                            <p></p>
+                                            <label for="">Alamat</label>
+                                            <textarea type="text" class="form-control" id="alamat_laboratorium" name="alamat_laboratorium"></textarea>
+                                            <p></p>
+                                            <label for="">Alamat Pengiriman</label>
+                                            <textarea type="text" class="form-control" id="alamat_pengiriman" name="alamat_pengiriman"></textarea>
+                                            <p></p>
                                         </div>
 
                                     </div>
@@ -106,49 +123,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Kedua -->
-                        <div class="tab-pane fade" id="pills-detail" role="tabpanel" aria-labelledby="pills-detail-tab" style="margin-top: 20px;">
-                            <div class="row justify-content-md-center">
-                                <div class="col-8 mt-5">
-                                    <legend>Rincian mengenai informasi detail pengujian</legend>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="">Nama Laboratorium</label>
-                                            <input type="text" class="form-control" name="nama_laboratorium" id="nama_laboratorium">
-                                            <label for="">No Telepon</label>
-                                            <input type="number" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" name="telpon_laboratorium" id="telpon_laboratorium">
-                                            <label for="">No Fax</label>
-                                            <input type="number" class="form-control" name="fax_laboratorium" id="fax_laboratorium">
-                                            <label for="">Status Akreditasi</label>
-                                            <input type="text" class="form-control" name="status_akreditasi" id="status_akreditasi">
-                                        </div>
-                                        <div class=" col-md-6">
-                                            <label for="">Alamat</label>
-                                            <textarea type="text" class="form-control" id="alamat_laboratorium" name="alamat_laboratorium"></textarea>
-                                            <label for="">Alamat Pengiriman</label>
-                                            <textarea type="text" class="form-control" id="alamat_pengiriman" name="alamat_pengiriman"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Button -->
-                            <div class="row justify-content-md-center">
-                                <div class="col-8">
-                                    <div class="btn-group" style="margin-top: 10px; margin-bottom: 50px; float: right;">
-                                        <a class="btn btn3 btnNext2">Selanjutnya</a>
-                                        <div class="btn-icon2" id="btnGroupAddon">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </div>
-                                    </div>
-                                    <div class="btn-group" style="margin-top: 10px; margin-bottom: 50px; float: right; margin-right: 5px;">
-                                        <div class="btn-icon3" id="btnGroupAddon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </div>
-                                        <a class="btn btn5 btnPrevious2">Sebelumnya</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- Ketiga -->
                         <div class=" tab-pane fade" id="pills-kontak" role="tabpanel" aria-labelledby="pills-kontak-tab" style="margin-top: 20px;">
                             <div class="row justify-content-md-center">
@@ -156,34 +130,19 @@
                                     <legend>Rincian mengenai kontak yang terkait pengujian</legend>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div>
-                                                <label for="">Nama</label>
-                                                <div>
-                                                    <input type="text" class="form-control" name="nama_pic" id="nama_pic">
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <label for="">Jabatan</label>
-                                                <div>
-                                                    <input type="text" class="form-control" name="jabatan_pic" id="jabatan_pic">
-                                                </div>
-                                            </div>
-
+                                            <label for="">Nama</label>
+                                            <input type="text" class="form-control" name="nama_pic" id="nama_pic">
+                                            <p></p>
+                                            <label for="">Jabatan</label>
+                                            <input type="text" class="form-control" name="jabatan_pic" id="jabatan_pic">
                                         </div>
                                         <div class="col-md-6">
-                                            <div>
-                                                <label for="">No Telepon</label>
-                                                <div>
-                                                    <input type="number" class="form-control" name="telpon_pic" id="telpon_pic">
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <label for="">Alamat Email</label>
-                                                <div>
-                                                    <input type="email" class="form-control" name="email_pic" id="email_pic">
-                                                </div>
-                                            </div>
-
+                                            <label for="">No Telepon</label>
+                                            <input type="number" class="form-control" name="telpon_pic" id="telpon_pic">
+                                            <p></p>
+                                            <label for="">Alamat Email</label>
+                                            <input type="email" class="form-control" name="email_pic" id="email_pic">
+                                            <p></p>
                                         </div>
                                     </div>
                                 </div>
@@ -215,18 +174,11 @@
     <script type="text/javascript">
         /**** JQuery *******/
         $('.btnNext1').click(function() {
-            $('.dua').find('button').prop('disabled', false);
-            $('.dua').find('button').trigger('click');
-        });
-        $('.btnNext2').click(function() {
             $('.tiga').find('button').prop('disabled', false);
             $('.tiga').find('button').trigger('click');
         });
-        $('.btnPrevious2').click(function() {
-            $('.satu').find('button').trigger('click');
-        });
         $('.btnPrevious3').click(function() {
-            $('.dua').find('button').trigger('click');
+            $('.satu').find('button').trigger('click');
         });
     </script>
 </body>

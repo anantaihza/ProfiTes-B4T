@@ -58,50 +58,50 @@ class UjiProfisiensi extends BaseController
         $i = count($dataParameter);
         $idParam = $dataParameter[0]->id_parameter;
 
-        $valid = [
-            'hasilUji_A' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'hasilUji_B' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'rerata' => [
-                'rules' => 'required',
-                'errors' => [
-                    'matches' => '{field} Harus diisi'
-                ]
-            ],
-            'u95' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'standar_acuan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
-            'tgl_pengujian' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Harus diisi'
-                ]
-            ],
+        // $valid = [
+        //     'hasilUji_A' => [
+        //         'rules' => 'required',
+        //         'errors' => [
+        //             'required' => '{field} Harus diisi'
+        //         ]
+        //     ],
+        //     'hasilUji_B' => [
+        //         'rules' => 'required',
+        //         'errors' => [
+        //             'required' => '{field} Harus diisi'
+        //         ]
+        //     ],
+        //     'rerata' => [
+        //         'rules' => 'required',
+        //         'errors' => [
+        //             'matches' => '{field} Harus diisi'
+        //         ]
+        //     ],
+        //     'u95' => [
+        //         'rules' => 'required',
+        //         'errors' => [
+        //             'required' => '{field} Harus diisi'
+        //         ]
+        //     ],
+        //     'standar_acuan' => [
+        //         'rules' => 'required',
+        //         'errors' => [
+        //             'required' => '{field} Harus diisi'
+        //         ]
+        //     ],
+        //     'tgl_pengujian' => [
+        //         'rules' => 'required',
+        //         'errors' => [
+        //             'required' => '{field} Harus diisi'
+        //         ]
+        //     ],
 
-        ];
+        // ];
 
-        if (!$this->validate($valid)) {
-            session()->setFlashdata('error', $this->validator->listErrors());
-            return redirect()->back();
-        }
+        // if (!$this->validate($valid)) {
+        //     session()->setFlashdata('error', $this->validator->listErrors());
+        //     return redirect()->back();
+        // }
         for ($j = 1; $j <= $i; $j++) {
             $tgl_pengujian = $this->request->getVar('tgl_pengujian');
             $hasilUji_A = $this->request->getVar("hasilUji_A_$j");
@@ -155,7 +155,7 @@ class UjiProfisiensi extends BaseController
     public function administrasi($id, $id_pengujian)
     {
         $valid = [
-            'metode_pengujian' => [
+            'penanggung_jawab_lab' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Harus diisi'
@@ -229,7 +229,7 @@ class UjiProfisiensi extends BaseController
         }
 
         // passing data post
-        $metode_pengujian = $this->request->getVar('metode_pengujian');
+        $penanggung_jawab_lab = $this->request->getVar('penanggung_jawab_lab');
         $status_akreditasi = $this->request->getVar('status_akreditasi');
         $nama_laboratorium = $this->request->getVar('nama_laboratorium');
         $telpon_laboratorium = $this->request->getVar('telpon_laboratorium');
@@ -244,7 +244,7 @@ class UjiProfisiensi extends BaseController
         $this->administrasi->insert([
             'id_pengujian' => $id_pengujian,
             'id_user' => $id,
-            'metode_pengujian' => $metode_pengujian,
+            'penanggung_jawab_lab' => $penanggung_jawab_lab,
             'status_akreditasi' => $status_akreditasi,
             'nama_laboratorium' => $nama_laboratorium,
             'telpon_laboratorium' => $telpon_laboratorium,

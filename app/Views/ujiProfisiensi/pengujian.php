@@ -255,19 +255,19 @@
                                                                 <input type="text" value="<?= $param->nama_teknik; ?>" class="form-control" readonly>
                                                             </td>
                                                             <td>
-                                                                <input name="hasilUji_A_<?= $i; ?>" id="hasilUji_A_<?= $i; ?>" type="text" class="form-control">
+                                                                <input name="hasilUji_A_<?= $i; ?>" id="hasilUji_A_<?= $i; ?>" type="text" class="form-control" required>
                                                             </td>
                                                             <td>
-                                                                <input name="hasilUji_B_<?= $i; ?>" id="hasilUji_B_<?= $i; ?>" type="text" class="form-control">
+                                                                <input name="hasilUji_B_<?= $i; ?>" id="hasilUji_B_<?= $i; ?>" type="text" class="form-control" required>
                                                             </td>
                                                             <td>
-                                                                <input name="rerata_<?= $i; ?>" id="rerata_<?= $i; ?>" type="text" class="form-control">
+                                                                <input name="rerata_<?= $i; ?>" id="rerata_<?= $i; ?>" type="text" class="form-control" required>
                                                             </td>
                                                             <td>
-                                                                <input name="u95_<?= $i; ?>" id="u95_<?= $i; ?>" type="text" class="form-control">
+                                                                <input name="u95_<?= $i; ?>" id="u95_<?= $i; ?>" type="text" class="form-control" required>
                                                             </td>
                                                             <td>
-                                                                <input name="standar_acuan_<?= $i; ?>" id="standar_acuan_<?= $i; ?>" type="text" class="form-control">
+                                                                <input name="standar_acuan_<?= $i; ?>" id="standar_acuan_<?= $i; ?>" type="text" class="form-control" required>
                                                             </td>
                                                         </tr>
                                                         <?php $i++ ?>

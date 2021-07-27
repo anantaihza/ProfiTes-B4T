@@ -140,7 +140,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-1"></div>
-                    <label for="nama-lengkap" class="col-3 col-form-label text-end fw-bold">Nama Lengkap</label>
+                    <label for="nama-lengkap" class="col-3 col-form-label text-end fw-bold">Nama Perusahaan</label>
                     <div class="col-1"></div>
                     <div class="col-5">
                         <input type="text" class="form-control" name="nama_user" id="nama_user" aria-label="nama-lengkap1" aria-describedby="nama-lengkap1" value="<?= $user->nama_user; ?>" />

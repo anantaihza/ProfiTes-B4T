@@ -25,7 +25,7 @@ class TrAdministrasi extends Migration
 				'constraint' 	 => 11,
 				'unsigned' 		 => TRUE
 			],
-			'metode_pengujian' => [
+			'penanggung_jawab_lab' => [
 				'type' => 'VARCHAR',
 				'constraint' => '32'
 			],
