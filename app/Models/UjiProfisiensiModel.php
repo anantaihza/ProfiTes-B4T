@@ -22,4 +22,22 @@ class UjiProfisiensiModel extends Model
             ->where('id_tr_pengujian', $id_tr_pengujian)
             ->get()->getResult();
     }
+
+    // public function getIdParameter($id_tr_pengujian)
+    // {
+    //     return $this->db->table('tr_pengujian')
+    //         ->join('mas_parameter', 'mas_parameter.id_parameter=tr_pengujian.id_parameter')
+    //         ->where('id_tr_pengujian', $id_tr_pengujian)
+    //         ->get()->getResult();
+    // }
+
+    // public function getPengujian($id_parameter, $id_tr_pengujian)
+    // {
+    //     return $this->db->table('tr_pengujian')
+    //         ->join('mas_parameter', 'mas_parameter.id_parameter=tr_pengujian.id_parameter')
+    //         ->join('tr_administrasi', 'tr_administrasi.id_administrasi=tr_pengujian.id_administrasi')
+    //         ->where('tr_pengujian.id_parameter', $id_parameter)
+    //         ->where('id_tr_pengujian', $id_tr_pengujian)
+    //         ->get()->getRow();
+    // }
 }
