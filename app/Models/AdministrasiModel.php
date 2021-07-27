@@ -12,7 +12,7 @@ class AdministrasiModel extends Model
     protected $useTimestamps = false;
     protected $allowedFields = [
         'id_administrasi', 'id_user', 'id_pengujian', 'pengujian',
-        'metode_pengujian', 'status_akreditasi', 'nama_laboratorium',
+        'penanggung_jawab_lab', 'status_akreditasi', 'nama_laboratorium',
         'telpon_laboratorium', 'fax_laboratorium', 'alamat_laboratorium',
         'alamat_pengiriman', 'nama_pic', 'jabatan_pic', 'telpon_pic',
         'email_pic', 'no_va', 'no_refrensi', 'sistem_pembayaran',
