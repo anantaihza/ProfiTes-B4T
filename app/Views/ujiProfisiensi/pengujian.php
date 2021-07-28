@@ -343,196 +343,6 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <!-- Pertama pengiriman -->
-                        <div class="tab-pane fade " id="pills-pengiriman" role="tabpanel" aria-labelledby="pills-pengiriman-tab" style="margin-top: 20px;">
-                            <div class="table-responsive">
-                                <table class="table border">
-                                    <thead class="tabhead">
-                                        <tr>
-                                            <th style="font-weight:normal;" scope="col" colspan="3"><i style=" font-size:18px; margin-right: 5px;" class="fa">&#xf0d1;</i>Detail
-                                                Pengiriman &
-                                                Penerimaan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="bg-white">
-                                            <th scope="row">Nomor Resi</th>
-                                            <td>1233123123</td>
-                                        </tr>
-                                        <tr class="bg-white">
-                                            <th scope="row">Catatan Pengiriman</th>
-                                            <td>Sample pengujian dimensi sudah kami kirimkan dengan no resi tertera.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Status Pengiriman</th>
-                                            <td>Sudah Dikirim</td>
-                                        </tr>
-                                        <tr class="bg-white">
-                                            <th scope="row">Petunjuk Teknis</th>
-                                            <td>
-                                                <button class="unduh">
-                                                    <i class="fa fa-download" style="margin-right: 5px;"></i>
-                                                    Unduh
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-bordered " style="margin-top: 30px; margin-bottom: 30px;">
-                                    <thead class="tabhead2 table-bordered">
-                                        <tr>
-                                            <th scope="col">Barang/Dokumen</th>
-                                            <th scope="col">Banyaknya</th>
-                                            <th scope="col">Kondisi Barang/Dokumen (Mohon Diisi)
-                                            </th>
-                                            <th scope="col">Keterangan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Sampel</td>
-                                            <td>2</td>
-                                            <td style="padding-left: 50px; padding-right: 50px;">
-                                                <input class="form-control text-center" id="kondisiBarang" placeholder="Kondisi Barang/Dokumen" style="min-width: 250px; margin: auto;">
-                                            </td>
-                                            <td>
-                                                <textarea class="form-control" id="keterangan" rows="3" placeholder="Keterangan" style="min-width: 250px; margin: auto;"></textarea>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-auto">
-                                    <label for="inputPassword6" class="col-form-label fw-bold">Penerima</label>
-                                </div>
-                                <div class="col-auto">
-                                    <input id="Penerima" class="form-control" placeholder="Nama Penerima Sampel" style="width: 500px;">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-auto">
-                                    <label for="inputPassword6" class="col-form-label fw-bold">Konfirmasi</label>
-                                </div>
-                                <div class="col-auto" style="margin-top: 7px;">
-                                    <input type="checkbox" class="form-check-input" id="Konfirmasi">
-                                    <label class="form-check-label" for="Konfirmasi">Ya, dengan ini
-                                        saya menyatakan data
-                                        yang saya isi telah valid</label>
-                                </div>
-                            </div>
-                            <!-- Button -->
-                            <div class="btn-group" style="margin-top: 10px; margin-bottom: 50px;">
-                                <div class="btn-icon2" id="btnGroupAddon">
-                                    <i style="font-size:16px" class="fa">&#xf093;</i>
-                                </div>
-                                <button type="submit" class="btn btn3 btnNext1">Submit Penerimaan</button>
-                            </div>
-
-                        </div>
-
-                        <!-- Kedua pengujian -->
-                        <div class="tab-pane fade" id="pills-pengujian" role="tabpanel" aria-labelledby="pills-pengujian-tab">
-
-                            <div class="col info">
-                                <p class="fas fa-info-circle pt-3"></i> Info</p>
-                                <p>untuk lembar hasil pengujian, isi dengan angka 0 untuk setiap data yang tidak
-                                    tersedia.</p>
-                            </div>
-                            <a class=" text-left btn btn4 border" style="width: 100%;">
-                                <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
-                                Pengujian Uji Profisiensi <?= $dataAdm->nama_pengujian; ?>
-                            </a>
-
-                            <div class="collapse.show row border" id="LembarHasilP1" style="background-color: white; margin: auto;">
-                                <form action="/UjiProfisiensi/insertPengujian/<?= $dataAdm->id_administrasi; ?>" method="post">
-                                    <div class="row" style="padding: 20px;">
-                                        <div class="col-4">
-                                            <p> <strong>Nama Laboratorium</strong> </p>
-                                            <input class="form-control" type="text" value="<?= $dataAdm->nama_laboratorium; ?>" disabled readonly>
-                                        </div>
-                                        <div class="col-4">
-                                            <p> <strong>Tanggal Pengujian</strong> </p>
-                                            <input name="tgl_pengujian" id="tgl_pengujian" class="form-control" type="date" required>
-                                        </div>
-                                        <div class="table-responsive">
-
-                                            <table class="table table-bordered mt-4" style="text-align: center;">
-                                                <thead style="background-color: slateblue; color: white; text-align: center;">
-                                                    <tr>
-                                                        <th rowspan="2" scope="col" class="align-middle">No</th>
-                                                        <th rowspan="2" scope="col" class="align-middle">Parameter Uji</th>
-                                                        <th rowspan="2" scope="col" class="align-middle">Satuan</th>
-                                                        <th rowspan="2" scope="col" class="align-middle">Kode Teknik *)</th>
-                                                        <th colspan="3" scope="col">Data Hasil Uji</th>
-                                                        <th rowspan="2" scope="col" class="align-middle">Expanded Uncertainty (U95%)</th>
-                                                        <th rowspan="2" scope="col" class="align-middle">Standar Acuan</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="col">A</th>
-                                                        <th scope="col">B</th>
-                                                        <th scope="col">Rata-rata</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <?php
-                                                    $i = 1;
-                                                    foreach ($dataParam as $param) : ?>
-                                                        <tr>
-                                                            <th scope="row"><?= $i; ?></th>
-                                                            <td><?= $param->nama_parameter; ?></td>
-                                                            <td><?= $param->satuan; ?></td>
-                                                            <td>
-                                                                <input type="text" value="<?= $param->nama_teknik; ?>" class="form-control" readonly>
-                                                            </td>
-                                                            <td>
-                                                                <input name="hasilUji_A_<?= $i; ?>" id="hasilUji_A_<?= $i; ?>" type="text" class="form-control" required>
-                                                            </td>
-                                                            <td>
-                                                                <input name="hasilUji_B_<?= $i; ?>" id="hasilUji_B_<?= $i; ?>" type="text" class="form-control" required>
-                                                            </td>
-                                                            <td>
-                                                                <input name="rerata_<?= $i; ?>" id="rerata_<?= $i; ?>" type="text" class="form-control" required>
-                                                            </td>
-                                                            <td>
-                                                                <input name="u95_<?= $i; ?>" id="u95_<?= $i; ?>" type="text" class="form-control" required>
-                                                            </td>
-                                                            <td>
-                                                                <input name="standar_acuan_<?= $i; ?>" id="standar_acuan_<?= $i; ?>" type="text" class="form-control" required>
-                                                            </td>
-                                                        </tr>
-                                                        <?php $i++ ?>
-                                                    <?php endforeach; ?>
-                                                </tbody>
-                                            </table>
-                                            <div style="margin-top: 30px;">
-                                                <!-- <div class="row">
-                                                <div class="col">
-                                                    <p><strong>Diuji oleh</strong></p>
-                                                    <input class="form-control" type="text">
-                                                </div>
-                                                <div class="col">
-                                                    <p><strong>Disetujui oleh</strong></p>
-                                                    <input class="form-control" type="text">
-                                                </div>
-                                            </div> -->
-                                                <div class="row-10 float-end mt-4" style="margin-bottom: 10px;">
-                                                    <button type="submit" class="btnNext2 btn btn-primary "><i class="fas fa-paper-plane"></i>
-                                                        Kirim Hasil Pengujian
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
                         <!-- Ketiga -->
                         <div class="tab-pane fade show active" id="pills-Laporan" role="tabpanel" aria-labelledby="pills-Laporan-tab" style="margin-bottom: 400px;">
                             <div class="row justify-content-md-center" style="margin-top: 30px;">
@@ -545,7 +355,7 @@
                                     <table class="table border" style=" width: 50.8%; margin:
                                 auto;">
                                         <tbody>
-                                            <tr class="bg-white">
+                                            <!-- <tr class="bg-white">
                                                 <th scope="row">Laporan Sementara</th>
                                                 <td>
                                                     <button class="unduh">
@@ -553,17 +363,19 @@
                                                         Unduh
                                                     </button>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                             <tr class="bg-white">
                                                 <th scope="row">Laporan Akhir</th>
                                                 <td>
-                                                    <button class="unduh">
-                                                        <i class="fa fa-download" style="margin-right: 5px;"></i>
-                                                        Unduh
-                                                    </button>
+                                                    <form action="/GeneratePdf/generateLaporanAkhirPDF" method="post">
+                                                        <button class="unduh">
+                                                            <i class="fa fa-download" style="margin-right: 5px;"></i>
+                                                            Unduh
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white">
+                                            <!-- <tr class="bg-white">
                                                 <th scope="row">Sertifikat</th>
                                                 <td>
                                                     <button class="unduh">
@@ -571,7 +383,7 @@
                                                         Unduh
                                                     </button>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>

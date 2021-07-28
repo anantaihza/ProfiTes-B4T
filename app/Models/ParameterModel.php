@@ -22,6 +22,7 @@ class ParameterModel extends Model
             ->join('mas_mas_teknik', 'mas_mas_teknik.id_teknik=mas_parameter.id_teknik')
             ->get()->getResult();
     }
+
     public function getPaketParameter($id_pengujian)
     {
         return $this->db->table('mas_parameter')

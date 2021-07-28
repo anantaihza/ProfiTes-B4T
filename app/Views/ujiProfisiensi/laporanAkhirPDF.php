@@ -7,7 +7,10 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
     </style>
     <title>Uji Profites</title>
 
@@ -34,11 +37,11 @@
             <tbody>
                 <tr>
                     <td>Nama Laboratorium Peserta UP</td>
-                    <td>: Laboratorium A</td>
+                    <td>: <?= $dataTrPengujian[0]->nama_laboratorium; ?></td>
                 </tr>
                 <tr>
                     <td>No. Akreditasi</td>
-                    <td>: LP - 945 - IDN</td>
+                    <td>: <?= $dataTrPengujian[0]->status_akreditasi; ?></td>
                 </tr>
                 <tr>
                     <td>Kode Sampel UP</td>
@@ -54,27 +57,37 @@
         <table class="table table-bordered border-dark mt-4" style="text-align: center;">
             <thead style="text-align: center;">
                 <tr>
-                    <th rowspan="2" scope="col" class="align-middle">Parameter Uji</th>
-                    <th rowspan="2" scope="col" class="align-middle">Satuan</th>
-                    <th rowspan="2" scope="col" class="align-middle">Kode Teknik *)</th>
-                    <th colspan="3" scope="col">Data Hasil Uji</th>
-                    <th rowspan="2" scope="col" class="align-middle">Expanded Uncertainty (U95%)</th>
-                    <th rowspan="2" scope="col" class="align-middle">Standar Acuan</th>
+                    <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Parameter Uji</th>
+                    <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Satuan</th>
+                    <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Kode Teknik *)</th>
+                    <th colspan="3" scope="col" style="border: 1px solid #000;">Data Hasil Uji</th>
+                    <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Expanded Uncertainty (U95%)</th>
+                    <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Standar Acuan</th>
                 </tr>
                 <tr>
-                    <th scope="col">A</th>
-                    <th scope="col">B</th>
-                    <th scope="col">Rata-rata</th>
+                    <th scope="col" style="border: 1px solid #000;">A</th>
+                    <th scope="col" style="border: 1px solid #000;">B</th>
+                    <th scope="col" style="border: 1px solid #000;">Rata-rata</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $i = 1;
-                foreach ($dataParam as $param) : ?>
+                foreach ($dataTrPengujian as $uji) : ?>
                     <tr>
-                        <td><?= $param->nama_parameter; ?></td>
-                        <td><?= $param->satuan; ?></td>
-                        <td><?= $param->nama_teknik; ?></td>
-
+                        <td style="border: 1px solid #000;"><?= $uji->nama_parameter; ?></td>
+                        <td style="border: 1px solid #000;"><?= $uji->satuan; ?></td>
+                        <td style="border: 1px solid #000;">
+                            <?php foreach ($dataTeknik as $teknik) : ?>
+                                <?php if ($uji->id_teknik === $teknik->id_teknik) : ?>
+                                    <?= $teknik->nama_teknik; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </td>
+                        <td style="border: 1px solid #000;"><?= $uji->hasilUji_A; ?></td>
+                        <td style="border: 1px solid #000;"><?= $uji->hasilUji_B; ?></td>
+                        <td style="border: 1px solid #000;"><?= $uji->rerata; ?></td>
+                        <td style="border: 1px solid #000;"><?= $uji->u95; ?></td>
+                        <td style="border: 1px solid #000;"><?= $uji->standar_acuan; ?></td>
                     </tr>
                     <?php $i++ ?>
                 <?php endforeach; ?>

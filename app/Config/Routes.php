@@ -43,8 +43,9 @@ $routes->get('/ujiProfisiensi/profisiensiBaru/(:num)', 'UjiProfisiensi::profisie
 
 $routes->get('/pengujian', 'UjiProfisiensi::pengujian');
 $routes->get('/requestPembayaran', 'UjiProfisiensi::requestPembayaran');
-// $routes->get('/invoicePembayaran', 'UjiProfisiensi::invoicePembayaran');
-$routes->get('/laporanAkhir', 'UjiProfisiensi::LaporanAkhir');
+
+$routes->get('/invoicePembayaran', 'GeneratePdf::invoicePembayaran');
+$routes->get('/laporanAkhir', 'GeneratePdf::LaporanAkhir');
 
 /*
  * --------------------------------------------------------------------
