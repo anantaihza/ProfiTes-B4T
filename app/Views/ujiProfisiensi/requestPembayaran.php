@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
             <a class="navbar-brand fw-bold" href="/ujiProfisiensi">ProfiTes B4T</a>
@@ -80,19 +79,19 @@
                                                 <tr class="bg-white">
                                                     <th scope="row">No Order</th>
                                                     <td>
-                                                        <?= session()->get('dataAdministrasi')[0]->id_administrasi; ?>
+                                                        <?= session()->get('dataAdministrasi')->id_administrasi; ?>
                                                     </td>
                                                 </tr>
                                                 <tr class="bg-white">
                                                     <th scope="row">Nomor VA</th>
                                                     <td>
-                                                        <?= session()->get('dataAdministrasi')[0]->no_va; ?>
+                                                        <?= session()->get('dataAdministrasi')->no_va; ?>
                                                     </td>
                                                 </tr>
                                                 <tr class="bg-white">
                                                     <th scope="row">Nomor Refrensi</th>
                                                     <td>
-                                                        <?= session()->get('dataAdministrasi')[0]->no_refrensi; ?>
+                                                        <?= session()->get('dataAdministrasi')->no_refrensi; ?>
                                                     </td>
                                                 </tr>
                                                 <tr class="bg-white">
@@ -104,27 +103,27 @@
                                                 <tr class="bg-white">
                                                     <th scope="row">Paket</th>
                                                     <td>
-                                                        <?= session()->get('dataAdministrasi')[0]->nama_pengujian; ?>
+                                                        <?= session()->get('dataAdministrasi')->nama_pengujian; ?>
                                                     </td>
                                                 </tr>
                                                 <tr class="bg-white">
                                                     <th scope="row">Nominal</th>
                                                     <td>
-                                                        IDR <?= session()->get('dataAdministrasi')[0]->biaya; ?>
+                                                        IDR <?= session()->get('dataAdministrasi')->biaya; ?>
                                                     </td>
                                                 </tr>
 
                                                 <tr class="bg-white">
                                                     <th scope="row">Status</th>
                                                     <td>
-                                                        <?= session()->get('dataAdministrasi')[0]->status_pembayaran; ?>
+                                                        <?= session()->get('dataAdministrasi')->status_pembayaran; ?>
                                                     </td>
                                                 </tr>
 
                                                 <tr class="bg-white">
                                                     <th scope="row">Invoice</th>
                                                     <td>
-                                                        <form action="/UjiProfisiensi/generatePDF" method="post">
+                                                        <form action="/GeneratePdf/generatePDF" method="post">
                                                             <button class="unduh">
                                                                 <i class="fa fa-download" style="margin-right: 5px;"></i>
                                                                 Unduh

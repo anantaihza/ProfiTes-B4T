@@ -74,13 +74,10 @@ class Login extends BaseController
 			session()->setFlashdata('error', $this->validator->listErrors());
 			return redirect()->back()->withInput();
 		}
-
-		$this->users->insert([
-			'username' => $this->request->getVar('username'),
-			'email' => $this->request->getVar('email'),
-			'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT)
-
-		]);
+		$username = $this->request->getVar('username');
+		$email = $this->request->getVar('email');
+		$password = password_hash($this->request->getVar('password'), PASSWORD_BCRYPT);
+		$this->users->addUser($username, $email, $password);
 		return redirect()->to('/');
 	}
 

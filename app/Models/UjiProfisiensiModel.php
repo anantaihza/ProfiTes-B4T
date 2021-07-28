@@ -23,6 +23,21 @@ class UjiProfisiensiModel extends Model
             ->get()->getResult();
     }
 
+    public function addPengujian($id_administrasi, $idParam, $tgl_pengujian, $hasilUji_A, $hasilUji_B, $rerata, $u95, $standar_acuan)
+    {
+        $this->db->table('tr_pengujian')
+            ->insert([
+                'id_administrasi' => $id_administrasi,
+                'id_parameter' => $idParam,
+                'tgl_pengujian' => $tgl_pengujian,
+                'hasilUji_A' => $hasilUji_A,
+                'hasilUji_B' => $hasilUji_B,
+                'rerata' => $rerata,
+                'u95' => $u95,
+                'standar_acuan' => $standar_acuan,
+            ]);
+    }
+
     // public function getIdParameter($id_tr_pengujian)
     // {
     //     return $this->db->table('tr_pengujian')
