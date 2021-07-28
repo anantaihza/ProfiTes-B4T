@@ -11,10 +11,13 @@ use Dompdf\Dompdf;
 class GeneratePdf extends BaseController
 {
     protected $administrasi;
+    protected $trPengujian;
 
     function __construct()
     {
         $this->administrasi = new AdministrasiModel();
+        $this->trPengujian = new UjiProfisiensiModel();
+        $this->parameter = new ParameterModel();
     }
 
     // public function invoicePembayaran()
@@ -51,25 +54,27 @@ class GeneratePdf extends BaseController
 
     public function LaporanAkhir()
     {
-        // $idAdministrasi = session()->get('dataAdministrasi')[0]->id_administrasi;
-        // $dataAdministrasi = $this->administrasi->getIdMasPengujian($idAdministrasi);
-        // $dataParameter = $this->ujiprofisiensi->getPaketParameter($dataAdministrasi[0]->id_pengujian);
-        // $data = [
-        //     'dataAdm' => $dataAdministrasi,
-        //     'dataParam' => $dataParameter
-        // ];
 
-        return view('ujiProfisiensi/laporanAkhirPDF');
+        $idAdministrasi = session()->get('dataAdministrasi')->id_administrasi;
+        $dataTrPengujian = $this->trPengujian->getTrPengujian($idAdministrasi);
+        $teknik = $this->trPengujian->getTeknik();
+        $data = [
+            'dataTrPengujian' => $dataTrPengujian,
+            'dataTeknik'       => $teknik
+        ];
+
+        return view('ujiProfisiensi/laporanAkhirPDF', $data);
     }
 
 
     function generateLaporanAkhirPDF()
     {
-        $id_tr_pengujian = session()->get('dataAdministrasi')[0]->id_administrasi;
-        $dataAdministrasi = $this->ujiprofisiensi->getIdAdministrasi($id_tr_pengujian);
-
+        $idAdministrasi = session()->get('dataAdministrasi')->id_administrasi;
+        $dataTrPengujian = $this->trPengujian->getTrPengujian($idAdministrasi);
+        $teknik = $this->trPengujian->getTeknik();
         $data = [
-            'dataAdministrasi' => $dataAdministrasi,
+            'dataTrPengujian' => $dataTrPengujian,
+            'dataTeknik'       => $teknik
         ];
 
         $dompdf = new Dompdf();

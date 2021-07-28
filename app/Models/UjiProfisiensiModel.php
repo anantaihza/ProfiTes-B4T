@@ -15,12 +15,18 @@ class UjiProfisiensiModel extends Model
         'hasilUji_B', 'rerata', 'u95', 'standar_acuan', 'tgl_pengujian'
     ];
 
-    public function getIdAdministrasi($id_tr_pengujian)
+    public function getTrPengujian($id_administrasi)
     {
         return $this->db->table('tr_pengujian')
             ->join('tr_administrasi', 'tr_administrasi.id_administrasi=tr_pengujian.id_administrasi')
-            ->where('id_tr_pengujian', $id_tr_pengujian)
+            ->join('mas_parameter', 'mas_parameter.id_parameter=tr_pengujian.id_parameter')
+            ->where('tr_pengujian.id_administrasi', $id_administrasi)
             ->get()->getResult();
+    }
+
+    public function getTeknik()
+    {
+        return $this->db->table('mas_mas_teknik')->get()->getResult();
     }
 
     public function addPengujian($id_administrasi, $idParam, $tgl_pengujian, $hasilUji_A, $hasilUji_B, $rerata, $u95, $standar_acuan)
@@ -37,22 +43,4 @@ class UjiProfisiensiModel extends Model
                 'standar_acuan' => $standar_acuan,
             ]);
     }
-
-    // public function getIdParameter($id_tr_pengujian)
-    // {
-    //     return $this->db->table('tr_pengujian')
-    //         ->join('mas_parameter', 'mas_parameter.id_parameter=tr_pengujian.id_parameter')
-    //         ->where('id_tr_pengujian', $id_tr_pengujian)
-    //         ->get()->getResult();
-    // }
-
-    // public function getPengujian($id_parameter, $id_tr_pengujian)
-    // {
-    //     return $this->db->table('tr_pengujian')
-    //         ->join('mas_parameter', 'mas_parameter.id_parameter=tr_pengujian.id_parameter')
-    //         ->join('tr_administrasi', 'tr_administrasi.id_administrasi=tr_pengujian.id_administrasi')
-    //         ->where('tr_pengujian.id_parameter', $id_parameter)
-    //         ->where('id_tr_pengujian', $id_tr_pengujian)
-    //         ->get()->getRow();
-    // }
 }

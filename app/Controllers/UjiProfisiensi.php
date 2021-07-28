@@ -58,9 +58,9 @@ class UjiProfisiensi extends BaseController
         $dataAdministrasi = $this->administrasi->getIdMasPengujian($id_administrasi);
         $dataParameter = $this->parameter->getPaketParameter($dataAdministrasi->id_pengujian);
         $i = count($dataParameter);
-        $idParam = $dataParameter[0]->id_parameter;
 
         for ($j = 1; $j <= $i; $j++) {
+            $idParam = $dataParameter[$j - 1]->id_parameter;
             $tgl_pengujian = $this->request->getVar('tgl_pengujian');
             $hasilUji_A = $this->request->getVar("hasilUji_A_$j");
             $hasilUji_B = $this->request->getVar("hasilUji_B_$j");
@@ -78,8 +78,6 @@ class UjiProfisiensi extends BaseController
                 $u95,
                 $standar_acuan
             );
-
-            $idParam++;
         }
         $this->administrasi->updateStatusPengujian($id_administrasi);
 
