@@ -59,7 +59,7 @@
                                         <p class="m-0">No order </p>
                                     </td>
                                     <td>
-                                        <p class="m-0">: <?= session()->get('dataAdministrasi')[0]->id_administrasi; ?></p>
+                                        <p class="m-0">: <?= session()->get('dataAdministrasi')->id_administrasi; ?></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -67,7 +67,7 @@
                                         <p class="m-0">No reff</p>
                                     </td>
                                     <td>
-                                        <p class="m-0">: <?= session()->get('dataAdministrasi')[0]->no_refrensi; ?></p>
+                                        <p class="m-0">: <?= session()->get('dataAdministrasi')->no_refrensi; ?></p>
                                     </td>
                                 </tr>
                             </table>
@@ -97,8 +97,8 @@
                     </tr>
                     <tr class="bg-white">
                         <td scope="row" style="border: 1px solid #000;">1</td>
-                        <td scope="row" style="border: 1px solid #000;"><?= session()->get('dataAdministrasi')[0]->nama_pengujian; ?></td>
-                        <td scope="row" style="border: 1px solid #000;"><?= session()->get('dataAdministrasi')[0]->biaya; ?></td>
+                        <td scope="row" style="border: 1px solid #000;"><?= session()->get('dataAdministrasi')->nama_pengujian; ?></td>
+                        <td scope="row" style="border: 1px solid #000;"><?= session()->get('dataAdministrasi')->biaya; ?></td>
                     </tr>
                     <tr class="bg-white">
                         <td scope="row" colspan="3" style="border: 1px solid #000;">

@@ -81,7 +81,7 @@
         <div class="row">
             <div class="col-12">
                 <!-- BELUM -->
-                <?php if ($dataAdm[0]->status_pengujian == 'Belum') : ?>
+                <?php if ($dataAdm->status_pengujian == 'Belum') : ?>
                     <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
                         <li class="satu nav-item" role="presentation">
                             <button class="nav-link active btnTab" id="pills-pengiriman-tab" data-bs-toggle="pill" data-bs-target="#pills-pengiriman" type="button" role="tab" aria-controls="pills-pengiriman" aria-selected="true"><span class="badge">1</span>Pengiriman</button>
@@ -195,15 +195,15 @@
                             </div>
                             <a class=" text-left btn btn4 border" style="width: 100%;">
                                 <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
-                                Pengujian Uji Profisiensi <?= $dataAdm[0]->nama_pengujian; ?>
+                                Pengujian Uji Profisiensi <?= $dataAdm->nama_pengujian; ?>
                             </a>
 
                             <div class="collapse.show row border" id="LembarHasilP1" style="background-color: white; margin: auto;">
-                                <form action="/UjiProfisiensi/insertPengujian/<?= $dataAdm[0]->id_administrasi; ?>" method="post">
+                                <form action="/UjiProfisiensi/insertPengujian/<?= $dataAdm->id_administrasi; ?>" method="post">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-4">
                                             <p> <strong>Nama Laboratorium</strong> </p>
-                                            <input class="form-control" type="text" value="<?= $dataAdm[0]->nama_laboratorium; ?>" disabled readonly>
+                                            <input class="form-control" type="text" value="<?= $dataAdm->nama_laboratorium; ?>" disabled readonly>
                                         </div>
                                         <div class="col-4">
                                             <p> <strong>Tanggal Pengujian</strong> </p>
@@ -330,7 +330,7 @@
                         </div>
                     </div>
                     <!-- SUDAH -->
-                <?php elseif ($dataAdm[0]->status_pengujian == 'Sudah') : ?>
+                <?php elseif ($dataAdm->status_pengujian == 'Sudah') : ?>
                     <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
                         <li class="satu nav-item" role="presentation">
                             <button disabled class="nav-link btnTab" id="pills-pengiriman-tab" data-bs-toggle="pill" data-bs-target="#pills-pengiriman" type="button" role="tab" aria-controls="pills-pengiriman" aria-selected="true"><span class="badge">1</span>Pengiriman</button>
@@ -444,15 +444,15 @@
                             </div>
                             <a class=" text-left btn btn4 border" style="width: 100%;">
                                 <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
-                                Pengujian Uji Profisiensi <?= $dataAdm[0]->nama_pengujian; ?>
+                                Pengujian Uji Profisiensi <?= $dataAdm->nama_pengujian; ?>
                             </a>
 
                             <div class="collapse.show row border" id="LembarHasilP1" style="background-color: white; margin: auto;">
-                                <form action="/UjiProfisiensi/insertPengujian/<?= $dataAdm[0]->id_administrasi; ?>" method="post">
+                                <form action="/UjiProfisiensi/insertPengujian/<?= $dataAdm->id_administrasi; ?>" method="post">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-4">
                                             <p> <strong>Nama Laboratorium</strong> </p>
-                                            <input class="form-control" type="text" value="<?= $dataAdm[0]->nama_laboratorium; ?>" disabled readonly>
+                                            <input class="form-control" type="text" value="<?= $dataAdm->nama_laboratorium; ?>" disabled readonly>
                                         </div>
                                         <div class="col-4">
                                             <p> <strong>Tanggal Pengujian</strong> </p>
