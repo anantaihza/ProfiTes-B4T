@@ -7,6 +7,8 @@ use App\Models\AdministrasiModel;
 use App\Models\ParameterModel;
 use App\Models\UjiProfisiensiModel;
 use Dompdf\Dompdf;
+use CodeIgniter\I18n\Time;
+
 
 class GeneratePdf extends BaseController
 {
