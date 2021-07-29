@@ -3,20 +3,21 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use CodeIgniter\I18n\Time;
 
 class AdministrasiModel extends Model
 {
     protected $table = 'tr_administrasi';
     protected $primaryKey = 'id_administrasi';
     protected $returnType = 'object';
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $allowedFields = [
-        'id_administrasi', 'id_user', 'id_pengujian', 'pengujian',
+        'id_user', 'id_pengujian', 'pengujian',
         'penanggung_jawab_lab', 'status_akreditasi', 'nama_laboratorium',
         'telpon_laboratorium', 'fax_laboratorium', 'alamat_laboratorium',
         'alamat_pengiriman', 'nama_pic', 'jabatan_pic', 'telpon_pic',
         'email_pic', 'no_va', 'no_refrensi', 'sistem_pembayaran',
-        'status_pembayaran', 'status_pengujian'
+        'status_pembayaran', 'status_pengujian', 'tgl_administrasi'
     ];
 
     // Function GET
@@ -49,6 +50,7 @@ class AdministrasiModel extends Model
     // Function ADD
     public function addAdministrasi($id_pengujian, $id, $penanggung_jawab_lab, $status_akreditasi, $nama_laboratorium, $telpon_laboratorium, $fax_laboratorium, $alamat_laboratorium, $alamat_pengiriman, $nama_pic, $jabatan_pic, $telpon_pic, $email_pic)
     {
+        $now = new Time('now');
         $this->db->table('tr_administrasi')
             ->insert([
                 'id_pengujian' => $id_pengujian,
@@ -66,6 +68,7 @@ class AdministrasiModel extends Model
                 'email_pic' => $email_pic,
                 'no_va' => '9908214569873',
                 'no_refrensi' => '336598',
+                'tgl_administrasi' => $now
             ]);
         return $this->db->insertID();
     }

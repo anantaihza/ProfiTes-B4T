@@ -92,6 +92,9 @@ class TrAdministrasi extends Migration
 				'constraint' => '32',
 				'default'	 => 'Belum'
 			],
+			'tgl_administrasi' => [
+				'type' => 'DATETIME',
+			]
 
 		]);
 		$this->forge->addKey('id_administrasi', TRUE);
