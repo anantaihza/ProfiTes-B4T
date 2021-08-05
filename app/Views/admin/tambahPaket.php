@@ -19,18 +19,31 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand fw-bold" href="/ujiProfisiensi">UP-<span style="font-style: italic;">tek</span>MIRA</a>
+            <a class="navbar-brand fw-bold" href="/dashboard">UP-<i>tek</i>MIRA</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfites" aria-controls="navbarProfites" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarProfites">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Paket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Perusahaan</a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="">Admin</span>
+                            <span class="badge rounded-pill bg-primary"><?= session()->get('username'); ?></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/profile">Pengaturan Profil</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/profile">Pengaturan Profil</a>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
@@ -98,7 +111,7 @@
     <!-- Footer -->
     <div class="footer fixed-bottom">
         <div class="container">
-            <p class="mb-0 pt-3 fw-bold">@ B4T 2018</p>
+            <p class="mb-0 pt-3 fw-bold">@ UP-<i>tek</i>MIRA</p>
         </div>
     </div>
     <!-- Footer -->

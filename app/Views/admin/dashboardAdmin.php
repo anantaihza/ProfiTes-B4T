@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand fw-bold" href="/ujiProfisiensi">UP-<i>tek</i>MIRA</a>
+            <a class="navbar-brand fw-bold" href="/dashboard">UP-<i>tek</i>MIRA</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfites" aria-controls="navbarProfites" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -227,7 +227,7 @@
                                     <p>Perusahaan</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="button" class="btn btn-primary">Pilih</button>
+                                    <a href="/listPerusahaan" class="btn btn-primary">Pilih</a>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +237,7 @@
                                     <p>Paket</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="button" class="btn btn-primary">Pilih</button>
+                                    <a href="/listPaket" class="btn btn-primary">Pilih</a>
                                 </div>
                             </div>
                         </div>

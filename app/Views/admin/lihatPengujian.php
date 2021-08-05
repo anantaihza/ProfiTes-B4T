@@ -19,18 +19,31 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand fw-bold" href="/ujiProfisiensi">UP-<span style="font-style: italic;">tek</span>MIRA</a>
+            <a class="navbar-brand fw-bold" href="/dashboard">UP-<i>tek</i>MIRA</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfites" aria-controls="navbarProfites" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarProfites">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Paket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Perusahaan</a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="">Admin</span>
+                            <span class="badge rounded-pill bg-primary"><?= session()->get('username'); ?></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/profile">Pengaturan Profil</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/profile">Pengaturan Profil</a>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
@@ -91,32 +104,29 @@
                                     </thead>
                                     <tbody>
 
-                                        <?php
-                                        $i = 1;
-                                        foreach ($dataParam as $param) : ?>
-                                            <tr>
-                                                <th scope="row"><?= $i; ?></th>
-                                                <td><?= $param->nama_parameter; ?></td>
-                                                <td><?= $param->satuan; ?></td>
 
-                                                <td>
-                                                    <input name="hasilUji_A_<?= $i; ?>" id="hasilUji_A_<?= $i; ?>" type="text" class="form-control" required>
-                                                </td>
-                                                <td>
-                                                    <input name="hasilUji_B_<?= $i; ?>" id="hasilUji_B_<?= $i; ?>" type="text" class="form-control" required>
-                                                </td>
-                                                <td>
-                                                    <input name="rerata_<?= $i; ?>" id="rerata_<?= $i; ?>" type="text" class="form-control" required>
-                                                </td>
-                                                <td>
-                                                    <input name="u95_<?= $i; ?>" id="u95_<?= $i; ?>" type="text" class="form-control" required>
-                                                </td>
-                                                <td>
-                                                    <input name="standar_acuan_<?= $i; ?>" id="standar_acuan_<?= $i; ?>" type="text" class="form-control" required>
-                                                </td>
-                                            </tr>
-                                            <?php $i++ ?>
-                                        <?php endforeach; ?>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>1</td>
+                                            <td>1</td>
+
+                                            <td>
+                                                <p>1</p>
+                                            </td>
+                                            <td>
+                                                <p>1</p>
+                                            </td>
+                                            <td>
+                                                <p>1</p>
+                                            </td>
+                                            <td>
+                                                <p>1</p>
+                                            </td>
+                                            <td>
+                                                <p>1</p>
+                                            </td>
+                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -134,7 +144,7 @@
     <!-- Footer -->
     <div class="footer fixed-bottom">
         <div class="container">
-            <p class="mb-0 pt-3 fw-bold">@ B4T 2018</p>
+            <p class="mb-0 pt-3 fw-bold">@ UP-<i>tek</i>MIRA</p>
         </div>
     </div>
     <!-- Footer -->

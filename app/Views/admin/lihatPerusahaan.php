@@ -9,7 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
+    <style>
+        .footer {
+            width: 100%;
+            height: 7vh;
+            background-color: #ffffff;
+        }
+    </style>
     <title>Document</title>
 </head>
 
@@ -17,24 +23,31 @@
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand fw-bold" href="/ujiProfisiensi">ProfiTes B4T</a>
+            <a class="navbar-brand fw-bold" href="/dashboard">UP-<i>tek</i>MIRA</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfites" aria-controls="navbarProfites" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarProfites">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Paket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Perusahaan</a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><i class="far fa-calendar-alt"></i> Event</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-database"></i> Uji Profisiensi</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="badge rounded-pill bg-primary"><?= session()->get('username'); ?></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/profile">Pengaturan Profil</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/profile">Pengaturan Profil</a>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
@@ -48,8 +61,11 @@
         </div>
     </nav>
 
-    <div class="container">
-        <h3>Perusahaan</h3>
+    <div class="container mt-5">
+        <div class="title mt-5 pt-5">
+            <h3>Perusahaan</h3>
+
+        </div>
         <div class="row">
             <div class="col mt-4" style="background-color: white;">
                 <div class="table-responsive">
@@ -109,8 +125,8 @@
                                                                     <td>
                                                                         <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button>
                                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                                                            <li><a class="dropdown-item active" href="#">Input Pengiriman</a></li>
-                                                                            <li><a class="dropdown-item" href="#">Lihat Pengujian</a></li>
+                                                                            <li><a class="dropdown-item active" href="/inputPengiriman">Input Pengiriman</a></li>
+                                                                            <li><a class="dropdown-item" href="/detailPengujian">Lihat Pengujian</a></li>
                                                                         </ul>
                                                                     </td>
                                                                 </tr>
@@ -130,7 +146,11 @@
             </div>
         </div>
     </div>
-
+    <div class="footer fixed-bottom">
+        <div class="container">
+            <p class="mb-0 pt-3 fw-bold">@ UP-<i>tek</i>MIRA</p>
+        </div>
+    </div>
 
 
 </body>
