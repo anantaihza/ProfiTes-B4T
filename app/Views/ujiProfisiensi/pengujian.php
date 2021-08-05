@@ -57,25 +57,7 @@
             </nav>
         </div>
         <h1 class="">Uji Profisiensi</h1>
-        <div class="row" style="margin-bottom: 30px;">
-            <div class="col-12 text-center">
-                <!-- Button -->
-                <div class="btn-group" style="float:right;">
-                    <div class="btn-icon" id="btnGroupAddon">
-                        <i class="fa fa-asterisk" aria-hidden="true"></i>
-                    </div>
-                    <button type="button" class="btn btn2">Detail Profisiensi</button>
-                </div>
-                <!-- Button -->
-                <div class="btn-group" style="float:right; margin-right: 10px;">
-                    <div class="btn-icon" id="btnGroupAddon">
-                        <i class="far fa-copy"></i>
-                    </div>
-                    <button type="button" class="btn btn2">Daftar Dokumen</button>
-                </div>
 
-            </div>
-        </div>
 
         <!-- main -->
         <div class="row">
@@ -114,19 +96,11 @@
                                             <th scope="row">Catatan Pengiriman</th>
                                             <td>Sample pengujian dimensi sudah kami kirimkan dengan no resi tertera.</td>
                                         </tr>
-                                        <tr>
+                                        <tr class="bg-white">
                                             <th scope="row">Status Pengiriman</th>
                                             <td>Sudah Dikirim</td>
                                         </tr>
-                                        <tr class="bg-white">
-                                            <th scope="row">Petunjuk Teknis</th>
-                                            <td>
-                                                <button class="unduh">
-                                                    <i class="fa fa-download" style="margin-right: 5px;"></i>
-                                                    Unduh
-                                                </button>
-                                            </td>
-                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -134,8 +108,7 @@
                                 <table class="table table-bordered " style="margin-top: 30px; margin-bottom: 30px;">
                                     <thead class="tabhead2 table-bordered">
                                         <tr>
-                                            <th scope="col">Barang/Dokumen</th>
-                                            <th scope="col">Banyaknya</th>
+
                                             <th scope="col">Kondisi Barang/Dokumen (Mohon Diisi)
                                             </th>
                                             <th scope="col">Keterangan</th>
@@ -143,8 +116,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Sampel</td>
-                                            <td>2</td>
+
                                             <td style="padding-left: 50px; padding-right: 50px;">
                                                 <input class="form-control text-center" id="kondisiBarang" placeholder="Kondisi Barang/Dokumen" style="min-width: 250px; margin: auto;">
                                             </td>
@@ -164,17 +136,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-auto">
-                                    <label for="inputPassword6" class="col-form-label fw-bold">Konfirmasi</label>
-                                </div>
-                                <div class="col-auto" style="margin-top: 7px;">
-                                    <input type="checkbox" class="form-check-input" id="Konfirmasi">
-                                    <label class="form-check-label" for="Konfirmasi">Ya, dengan ini
-                                        saya menyatakan data
-                                        yang saya isi telah valid</label>
-                                </div>
-                            </div>
+
                             <!-- Button -->
                             <div class="btn-group" style="margin-top: 10px; margin-bottom: 50px;">
                                 <div class="btn-icon2" id="btnGroupAddon">
