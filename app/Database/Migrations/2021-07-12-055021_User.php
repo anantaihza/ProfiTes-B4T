@@ -46,6 +46,13 @@ class User extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => '15',
 				'null' => TRUE
+			],
+			'tgl_user' => [
+				'type' => 'DATETIME',
+			],
+			'role' => [
+				'type' => 'VARCHAR',
+				'constraint' => '16'
 			]
 
 		]);
