@@ -29,7 +29,11 @@ class Login extends BaseController
 						'username' 	=> $dataUser->username,
 						'logged_in' => TRUE
 					]);
-					return redirect()->to(base_url('/ujiProfisiensi'));
+					if ($dataUser->role == 'admin') {
+						return redirect()->to(base_url('/dashboard'));
+					} else {
+						return redirect()->to(base_url('/ujiProfisiensi'));
+					}
 				} else {
 					session()->setFlashdata('error', 'Username & Password Salah');
 					return redirect()->back();

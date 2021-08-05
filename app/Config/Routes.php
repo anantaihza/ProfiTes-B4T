@@ -37,6 +37,7 @@ $routes->get('/profilku', 'Profile::index');
 $routes->get('/profilku/update/(:num)', 'Profile::update/$1');
 
 $routes->get('/ujiProfisiensi', 'UjiProfisiensi::index');
+$routes->get('/dashboard', 'Admin::dashboardAdmin');
 $routes->get('/ujiProfisiensi/pilih-baru', 'UjiProfisiensi::pilihBaru');
 // $routes->get('/ujiProfisiensiBaru', 'UjiProfisiensi::profisiensiBaru');
 $routes->get('/ujiProfisiensi/profisiensiBaru/(:num)', 'UjiProfisiensi::profisiensiBaru/$1');
