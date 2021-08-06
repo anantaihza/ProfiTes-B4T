@@ -31,6 +31,9 @@ class MasPengujian extends Migration
 				'constraint' => '1280',
 				'null' => TRUE
 			],
+			'tgl_paket' => [
+				'type'		 => 'DATETIME'
+			],
 
 		]);
 

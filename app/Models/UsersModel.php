@@ -17,6 +17,16 @@ class UsersModel extends Model
         'no_telepon', 'no_fax', 'tgl_user', 'role'
     ];
 
+
+    public function getUser()
+    {
+        $now = date("Y");
+        return $this->db->table('users')
+            ->where('role', 'user')
+            ->where("DATE_FORMAT(tgl_user,'%Y')", $now)
+            ->get()->getResult();
+    }
+
     public function addUser($username, $email, $password)
     {
         $now = new Time('now');
