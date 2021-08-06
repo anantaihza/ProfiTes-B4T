@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
             <a class="navbar-brand fw-bold" href="/dashboard">UP-<i>tek</i>MIRA</a>
@@ -66,7 +67,7 @@
                                 <h2><i class="fas fa-briefcase"></i></h2>
                             </div>
                             <div class="col-8 py-2">
-                                <h3><b>150</b></h3>
+                                <h3><b><?= $userJml; ?></b></h3>
                                 <p>Jumlah Perusahaan</p>
                             </div>
                         </div>
@@ -81,7 +82,7 @@
                                 <h2><i class="fas fa-archive"></i></h2>
                             </div>
                             <div class="col-8 py-2">
-                                <h3><b>3</b></h3>
+                                <h3><b><?= $paketJml; ?></b></h3>
                                 <p>Jumlah Paket</p>
                             </div>
                         </div>
@@ -96,7 +97,7 @@
                                 <h2><i class="far fa-file-alt"></i></h2>
                             </div>
                             <div class="col-8 py-2">
-                                <h3><b>20</b></h3>
+                                <h3><b><?= $administrasiJml; ?></b></h3>
                                 <p>Jumlah Pengujian</p>
                             </div>
                         </div>
@@ -136,11 +137,11 @@
                             <h4>Pembayaran</h4>
                             <div class="row mt-3">
                                 <div class="col-6 belum-lunas">
-                                    <h3><b>20</b></h3>
+                                    <h3><b><?= $administrasiBelumLunas; ?></b></h3>
                                     <p>Belum Lunas</p>
                                 </div>
                                 <div class="col-6 lunas">
-                                    <h3><b>20</b></h3>
+                                    <h3><b><?= $administrasiLunas; ?></b></h3>
                                     <p>Sudah Lunas</p>
                                 </div>
                             </div>
@@ -165,10 +166,7 @@
                                     </button>
                                     <!-- Modal -->
                                     <div class="modal fade" id="addAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="
-                          modal-dialog modal-dialog-centered modal-lg
-                          text-start
-                        ">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg text-start">
                                             <div class="modal-content">
                                                 <div class="modal-header border-0">
                                                     <h5 class="modal-title" id="exampleModalLabel">

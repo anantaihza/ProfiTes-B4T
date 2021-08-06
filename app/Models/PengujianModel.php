@@ -11,6 +11,14 @@ class PengujianModel extends Model
     protected $returnType = 'object';
     protected $useTimestamps = false;
     protected $allowedFields = [
-        'id_pengujian', 'nama_pengujian', 'biaya', 'keterangan'
+        'id_pengujian', 'nama_pengujian', 'biaya', 'keterangan', 'tgl_paket'
     ];
+
+    public function getPaket()
+    {
+        $now = date("Y");
+        return $this->db->table('mas_pengujian')
+            ->where("DATE_FORMAT(tgl_paket,'%Y')", $now)
+            ->get()->getResult();
+    }
 }

@@ -21,6 +21,29 @@ class AdministrasiModel extends Model
     ];
 
     // Function GET
+    public function getAdministrasi()
+    {
+        $now = date("Y");
+        return $this->db->table('tr_administrasi')
+            ->where("DATE_FORMAT(tgl_administrasi,'%Y')", $now)
+            ->get()->getResult();
+    }
+    public function getAdministrasiLunas()
+    {
+        $now = date("Y");
+        return $this->db->table('tr_administrasi')
+            ->where("DATE_FORMAT(tgl_administrasi,'%Y')", $now)
+            ->where('status_pembayaran', 'Sudah Lunas')
+            ->get()->getResult();
+    }
+    public function getAdministrasiBelumLunas()
+    {
+        $now = date("Y");
+        return $this->db->table('tr_administrasi')
+            ->where("DATE_FORMAT(tgl_administrasi,'%Y')", $now)
+            ->where('status_pembayaran', 'Belum Lunas')
+            ->get()->getResult();
+    }
     public function getMasPengujian($id_user)
     {
         return $this->db->table('tr_administrasi')

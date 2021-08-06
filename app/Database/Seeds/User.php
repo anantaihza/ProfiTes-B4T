@@ -10,6 +10,7 @@ class User extends Seeder
 	public function run()
 	{
 		$now = new Time('now');
+		$date = new Time('2020-01-01');
 		$data = [
 			[
 				'username' => 'admin1',
@@ -24,6 +25,13 @@ class User extends Seeder
 				'password' => password_hash('admin2', PASSWORD_BCRYPT),
 				'tgl_user' => $now,
 				'role' => 'admin'
+			],
+			[
+				'username' => 'ananta',
+				'email' => 'ananta@gmail.com',
+				'password' => password_hash('ananta', PASSWORD_BCRYPT),
+				'tgl_user' => $date,
+				'role' => 'user'
 			],
 
 		];
