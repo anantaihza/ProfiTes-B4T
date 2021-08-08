@@ -62,6 +62,14 @@ class AdministrasiModel extends Model
             ->get()->getRow();
     }
 
+    public function getUserAdministrasi()
+    {
+        return $this->db->table('tr_administrasi')
+            ->groupBy('id_user')
+            // ->join('users', 'users.id_user=tr_administrasi.id_user')
+            ->get()->getResult();
+    }
+
     public function getIdMasPengujian($id_administrasi)
     {
         return $this->db->table('tr_administrasi')

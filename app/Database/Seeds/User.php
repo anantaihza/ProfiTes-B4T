@@ -13,16 +13,9 @@ class User extends Seeder
 		$date = new Time('2020-01-01');
 		$data = [
 			[
-				'username' => 'admin1',
-				'email' => 'admin1@gmail.com',
-				'password' => password_hash('admin1', PASSWORD_BCRYPT),
-				'tgl_user' => $now,
-				'role' => 'admin'
-			],
-			[
-				'username' => 'admin2',
-				'email' => 'admin2@gmail.com',
-				'password' => password_hash('admin2', PASSWORD_BCRYPT),
+				'username' => 'admin',
+				'email' => 'admin@gmail.com',
+				'password' => password_hash('admin', PASSWORD_BCRYPT),
 				'tgl_user' => $now,
 				'role' => 'admin'
 			],

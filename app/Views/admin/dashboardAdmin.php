@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
             <a class="navbar-brand fw-bold" href="/dashboard">UP-<i>tek</i>MIRA</a>
