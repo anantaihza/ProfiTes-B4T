@@ -18,12 +18,13 @@ class Admin extends BaseController
     public function dashboardAdmin()
     {
         $data = [
-            'userJml' => count($this->users->getUser()),
+            'userJml' => count($this->administrasi->getUserAdministrasi()),
             'paketJml' => count($this->paket->getPaket()),
             'administrasiJml' => count($this->administrasi->getAdministrasi()),
             'administrasiLunas' => count($this->administrasi->getAdministrasiLunas()),
             'administrasiBelumLunas' => count($this->administrasi->getAdministrasiBelumLunas()),
         ];
+
         return view('admin/dashboardAdmin', $data);
     }
     public function paket()
