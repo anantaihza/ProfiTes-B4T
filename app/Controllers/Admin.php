@@ -61,4 +61,9 @@ class Admin extends BaseController
     {
         return view('admin/lihatPengujian');
     }
+
+    public function parameter()
+    {
+        return view('admin/lihatParameter');
+    }
 }

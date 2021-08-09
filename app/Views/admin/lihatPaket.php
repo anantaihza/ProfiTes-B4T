@@ -183,7 +183,7 @@
 
                                     <!-- Button Tambah Parameter -->
                                     <br>
-                                    <button type="button" class="btn btnparameter">Parameter</button>
+                                    <a type="button" class="btn btnparameter" href="/parameter">Parameter</a>
 
                                     <!-- Modal Tambah Parameter -->
                                     <!-- <div class="modal fade" id="addParameterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
