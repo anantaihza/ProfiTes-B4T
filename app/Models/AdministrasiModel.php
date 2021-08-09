@@ -28,6 +28,14 @@ class AdministrasiModel extends Model
             ->where("DATE_FORMAT(tgl_administrasi,'%Y')", $now)
             ->get()->getResult();
     }
+    public function getAdministrasiPengujian()
+    {
+        $now = date("Y");
+        return $this->db->table('tr_administrasi')
+            ->join('mas_pengujian', 'mas_pengujian.id_pengujian=tr_administrasi.id_pengujian')
+            ->where("DATE_FORMAT(tgl_administrasi,'%Y')", $now)
+            ->get()->getResult();
+    }
     public function getAdministrasiLunas()
     {
         $now = date("Y");
@@ -64,9 +72,10 @@ class AdministrasiModel extends Model
 
     public function getUserAdministrasi()
     {
+        $now = date("Y");
         return $this->db->table('tr_administrasi')
             ->groupBy('id_user')
-            // ->join('users', 'users.id_user=tr_administrasi.id_user')
+            ->where("DATE_FORMAT(tgl_administrasi,'%Y')", $now)
             ->get()->getResult();
     }
 

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UsersModel;
 use App\Models\PengujianModel;
+use App\Models\ParameterModel;
 use App\Models\AdministrasiModel;
 
 class Admin extends BaseController
@@ -12,6 +13,7 @@ class Admin extends BaseController
     {
         $this->users = new UsersModel();
         $this->paket = new PengujianModel();
+        $this->parameter = new ParameterModel();
         $this->administrasi = new AdministrasiModel();
     }
 
@@ -29,20 +31,32 @@ class Admin extends BaseController
     }
     public function paket()
     {
-        return view('admin/lihatPaket');
+        $data = [
+            'pakets' => $this->paket->getPaket(),
+            'parameters' => $this->parameter->getParameterYear()
+        ];
+        return view('admin/lihatPaket', $data);
     }
+
+    public function perusahaan()
+    {
+        $data = [
+            'users' => $this->users->getUser(),
+            'administrasi' => $this->administrasi->getAdministrasiPengujian()
+        ];
+        return view('admin/lihatPerusahaan', $data);
+    }
+
     public function tambahPaket()
     {
         return view('admin/tambahPaket');
     }
-    public function perusahaan()
-    {
-        return view('admin/lihatPerusahaan');
-    }
+
     public function inputPengiriman()
     {
         return view('admin/inputPengiriman');
     }
+
     public function detailPengujian()
     {
         return view('admin/lihatPengujian');
