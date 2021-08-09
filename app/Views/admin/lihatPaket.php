@@ -26,13 +26,13 @@
             <div class="collapse navbar-collapse" id="navbarProfites">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Paket</a>
+                        <a class="nav-link" href="/listPaket">Paket</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Perusahaan</a>
+                        <a class="nav-link" aria-current="page" href="/listPerusahaan">Perusahaan</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -68,6 +68,9 @@
         <!-- Button -->
         <div class="d-flex justify-content-end">
             <div class="btn-group">
+                <div class="btn-icon py-2 px-3">
+                    <i class="fas fa-plus"></i>
+                </div>
                 <a class="btn btn-add px-3" href="/tambahPaket">Tambah Paket</a>
             </div>
         </div>
@@ -78,8 +81,8 @@
         <!-- Tab Lunas -->
         <div class="card" style="background-color: #fff;">
             <div class="card-body">
-                <table class="table table-bordered border-dark">
-                    <thead style="background-color: #1a1d21; color: white; ">
+                <table class="table table-bordered table-hover">
+                    <thead style="background-color: #656fc2; color: white; ">
                         <tr class="text-center">
                             <th style="width:5%;" scope="col" class="align-middle">No</th>
                             <th scope="col" class="align-middle">Nama Paket</th>
@@ -92,7 +95,7 @@
                         <?php $i = 1; ?>
                         <?php foreach ($pakets as $paket) : ?>
                             <tr>
-                                <th scope="row" class="text-center">1</th>
+                                <th scope="row" class="text-center"><?= $i ?></th>
                                 <td class="text-center"><?= $paket->nama_pengujian; ?></td>
                                 <td class="text-center">Rp. <?= $paket->biaya; ?></td>
                                 <td>
@@ -102,23 +105,23 @@
                                             <?php if ($param->id_pengujian == $paket->id_pengujian) : ?>
                                                 <li><?= $param->nama_parameter; ?></li>
                                             <?php endif ?>
-                                            <?php $i++; ?>
+                                            <?php $j++; ?>
                                         <?php endforeach; ?>
                                     </ol>
                                 </td>
                                 <td class="text-center">
                                     <!-- Button Edit -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                                    <button type="button" class="btn btnedit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
 
                                     <!-- Modal Edit -->
                                     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
-                                                <div class="modal-header">
+                                                <div class="modal-header border-0">
                                                     <h5 class="modal-title" id="exampleModalLabel">Edit Paket</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
+                                                <div class="modal-body border-0">
                                                     <form>
                                                         <div class="mb-3" style="text-align: left;">
                                                             <label class="form-label">Nama Pengujian</label>
@@ -132,7 +135,7 @@
                                                         </div>
                                                     </form>
                                                 </div>
-                                                <div class="modal-footer">
+                                                <div class="modal-footer border-0">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                     <button type="button" class="btn btn-primary">Save changes</button>
                                                 </div>
@@ -143,15 +146,29 @@
 
 
                                     <!-- Button Hapus -->
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
+                                    <button type="button" class="btn btnhapus" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
+                                    <div id="hapusModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-confirm modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header flex-column border-0">
 
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
+                                                </div>
+                                                <div class="modal-body border-0">
+                                                    <p>Paket yang telah dihapus, tidak dapat dikembalikan kembali</p>
+                                                </div>
+                                                <div class="modal-footer justify-content-center border-0">
+                                                    <button type="button" class="btn btn-danger">Delete</button>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <!-- Modal Hapus -->
-                                    <div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <!-- <div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
-                                                <!-- <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div> -->
                                                 <div class="modal-body">
                                                     <h5>Apakah anda yakin ingin</h5>
                                                     <h5>menghapus Paket ?</h5>
@@ -161,14 +178,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
 
                                     <!-- Button Tambah Parameter -->
-                                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#addParameterModal">Tambah Parameter</button>
+                                    <br>
+                                    <button type="button" class="btn btnparameter">Parameter</button>
 
                                     <!-- Modal Tambah Parameter -->
-                                    <div class="modal fade" id="addParameterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <!-- <div class="modal fade" id="addParameterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -191,7 +209,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                 </td>
                             </tr>

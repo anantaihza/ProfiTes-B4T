@@ -49,7 +49,8 @@
                 </tr>
                 <tr>
                     <td>Tanggal Pengujian</td>
-                    <td>: 14 April 2021</td>
+                    <td>: <?= date("d-m-Y", strtotime($dataTrPengujian[0]->tgl_pengujian)); ?></td>
+
                 </tr>
             </tbody>
         </table>

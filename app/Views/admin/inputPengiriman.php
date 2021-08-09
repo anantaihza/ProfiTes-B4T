@@ -26,13 +26,13 @@
             <div class="collapse navbar-collapse" id="navbarProfites">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Paket</a>
+                        <a class="nav-link" href="/listPaket">Paket</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Perusahaan</a>
+                        <a class="nav-link" aria-current="page" href="/listPerusahaan">Perusahaan</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -78,7 +78,7 @@
                         <label class="form-label">Catatan Pengiriman</label>
                         <input class="form-control" id="">
                     </div>
-                    <button style="margin-top: 20px;" type="submit" class="btn btn-primary btnSubmit">Submit</button>
+                    <button type="submit" class="btnSubmit px-3">Submit</button>
                 </form>
             </div>
         </div>

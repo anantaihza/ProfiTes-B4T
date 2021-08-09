@@ -39,6 +39,39 @@ hr {
   background-color: #3fb419;
   border: none;
 }
+.btnedit {
+  background-color: #53b8bb;
+  border: none;
+  color: #ffffff;
+  border-radius: 0;
+}
+.btnhapus {
+  background-color: #ff5c5c;
+  border: none;
+  color: #ffffff;
+  border-radius: 0;
+}
+.btnparameter {
+  background-color: #0d6efd;
+  border: none;
+  color: #ffffff;
+  border-radius: 0;
+  margin-top: 10px;
+  padding-left: 26px;
+  padding-right: 26px;
+}
+.btnedit:hover {
+  color: #ffffff;
+  background-color: #3c8083;
+}
+.btnhapus:hover {
+  color: #ffffff;
+  background-color: #bd4747;
+}
+.btnparameter:hover {
+  color: #ffffff;
+  background-color: #0d4eaf;
+}
 .footer {
   width: 100%;
   height: 7vh;
