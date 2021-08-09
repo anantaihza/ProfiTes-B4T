@@ -15,6 +15,30 @@
             height: 7vh;
             background-color: #ffffff;
         }
+
+        .btn-save {
+            background-color: #53b8bb;
+            border: none;
+            color: #ffffff;
+            border-radius: 0;
+        }
+
+        .btnlunas {
+            background-color: #0d6efd;
+            border: none;
+            color: #ffffff;
+            border-radius: 0;
+        }
+
+        .btn-save:hover {
+            background-color: #3c8083;
+            border-color: #656fc2;
+        }
+
+        .btnlunas:hover {
+            color: #ffffff;
+            background-color: #0d4eaf;
+        }
     </style>
     <title>Document</title>
 </head>
@@ -30,13 +54,13 @@
             <div class="collapse navbar-collapse" id="navbarProfites">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Paket</a>
+                        <a class="nav-link" href="/listPaket">Paket</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Perusahaan</a>
+                        <a class="nav-link" aria-current="page" href="/listPerusahaan">Perusahaan</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -69,8 +93,8 @@
         <div class="row">
             <div class="col mt-4" style="background-color: white;">
                 <div class="table-responsive">
-                    <table class="table table-bordered mt-4" style="text-align: center;">
-                        <thead style="background-color: black; color: white; text-align: center;">
+                    <table class="table table-bordered table-hover mt-4" style="text-align: center;">
+                        <thead style="background-color: #656fc2; color: white;  text-align: center;">
                             <tr>
                                 <th class="align-middle">No</th>
                                 <th class="align-middle">Nama Perusahaan</th>
@@ -90,7 +114,8 @@
                                     <td><?= $user->email; ?></td>
                                     <td><?= $user->detail_alamat; ?></td>
                                     <td>
-                                        <button type="button" style="background-color: slateblue;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#perusahaan<?= $user->id_user; ?>">Detail</button>
+
+                                        <button type="button" class="btn btn-save px-3" data-bs-toggle="modal" data-bs-target="#perusahaan<?= $user->id_user; ?>">Detail</button>
                                         <!-- Modal -->
                                         <div class="modal fade" id="perusahaan<?= $user->id_user; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
@@ -101,8 +126,8 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="table-responsive">
-                                                            <table class="table table-bordered mt-4" style="text-align: center;">
-                                                                <thead style="background-color: black; color: white; text-align: center;">
+                                                            <table class="table table-hover table-bordered mt-4" style="text-align: center;">
+                                                                <thead style="background-color: #656fc2; color: white; text-align: center;">
                                                                     <tr>
                                                                         <th class="align-middle">No</th>
                                                                         <th class="align-middle">Nama Lab</th>
@@ -122,7 +147,7 @@
                                                                                 <td>Rp. <?= $adm->biaya; ?></td>
                                                                                 <?php if ($adm->status_pembayaran === "Belum Lunas") : ?>
                                                                                     <td>
-                                                                                        <button type="button" style="background-color: slateblue;" class="btn btn-primary">Buat Lunas</button>
+                                                                                        <button type="button" class="btn btnlunas px-3">Buat Lunas</button>
                                                                                     </td>
                                                                                 <?php elseif ($adm->status_pembayaran === "Sudah Lunas") : ?>
                                                                                     <td>

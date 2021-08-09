@@ -42,6 +42,18 @@ p {
 .lunas {
   color: #65df62;
 }
+.btnpilih {
+  background-color: #0d6efd;
+  border: none;
+  color: #ffffff;
+  border-radius: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.btnpilih:hover {
+  color: #ffffff;
+  background-color: #0d4eaf;
+}
 
 .footer {
   width: 100%;

@@ -23,13 +23,13 @@
             <div class="collapse navbar-collapse" id="navbarProfites">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Paket</a>
+                        <a class="nav-link" href="/listPaket">Paket</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Perusahaan</a>
+                        <a class="nav-link" aria-current="page" href="/listPerusahaan">Perusahaan</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -160,7 +160,7 @@
                                     <p>Tambah Admin</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAdmin">
+                                    <button type="button" class="btn btnpilih" data-bs-toggle="modal" data-bs-target="#addAdmin">
                                         Pilih
                                     </button>
                                     <!-- Modal -->
@@ -224,7 +224,7 @@
                                     <p>Perusahaan</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="/listPerusahaan" class="btn btn-primary">Pilih</a>
+                                    <a href="/listPerusahaan" class="btn btnpilih">Pilih</a>
                                 </div>
                             </div>
                         </div>
@@ -234,7 +234,7 @@
                                     <p>Paket</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="/listPaket" class="btn btn-primary">Pilih</a>
+                                    <a href="/listPaket" class="btn btnpilih">Pilih</a>
                                 </div>
                             </div>
                         </div>
