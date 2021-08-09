@@ -22,6 +22,14 @@ class ParameterModel extends Model
             ->join('mas_mas_teknik', 'mas_mas_teknik.id_teknik=mas_parameter.id_teknik')
             ->get()->getResult();
     }
+    public function getParameterYear()
+    {
+        $now = date("Y");
+        return $this->db->table('mas_parameter')
+            ->join('mas_pengujian', 'mas_pengujian.id_pengujian=mas_parameter.id_pengujian')
+            ->where("DATE_FORMAT(tgl_paket,'%Y')", $now)
+            ->get()->getResult();
+    }
 
     public function getPaketParameter($id_pengujian)
     {

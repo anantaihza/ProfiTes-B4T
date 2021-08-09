@@ -81,65 +81,92 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td><strong>Perusahaan A</strong> </td>
-                                <td><strong>agus</strong> </td>
-                                <td><strong>agus@gmail.com</strong> </td>
-                                <td><strong>Bandung</strong> </td>
-                                <td>
-                                    <button type="button" style="background-color: slateblue;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail</button>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Perusahaan A</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered mt-4" style="text-align: center;">
-                                                            <thead style="background-color: black; color: white; text-align: center;">
-                                                                <tr>
-                                                                    <th class="align-middle">No</th>
-                                                                    <th class="align-middle">Nama Lab</th>
-                                                                    <th class="align-middle">Paket</th>
-                                                                    <th class="align-middle">Biaya</th>
-                                                                    <th class="align-middle">Action</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th scope="row">1</th>
-                                                                    <td><strong>Laboratorium A</strong> </td>
-                                                                    <td><strong>Paket 1</strong> </td>
-                                                                    <td><strong>50000000</strong> </td>
-                                                                    <td> <button type="button" style="background-color: slateblue;" class="btn btn-primary">Lunas</button> </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">2</th>
-                                                                    <td><strong>Laboratorium B</strong> </td>
-                                                                    <td><strong>Paket 2</strong> </td>
-                                                                    <td><strong>10000000</strong> </td>
-                                                                    <td>
-                                                                        <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button>
-                                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                                                            <li><a class="dropdown-item active" href="/inputPengiriman">Input Pengiriman</a></li>
-                                                                            <li><a class="dropdown-item" href="/detailPengujian">Lihat Pengujian</a></li>
-                                                                        </ul>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
+                            <?php $i = 1; ?>
+                            <?php foreach ($users as $user) : ?>
+                                <tr>
+                                    <th scope="row"><?= $i; ?></th>
+                                    <td><?= $user->nama_user; ?></td>
+                                    <td><?= $user->username; ?></td>
+                                    <td><?= $user->email; ?></td>
+                                    <td><?= $user->detail_alamat; ?></td>
+                                    <td>
+                                        <button type="button" style="background-color: slateblue;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#perusahaan<?= $user->id_user; ?>">Detail</button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="perusahaan<?= $user->id_user; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Perusahaan A</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered mt-4" style="text-align: center;">
+                                                                <thead style="background-color: black; color: white; text-align: center;">
+                                                                    <tr>
+                                                                        <th class="align-middle">No</th>
+                                                                        <th class="align-middle">Nama Lab</th>
+                                                                        <th class="align-middle">Paket</th>
+                                                                        <th class="align-middle">Biaya</th>
+                                                                        <th class="align-middle">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php $j = 1; ?>
+                                                                    <?php foreach ($administrasi as $adm) : ?>
+                                                                        <?php if ($adm->id_user === $user->id_user) : ?>
+                                                                            <tr>
+                                                                                <th scope="row"><?= $j; ?></th>
+                                                                                <td><?= $adm->nama_laboratorium; ?></td>
+                                                                                <td><?= $adm->nama_pengujian; ?></td>
+                                                                                <td>Rp. <?= $adm->biaya; ?></td>
+                                                                                <?php if ($adm->status_pembayaran === "Belum Lunas") : ?>
+                                                                                    <td>
+                                                                                        <button type="button" style="background-color: slateblue;" class="btn btn-primary">Buat Lunas</button>
+                                                                                    </td>
+                                                                                <?php elseif ($adm->status_pembayaran === "Sudah Lunas") : ?>
+                                                                                    <td>
+                                                                                        <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button>
+
+                                                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                                                                            <li>
+                                                                                                <a class="dropdown-item" href="/inputPengiriman">Input Pengiriman</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                <a class="dropdown-item" href="/detailPengujian">Lihat Pengujian</a>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </td>
+                                                                                <?php endif ?>
+                                                                            </tr>
+                                                                        <?php endif ?>
+                                                                        <!-- <tr>
+                                                                            <th scope="row">2</th>
+                                                                            <td>Laboratorium B</td>
+                                                                            <td>Paket 2</td>
+                                                                            <td>10000000</td>
+                                                                            <td>
+                                                                                <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button>
+                                                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                                                                    <li><a class="dropdown-item" href="/inputPengiriman">Input Pengiriman</a></li>
+                                                                                    <li><a class="dropdown-item" href="/detailPengujian">Lihat Pengujian</a></li>
+                                                                                </ul>
+                                                                            </td>
+                                                                        </tr> -->
+                                                                        <?php $j++; ?>
+                                                                    <?php endforeach; ?>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
+                                    </td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
 
-                            </tr>
                         </tbody>
                     </table>
                 </div>

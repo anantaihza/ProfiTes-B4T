@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
             <a class="navbar-brand fw-bold" href="/dashboard">UP-<i>tek</i>MIRA</a>
@@ -58,11 +57,7 @@
         </div>
     </nav>
 
-    <div class="container path">
-        <!-- Breadcrumb -->
-
-        <!-- Breadcrumb -->
-
+    <div class="container path mb-5">
         <!-- Title -->
         <div class="title mt-4 pt-3">
             <h2> Paket Uji Profisiensi</h2>
@@ -79,12 +74,13 @@
         <!-- Button -->
 
         <br>
+
         <!-- Tab Lunas -->
         <div class="card" style="background-color: #fff;">
             <div class="card-body">
-                <table class="table table-bordered border-dark" style="text-align: center;">
+                <table class="table table-bordered border-dark">
                     <thead style="background-color: #1a1d21; color: white; ">
-                        <tr>
+                        <tr class="text-center">
                             <th style="width:5%;" scope="col" class="align-middle">No</th>
                             <th scope="col" class="align-middle">Nama Paket</th>
                             <th scope="col" class="align-middle">Biaya</th>
@@ -93,95 +89,114 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Paket 1</td>
-                            <td>3.000.000</td>
-                            <td>Ash Content</td>
-                            <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
-                                <p></p>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addParameterModal">Tambah Parameter</button>
-                                <!-- modal edit -->
-                                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Edit Paket</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="mb-3" style="text-align: left;">
-                                                        <label class="form-label">Nama Pengujian</label>
-                                                        <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab" value="cikoy">
-                                                        <label class="form-label">Biaya</label>
-                                                        <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
-                                                        <label class="form-label">Biaya Terbilang</label>
-                                                        <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
-                                                        <label class="form-label">Keterangan</label>
-                                                        <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                        <?php $i = 1; ?>
+                        <?php foreach ($pakets as $paket) : ?>
+                            <tr>
+                                <th scope="row" class="text-center">1</th>
+                                <td class="text-center"><?= $paket->nama_pengujian; ?></td>
+                                <td class="text-center">Rp. <?= $paket->biaya; ?></td>
+                                <td>
+                                    <ol type="1">
+                                        <?php $j = 1; ?>
+                                        <?php foreach ($parameters as $param) : ?>
+                                            <?php if ($param->id_pengujian == $paket->id_pengujian) : ?>
+                                                <li><?= $param->nama_parameter; ?></li>
+                                            <?php endif ?>
+                                            <?php $i++; ?>
+                                        <?php endforeach; ?>
+                                    </ol>
+                                </td>
+                                <td class="text-center">
+                                    <!-- Button Edit -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+
+                                    <!-- Modal Edit -->
+                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Paket</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <div class="mb-3" style="text-align: left;">
+                                                            <label class="form-label">Nama Pengujian</label>
+                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <label class="form-label">Biaya</label>
+                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <label class="form-label">Biaya Terbilang</label>
+                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <label class="form-label">Keterangan</label>
+                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- modal hapus -->
-                                <div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <!-- <div class="modal-header">
+
+
+
+                                    <!-- Button Hapus -->
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
+
+                                    <!-- Modal Hapus -->
+                                    <div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <!-- <div class="modal-header">
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div> -->
-                                            <div class="modal-body">
-                                                <h5>Apakah anda yakin ingin</h5>
-                                                <h5>menghapus Paket ?</h5>
-                                                <p></p>
-                                                <button type="button" class="btn btn-primary">Ya</button>
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                                <div class="modal-body">
+                                                    <h5>Apakah anda yakin ingin</h5>
+                                                    <h5>menghapus Paket ?</h5>
+                                                    <p></p>
+                                                    <button type="button" class="btn btn-primary">Ya</button>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- modal edit -->
-                                <div class="modal fade" id="addParameterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Tambah Parameter</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="mb-3" style="text-align: left;">
-                                                        <label class="form-label">Nama Parameter</label>
-                                                        <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab" value="cikoy">
-                                                        <label class="form-label">Satuan</label>
-                                                        <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-add">Tambah</button>
+
+
+                                    <!-- Button Tambah Parameter -->
+                                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#addParameterModal">Tambah Parameter</button>
+
+                                    <!-- Modal Tambah Parameter -->
+                                    <div class="modal fade" id="addParameterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Parameter</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <div class="mb-3" style="text-align: left;">
+                                                            <label class="form-label">Nama Parameter</label>
+                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <label class="form-label">Satuan</label>
+                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-add">Tambah</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
