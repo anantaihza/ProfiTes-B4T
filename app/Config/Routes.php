@@ -42,6 +42,7 @@ $routes->get('/tambahPaket', 'Admin::tambahPaket');
 $routes->get('/listPerusahaan', 'Admin::perusahaan');
 $routes->get('/inputPengiriman', 'Admin::inputPengiriman');
 $routes->get('/detailPengujian', 'Admin::detailPengujian');
+$routes->get('/parameter', 'Admin::parameter');
 
 $routes->get('/ujiProfisiensi', 'UjiProfisiensi::index');
 $routes->get('/ujiProfisiensi/pilih-baru', 'UjiProfisiensi::pilihBaru');
@@ -53,6 +54,7 @@ $routes->get('/requestPembayaran', 'UjiProfisiensi::requestPembayaran');
 
 $routes->get('/invoicePembayaran', 'GeneratePdf::invoicePembayaran');
 $routes->get('/laporanAkhir', 'GeneratePdf::LaporanAkhir');
+
 
 /*
  * --------------------------------------------------------------------
