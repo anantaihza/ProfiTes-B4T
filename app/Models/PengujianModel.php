@@ -21,4 +21,12 @@ class PengujianModel extends Model
             ->where("DATE_FORMAT(tgl_paket,'%Y')", $now)
             ->get()->getResult();
     }
+    public function getIdPaket($id)
+    {
+        $now = date("Y");
+        return $this->db->table('mas_pengujian')
+            ->where("id_pengujian", $id)
+            ->where("DATE_FORMAT(tgl_paket,'%Y')", $now)
+            ->get()->getRow();
+    }
 }

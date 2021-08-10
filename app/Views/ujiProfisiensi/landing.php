@@ -137,9 +137,13 @@
                                             </table>
                                         </div>
                                         <div>
-                                            <form action="/UjiProfisiensi/pengujian/<?= $adm->id_administrasi; ?>" method="post">
-                                                <button class="btn btn-add ">Pengujian</button>
-                                            </form>
+                                            <?php if ($adm->status_resi === "Sudah") : ?>
+                                                <form action="/UjiProfisiensi/pengujian/<?= $adm->id_administrasi; ?>" method="post">
+                                                    <button class="btn btn-add ">Pengujian</button>
+                                                </form>
+                                            <?php else : ?>
+                                                <p class="text-center"><b>Pesanan sedang diproses</b></p>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>

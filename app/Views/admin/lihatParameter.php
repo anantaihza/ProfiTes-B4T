@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
             <a class="navbar-brand fw-bold" href="/dashboard">UP-<i>tek</i>MIRA</a>
@@ -60,7 +61,7 @@
     <div class="container path mb-5">
         <!-- Title -->
         <div class="title mt-4 pt-3">
-            <h2> Parameter (Paket 1) </h2>
+            <h2> Parameter <?= $paket->nama_pengujian; ?> </h2>
             <hr />
         </div>
         <!-- Title -->
@@ -117,65 +118,68 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($parameters as $param) : ?>
+                            <tr>
+                                <th scope="row" class="text-center"><?= $i; ?></th>
+                                <td class="text-center"><?= $param->nama_parameter; ?></td>
+                                <td class="text-center"><?= $param->satuan; ?></td>
 
-                        <tr>
-                            <th scope="row" class="text-center">1</th>
-                            <td class="text-center">Test1</td>
-                            <td class="text-center">Rp.20</td>
+                                <td class="text-center">
+                                    <!-- Button Edit -->
+                                    <button type="button" class="btn btnedit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
 
-                            <td class="text-center">
-                                <!-- Button Edit -->
-                                <button type="button" class="btn btnedit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                                    <!-- Modal Edit -->
+                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header border-0">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Paket</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body border-0">
+                                                    <form>
+                                                        <div class="mb-3" style="text-align: left;">
+                                                            <label class="form-label">Nama Parameter</label>
+                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <label class="form-label">Satuan</label>
+                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
 
-                                <!-- Modal Edit -->
-                                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header border-0">
-                                                <h5 class="modal-title" id="exampleModalLabel">Edit Paket</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body border-0">
-                                                <form>
-                                                    <div class="mb-3" style="text-align: left;">
-                                                        <label class="form-label">Nama Parameter</label>
-                                                        <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
-                                                        <label class="form-label">Satuan</label>
-                                                        <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
-
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer border-0">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Button Hapus -->
-                                <button type="button" class="btn btnhapus" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
-                                <div id="hapusModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-confirm modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header flex-column border-0">
-
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
-                                            </div>
-                                            <div class="modal-body border-0">
-                                                <p>Paket yang telah dihapus, tidak dapat dikembalikan kembali</p>
-                                            </div>
-                                            <div class="modal-footer justify-content-center border-0">
-                                                <button type="button" class="btn btn-danger">Delete</button>
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer border-0">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <!-- Button Hapus -->
+                                    <button type="button" class="btn btnhapus" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
+                                    <div id="hapusModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-confirm modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header flex-column border-0">
 
-                            </td>
-                        </tr>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
+                                                </div>
+                                                <div class="modal-body border-0">
+                                                    <p>Paket yang telah dihapus, tidak dapat dikembalikan kembali</p>
+                                                </div>
+                                                <div class="modal-footer justify-content-center border-0">
+                                                    <button type="button" class="btn btn-danger">Delete</button>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

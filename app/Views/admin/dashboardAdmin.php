@@ -113,15 +113,15 @@
                             <h4>Pengiriman</h4>
                             <div class="row mt-3">
                                 <div class="col-4">
-                                    <h3><b>20</b></h3>
+                                    <h3><b><?= $pengirimanSampleJml; ?></b></h3>
                                     <p>Pengiriman Sample</p>
                                 </div>
                                 <div class="col-4">
-                                    <h3><b>20</b></h3>
+                                    <h3><b><?= $diterimaJml; ?></b></h3>
                                     <p>Sample Diterima</p>
                                 </div>
                                 <div class="col-4">
-                                    <h3><b>20</b></h3>
+                                    <h3><b><?= $hasilUjiJml; ?></b></h3>
                                     <p>Penyampaian Hasil Uji</p>
                                 </div>
                             </div>

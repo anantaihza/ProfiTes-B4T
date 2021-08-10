@@ -31,6 +31,7 @@ class TrPengiriman extends Migration
 			'status_pengiriman' => [
 				'type'		 => 'VARCHAR',
 				'constraint' => '20',
+				'default' 	 => 'Sedang Dikirim'
 			],
 			'nama_barang' => [
 				'type'		 => 'VARCHAR',
@@ -39,17 +40,24 @@ class TrPengiriman extends Migration
 			'kondisi_barang' => [
 				'type'		 => 'VARCHAR',
 				'constraint' => '128',
+				'null' => TRUE
 			],
 			'keterangan' => [
 				'type'		 => 'VARCHAR',
 				'constraint' => '128',
+				'null' => TRUE
 			],
 			'nama_penerima' => [
 				'type'		 => 'VARCHAR',
 				'constraint' => '28',
+				'null' => TRUE
+			],
+			'tgl_pengiriman' => [
+				'type'		 => 'DATETIME',
 			],
 			'tgl_penerimaan' => [
-				'type'		 => 'DATETIME'
+				'type'		 => 'DATETIME',
+				'null' => TRUE
 			],
 		]);
 		$this->forge->addKey('id_tr_pengiriman', TRUE);

@@ -69,14 +69,14 @@
     <div class="container" style="margin-top: 50px;">
         <div class="row justify-content-md-center">
             <div class="col-4">
-                <form>
+                <form action="/Admin/insertPengiriman/<?= $id_administrasi; ?>" method="POST">
                     <div class="mb-3">
                         <label class="form-label">Nomor Resi</label>
-                        <input class="form-control formInput" id="">
+                        <input class="form-control formInput" id="nomor_resi" name="nomor_resi" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Catatan Pengiriman</label>
-                        <input class="form-control" id="">
+                        <input class="form-control" id="catatan_pengiriman" name="catatan_pengiriman" required>
                     </div>
                     <button type="submit" class="btnSubmit px-3">Submit</button>
                 </form>
