@@ -92,6 +92,11 @@ class TrAdministrasi extends Migration
 				'constraint' => '32',
 				'default'	 => 'Belum'
 			],
+			'status_resi' => [
+				'type' => 'VARCHAR',
+				'constraint' => '32',
+				'default'	 => 'Belum'
+			],
 			'tgl_administrasi' => [
 				'type' => 'DATETIME',
 			]

@@ -69,74 +69,75 @@
     <div class="container" style="margin-top: 50px;">
         <div class="row justify-content-md-center">
             <div class="col-12">
-                <form>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label">Nama Lab</label>
+                        <input class="form-control formInput" id="" value="<?= $pengujian[0]->nama_laboratorium; ?>" readonly>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Nama Paket</label>
+                        <input type="" class="form-control" name="" id="" value="<?= $paket->nama_pengujian; ?>" readonly>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Tanggal Pengujian</label>
+                        <input type="" class="form-control" name="" id="" value="<?= $pengujian[0]->tgl_pengujian; ?>" readonly>
+                    </div>
                     <div class="row">
-                        <div class="col-md-4">
-                            <label class="form-label">Nama Penelitian</label>
-                            <input class="form-control formInput" id="" readonly>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Nama Paket</label>
-                            <input type="" class="form-control" name="" id="" readonly>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Tanggal Pengujian</label>
-                            <input type="" class="form-control" name="" id="" readonly>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <table class="table table-bordered mt-4" style="text-align: center;">
-                                    <thead style="background-color: slateblue; color: white; text-align: center;">
+                        <div class="col-md-12">
+                            <table class="table table-bordered mt-4" style="text-align: center;">
+                                <thead style="background-color: slateblue; color: white; text-align: center;">
+                                    <tr>
+                                        <th rowspan="2" scope="col" class="align-middle">No</th>
+                                        <th rowspan="2" scope="col" class="align-middle">Parameter Uji</th>
+                                        <th rowspan="2" scope="col" class="align-middle">Satuan</th>
+
+                                        <th colspan="3" scope="col">Data Hasil Uji</th>
+                                        <th rowspan="2" scope="col" class="align-middle">Expanded Uncertainty (U95%)</th>
+                                        <th rowspan="2" scope="col" class="align-middle">Standar Acuan</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">A</th>
+                                        <th scope="col">B</th>
+                                        <th scope="col">Rata-rata</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($pengujian as $uji) : ?>
                                         <tr>
-                                            <th rowspan="2" scope="col" class="align-middle">No</th>
-                                            <th rowspan="2" scope="col" class="align-middle">Parameter Uji</th>
-                                            <th rowspan="2" scope="col" class="align-middle">Satuan</th>
-
-                                            <th colspan="3" scope="col">Data Hasil Uji</th>
-                                            <th rowspan="2" scope="col" class="align-middle">Expanded Uncertainty (U95%)</th>
-                                            <th rowspan="2" scope="col" class="align-middle">Standar Acuan</th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">A</th>
-                                            <th scope="col">B</th>
-                                            <th scope="col">Rata-rata</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>1</td>
-                                            <td>1</td>
+                                            <th scope="row"><?= $i; ?></th>
+                                            <td><?= $uji->nama_parameter; ?></td>
+                                            <td><?= $uji->satuan; ?></td>
 
                                             <td>
-                                                <p>1</p>
+                                                <p><?= $uji->hasilUji_A; ?></p>
                                             </td>
                                             <td>
-                                                <p>1</p>
+                                                <p><?= $uji->hasilUji_B; ?></p>
                                             </td>
                                             <td>
-                                                <p>1</p>
+                                                <p><?= $uji->rerata; ?></p>
                                             </td>
                                             <td>
-                                                <p>1</p>
+                                                <p><?= $uji->u95; ?></p>
                                             </td>
                                             <td>
-                                                <p>1</p>
+                                                <p><?= $uji->standar_acuan; ?></p>
                                             </td>
                                         </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
+                                        <?php $i++; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
                         </div>
+                    </div>
 
-                </form>
+
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Form -->
+        <!-- Form -->
 
 
     </div>

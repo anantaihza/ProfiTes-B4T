@@ -44,7 +44,6 @@
 </head>
 
 <body style="background-color: #E5E5E5;">
-
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
             <a class="navbar-brand fw-bold" href="/dashboard">UP-<i>tek</i>MIRA</a>
@@ -121,7 +120,7 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Perusahaan A</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel"><?= $user->nama_user; ?></h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -147,37 +146,57 @@
                                                                                 <td>Rp. <?= $adm->biaya; ?></td>
                                                                                 <?php if ($adm->status_pembayaran === "Belum Lunas") : ?>
                                                                                     <td>
-                                                                                        <button type="button" class="btn btnlunas px-3">Buat Lunas</button>
+                                                                                        <form action="/Admin/buatLunas/<?= $adm->id_administrasi; ?>" method="post">
+                                                                                            <button type="submit" class="btn btnlunas px-3">Buat Lunas</button>
+                                                                                        </form>
+
+
                                                                                     </td>
                                                                                 <?php elseif ($adm->status_pembayaran === "Sudah Lunas") : ?>
                                                                                     <td>
-                                                                                        <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button>
 
-                                                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                                                                            <li>
-                                                                                                <a class="dropdown-item" href="/inputPengiriman">Input Pengiriman</a>
-                                                                                            </li>
-                                                                                            <li>
-                                                                                                <a class="dropdown-item" href="/detailPengujian">Lihat Pengujian</a>
-                                                                                            </li>
-                                                                                        </ul>
+                                                                                        <!-- <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button> -->
+
+                                                                                        <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2"> -->
+                                                                                        <?php if (($adm->status_pengujian === "Belum") && ($adm->status_resi === "Belum")) : ?>
+                                                                                            <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button>
+                                                                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                                                                                <li>
+                                                                                                    <!-- <form action="/Admin/inputPengiriman/" method="post">
+                                                                                                        <button type="submit" class="dropdown-item">Input Pengiriman</button>
+                                                                                                    </form> -->
+                                                                                                    <a class="dropdown-item" href="/inputPengiriman/<?= $adm->id_administrasi; ?>">Input Pengiriman</a>
+
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        <?php elseif (($adm->status_pengujian === "Belum") && ($adm->status_resi === "Sudah")) : ?>
+                                                                                            <?php foreach ($pengiriman as $kirim) : ?>
+                                                                                                <?php if ($kirim->id_administrasi == $adm->id_administrasi) : ?>
+                                                                                                    <?php if ($kirim->status_pengiriman === "Sedang Dikirim") : ?>
+                                                                                                        <p>Menunggu diterima oleh Penerima</p>
+                                                                                                    <?php elseif ($kirim->status_pengiriman === "Diterima") : ?>
+                                                                                                        <p>Sudah diterima, menunggu pengujian.</p>
+                                                                                                    <?php endif; ?>
+                                                                                                <?php endif; ?>
+                                                                                            <?php endforeach; ?>
+                                                                                        <?php elseif (($adm->status_pengujian === "Sudah") && ($adm->status_resi === "Sudah")) : ?>
+                                                                                            <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button>
+                                                                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                                                                                <li>
+                                                                                                    <!-- <form action="/Admin/detailPengujian/" method="post">
+                                                                                                        <button class="dropdown-item">Lihat Pengujian</button>
+                                                                                                    </form> -->
+                                                                                                    <a class="dropdown-item" href="/detailPengujian/<?= $adm->id_administrasi; ?>">Detail Pengujian</a>
+                                                                                                </li>
+                                                                                            </ul>
+
+                                                                                        <?php endif; ?>
+                                                                                        <!-- </ul> -->
+
                                                                                     </td>
                                                                                 <?php endif ?>
                                                                             </tr>
-                                                                        <?php endif ?>
-                                                                        <!-- <tr>
-                                                                            <th scope="row">2</th>
-                                                                            <td>Laboratorium B</td>
-                                                                            <td>Paket 2</td>
-                                                                            <td>10000000</td>
-                                                                            <td>
-                                                                                <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button>
-                                                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                                                                    <li><a class="dropdown-item" href="/inputPengiriman">Input Pengiriman</a></li>
-                                                                                    <li><a class="dropdown-item" href="/detailPengujian">Lihat Pengujian</a></li>
-                                                                                </ul>
-                                                                            </td>
-                                                                        </tr> -->
+                                                                        <?php endif; ?>
                                                                         <?php $j++; ?>
                                                                     <?php endforeach; ?>
                                                                 </tbody>

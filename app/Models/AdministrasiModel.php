@@ -86,6 +86,23 @@ class AdministrasiModel extends Model
             ->where('id_administrasi', $id_administrasi)
             ->get()->getRow();
     }
+    public function getAdministrasiResiSudah()
+    {
+        $now = date("Y");
+        return $this->db->table('tr_administrasi')
+            ->where("DATE_FORMAT(tgl_administrasi,'%Y')", $now)
+            ->where('status_resi', 'Sudah')
+            ->get()->getResult();
+    }
+    public function getAdministrasiStatusPengujian()
+    {
+        $now = date("Y");
+        return $this->db->table('tr_administrasi')
+            ->where("DATE_FORMAT(tgl_administrasi,'%Y')", $now)
+            ->where('status_pengujian', 'Sudah')
+            ->get()->getResult();
+    }
+
 
     // Function ADD
     public function addAdministrasi($id_pengujian, $id, $penanggung_jawab_lab, $status_akreditasi, $nama_laboratorium, $telpon_laboratorium, $fax_laboratorium, $alamat_laboratorium, $alamat_pengiriman, $nama_pic, $jabatan_pic, $telpon_pic, $email_pic)
@@ -113,10 +130,29 @@ class AdministrasiModel extends Model
         return $this->db->insertID();
     }
 
+    // UPDATE
     public function updateStatusPengujian($id_administrasi)
     {
         $data = [
             'status_pengujian'  => "Sudah"
+        ];
+        $this->db->table('tr_administrasi')
+            ->where('id_administrasi', $id_administrasi)
+            ->update($data);
+    }
+    public function updateStatusPembayaran($id_administrasi)
+    {
+        $data = [
+            'status_pembayaran'  => "Sudah Lunas"
+        ];
+        $this->db->table('tr_administrasi')
+            ->where('id_administrasi', $id_administrasi)
+            ->update($data);
+    }
+    public function updateStatusResi($id_administrasi)
+    {
+        $data = [
+            'status_resi'  => "Sudah"
         ];
         $this->db->table('tr_administrasi')
             ->where('id_administrasi', $id_administrasi)
