@@ -25,6 +25,13 @@ class PengirimanModel extends Model
             ->get()->getResult();
     }
 
+    public function getPengirimanById($id_administrasi)
+    {
+        return $this->db->table('tr_pengiriman')
+            ->where('id_administrasi', $id_administrasi)
+            ->get()->getRow();
+    }
+
     public function getStatusPengirimanDiterima()
     {
         $now = date("Y");
@@ -45,5 +52,21 @@ class PengirimanModel extends Model
                 'nama_barang' => $nama_barang,
                 'tgl_pengiriman' => $now
             ]);
+    }
+
+    //UPDATE
+    public function updatePenerimaan($id_tr_pengiriman, $kondisiBarang, $keterangan, $penerima)
+    {
+        $now = new Time('now');
+        $data = [
+            'status_pengiriman'  => "Diterima",
+            'kondisi_barang'     => $kondisiBarang,
+            'keterangan'         => $keterangan,
+            'nama_penerima'      => $penerima,
+            'tgl_penerimaan'     => $now
+        ];
+        $this->db->table('tr_pengiriman')
+            ->where('id_tr_pengiriman', $id_tr_pengiriman)
+            ->update($data);
     }
 }

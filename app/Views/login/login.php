@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="banner col-lg-6 col-md-12 d-none d-lg-block">
                         <div class="containter px-3 py-4">
-                            <h2 class="text-center">ProfiTes B4T</h2>
+                            <h2 class="text-center">UP-<i>tek</i>Mira</h2>
                             <p class="text-center">
                                 Silahkan login untuk melakukan Uji Profisiensi.
                             </p>
@@ -48,7 +48,7 @@
                     <div class="col-lg-6 col-md-12 py-4">
                         <div class="container">
                             <div class="title-login text-center d-lg-none d-xl-none">
-                                <h2>ProfiTes B4T</h2>
+                                <h2>UP-<i>tek</i>Mira</h2>
                                 <p>Silahkan login untuk melakukan Uji Profisiensi.</p>
                             </div>
                             <nav class="py-3">
