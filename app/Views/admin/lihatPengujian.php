@@ -81,7 +81,8 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Tanggal Pengujian</label>
-                        <input type="" class="form-control" name="" id="" value="<?= $pengujian[0]->tgl_pengujian; ?>" readonly>
+
+                        <input type="" class="form-control" name="" id="" value="<?= date("d-m-Y", strtotime($pengujian[0]->tgl_pengujian)); ?>" readonly>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
