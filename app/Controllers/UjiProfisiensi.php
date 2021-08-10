@@ -6,6 +6,7 @@ use App\Models\PengujianModel;
 use App\Models\AdministrasiModel;
 use App\Models\ParameterModel;
 use App\Models\UjiProfisiensiModel;
+use App\Models\PengirimanModel;
 
 class UjiProfisiensi extends BaseController
 {
@@ -21,6 +22,7 @@ class UjiProfisiensi extends BaseController
         $this->administrasi = new AdministrasiModel();
         $this->ujiprofisiensi = new UjiProfisiensiModel();
         $this->parameter = new ParameterModel();
+        $this->pengiriman = new PengirimanModel();
     }
 
     public function index()
@@ -43,14 +45,26 @@ class UjiProfisiensi extends BaseController
     {
         $dataAdministrasi = $this->administrasi->getIdMasPengujian($id_administrasi);
         $dataParameter = $this->parameter->getPaketParameter($dataAdministrasi->id_pengujian);
+        $dataStatusPengiriman = $this->pengiriman->getPengirimanById($id_administrasi);
         session()->set([
             'dataAdministrasi' => $dataAdministrasi
         ]);
         $data = [
             'dataAdm' => $dataAdministrasi,
-            'dataParam' => $dataParameter
+            'dataParam' => $dataParameter,
+            'dataStatusPengiriman' => $dataStatusPengiriman
         ];
         return view('ujiProfisiensi/pengujian', $data);
+    }
+
+    public function updatePengiriman($id_tr_pengiriman, $id_administrasi)
+    {
+        $kondisiBarang = $this->request->getVar('kondisiBarang');
+        $keterangan = $this->request->getVar('keterangan');
+        $penerima = $this->request->getVar('penerima');
+
+        $this->pengiriman->updatePenerimaan($id_tr_pengiriman, $kondisiBarang, $keterangan, $penerima);
+        return redirect()->to("UjiProfisiensi/pengujian/$id_administrasi");
     }
 
     public function insertPengujian($id_administrasi)
