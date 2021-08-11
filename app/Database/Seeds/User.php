@@ -20,9 +20,9 @@ class User extends Seeder
 				'role' => 'admin'
 			],
 			[
-				'username' => 'ananta',
-				'email' => 'ananta@gmail.com',
-				'password' => password_hash('ananta', PASSWORD_BCRYPT),
+				'username' => 'anantaihz',
+				'email' => 'anantaihz@gmail.com',
+				'password' => password_hash('anantaihz', PASSWORD_BCRYPT),
 				'tgl_user' => $date,
 				'role' => 'user'
 			],
