@@ -37,6 +37,7 @@ $routes->get('/profilku', 'Profile::index');
 $routes->get('/profilku/update/(:num)', 'Profile::update/$1');
 
 $routes->get('/dashboard', 'Admin::dashboardAdmin');
+$routes->get('/listAdmin', 'Admin::admin');
 $routes->get('/listPaket', 'Admin::paket');
 $routes->get('/tambahPaket', 'Admin::tambahPaket');
 $routes->get('/listPerusahaan', 'Admin::perusahaan');

@@ -26,6 +26,9 @@
                         <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/listAdmin">Admin</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/listPaket">Paket</a>
                     </li>
                     <li class="nav-item">
@@ -38,12 +41,6 @@
                             <span class="badge rounded-pill bg-primary"><?= session()->get('username'); ?></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="/profile">Pengaturan Profil</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
                             <li>
                                 <a class="dropdown-item" href="/Login/logout">Logout</a>
                             </li>
@@ -157,64 +154,10 @@
                         <div class="col-4">
                             <div class="row my-auto">
                                 <div class="col-md-6 my-auto">
-                                    <p>Tambah Admin</p>
+                                    <p>Admin</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="button" class="btn btnpilih" data-bs-toggle="modal" data-bs-target="#addAdmin">
-                                        Pilih
-                                    </button>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="addAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-lg text-start">
-                                            <div class="modal-content">
-                                                <div class="modal-header border-0">
-                                                    <h5 class="modal-title" id="exampleModalLabel">
-                                                        Tambah Admin
-                                                    </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body border-0">
-                                                    <div class="container">
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="mb-3 username">
-                                                                    <label for="username" class="form-label">Username</label>
-                                                                    <input type="text" class="form-control" id="username" />
-                                                                </div>
-                                                                <div class="mb-3 email">
-                                                                    <label for="email" class="form-label">Email address</label>
-                                                                    <input type="email" class="form-control" id="email" placeholder="name@example.com" />
-                                                                </div>
-                                                                <div class="mb-3 nama">
-                                                                    <label for="nama-lengkap" class="form-label">Nama Lengkap</label>
-                                                                    <input type="text" class="form-control" id="nama-lengkap" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="mb-3 telepon">
-                                                                    <label for="telepon" class="form-label">No Telepon</label>
-                                                                    <input type="number" class="form-control" id="telepon" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" />
-                                                                </div>
-                                                                <div class="mb-3 password">
-                                                                    <label for="password" class="form-label">Password</label>
-                                                                    <input type="password" class="form-control" id="password" />
-                                                                </div>
-                                                                <div class="mb-3 alamat">
-                                                                    <label for="alamat" class="form-label">Alamat</label>
-                                                                    <textarea class="form-control" id="alamat" rows="3"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer border-0">
-                                                    <button type="button" class="btn btn-primary">
-                                                        Submit
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a href="/listAdmin" class="btn btnpilih">Pilih</a>
                                 </div>
                             </div>
                         </div>

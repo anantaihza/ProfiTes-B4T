@@ -56,6 +56,9 @@
                         <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/listAdmin">Admin</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/listPaket">Paket</a>
                     </li>
                     <li class="nav-item">
@@ -68,12 +71,6 @@
                             <span class="badge rounded-pill bg-primary"><?= session()->get('username'); ?></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="/profile">Pengaturan Profil</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
                             <li>
                                 <a class="dropdown-item" href="/Login/logout">Logout</a>
                             </li>
