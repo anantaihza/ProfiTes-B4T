@@ -69,21 +69,21 @@
     <div class="container" style="margin-top: 50px;">
         <div class="row justify-content-md-center">
             <div class="col-8">
-                <form>
+                <form action="/Admin/insertPaket" method="POST">
                     <div class="row">
                         <div class="col-md-6">
                             <label class="form-label">Nama Pengujian</label>
-                            <input class="form-control formInput" id="" required>
+                            <input class="form-control formInput" id="nama_pengujian" name="nama_pengujian" required>
                             <p></p>
                             <label class="form-label">Keterangan</label>
-                            <textarea type="text" class="form-control" id="" name="" required></textarea>
+                            <textarea type="text" class="form-control" id="keterangan" name="keterangan" required></textarea>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Biaya</label>
-                            <input type="" class="form-control" name="" id="" required>
+                            <input type="" class="form-control" id="biaya" name="biaya" required>
                             <p></p>
                             <label class="form-label">Biaya Terbilang</label>
-                            <input type="" class="form-control" name="" id="" required>
+                            <input type="" class="form-control" id="biaya_terbilang" name="biaya_terbilang" required>
                             <p></p>
                         </div>
                     </div>

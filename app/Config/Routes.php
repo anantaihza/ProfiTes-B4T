@@ -42,7 +42,7 @@ $routes->get('/tambahPaket', 'Admin::tambahPaket');
 $routes->get('/listPerusahaan', 'Admin::perusahaan');
 $routes->get('/inputPengiriman/(:num)', 'Admin::inputPengiriman/$1');
 $routes->get('/detailPengujian/(:num)', 'Admin::detailPengujian/$1');
-$routes->get('/listParameter', 'Admin::parameter');
+$routes->get('/listParameter/(:num)', 'Admin::parameter/$1');
 
 $routes->get('/ujiProfisiensi', 'UjiProfisiensi::index');
 $routes->get('/ujiProfisiensi/pilih-baru', 'UjiProfisiensi::pilihBaru');

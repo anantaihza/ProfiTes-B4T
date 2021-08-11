@@ -81,20 +81,23 @@
                                 <h5 class="modal-title" id="exampleModalLabel">Tambah Parameter</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
-                                <form>
+                            <form action="/Admin/insertParameter/<?= $paket->id_pengujian; ?>" method="post">
+                                <div class="modal-body">
+
                                     <div class="mb-3" style="text-align: left;">
                                         <label class="form-label">Nama Parameter</label>
-                                        <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                        <input type="text" class="form-control" name="nama_parameter" id="nama_parameter" required>
+
                                         <label class="form-label">Satuan</label>
-                                        <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                        <input type="text" class="form-control" name="satuan" id="satuan" required>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-add">Tambah</button>
-                            </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-add">Tambah</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -127,49 +130,53 @@
 
                                 <td class="text-center">
                                     <!-- Button Edit -->
-                                    <button type="button" class="btn btnedit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                                    <button type="button" class="btn btnedit" data-bs-toggle="modal" data-bs-target="#editModal<?= $param->id_parameter; ?>">Edit</button>
 
                                     <!-- Modal Edit -->
-                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="editModal<?= $param->id_parameter; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header border-0">
                                                     <h5 class="modal-title" id="exampleModalLabel">Edit Paket</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body border-0">
-                                                    <form>
+                                                <form action="/Admin/updateParameter/<?= $param->id_parameter; ?>/<?= $paket->id_pengujian; ?>" method="post">
+                                                    <div class="modal-body border-0">
+
                                                         <div class="mb-3" style="text-align: left;">
                                                             <label class="form-label">Nama Parameter</label>
-                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <input type="text" class="form-control" name="nama_parameter" id="nama_parameter" value="<?= $param->nama_parameter; ?>">
                                                             <label class="form-label">Satuan</label>
-                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <input type="text" class="form-control" name="satuan" id="satuan" value="<?= $param->satuan; ?>">
 
                                                         </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer border-0">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
+
+                                                    </div>
+                                                    <div class="modal-footer border-0">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Button Hapus -->
-                                    <button type="button" class="btn btnhapus" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
-                                    <div id="hapusModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <button type="button" class="btn btnhapus" data-bs-toggle="modal" data-bs-target="#hapusModal<?= $param->id_parameter; ?>">Hapus</button>
+                                    <div id="hapusModal<?= $param->id_parameter; ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-confirm modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header flex-column border-0">
 
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin menghapus <?= $param->nama_parameter; ?>?</h5>
                                                 </div>
                                                 <div class="modal-body border-0">
                                                     <p>Paket yang telah dihapus, tidak dapat dikembalikan kembali</p>
                                                 </div>
                                                 <div class="modal-footer justify-content-center border-0">
-                                                    <button type="button" class="btn btn-danger">Delete</button>
+                                                    <form action="/Admin/deleteParameter/<?= $param->id_parameter; ?>/<?= $paket->id_pengujian; ?>" method="post">
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>

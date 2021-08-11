@@ -111,34 +111,34 @@
                                 </td>
                                 <td class="text-center">
                                     <!-- Button Edit -->
-                                    <button type="button" class="btn btnedit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                                    <button type="button" class="btn btnedit" data-bs-toggle="modal" data-bs-target="#editModal<?= $paket->id_pengujian; ?>">Edit</button>
 
                                     <!-- Modal Edit -->
-                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="editModal<?= $paket->id_pengujian; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header border-0">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Paket</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit <?= $paket->nama_pengujian; ?></h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body border-0">
-                                                    <form>
+                                                <form action="/Admin/editPaket/<?= $paket->id_pengujian; ?>" method="post">
+                                                    <div class="modal-body border-0">
                                                         <div class="mb-3" style="text-align: left;">
                                                             <label class="form-label">Nama Pengujian</label>
-                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <input type="text" class="form-control" name="nama_pengujian" id="nama_pengujian" value="<?= $paket->nama_pengujian; ?>">
                                                             <label class="form-label">Biaya</label>
-                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <input type="text" class="form-control" name="biaya" id="biaya" value="<?= $paket->biaya ?>">
                                                             <label class="form-label">Biaya Terbilang</label>
-                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <input type="text" class="form-control" name="biaya_terbilang" id="biaya_terbilang" value="<?= $paket->biaya_terbilang; ?>">
                                                             <label class="form-label">Keterangan</label>
-                                                            <input type="text" class="form-control" name="penanggung_jawab_lab" id="penanggung_jawab_lab">
+                                                            <input type="text" class="form-control" name="keterangan" id="keterangan" value="<?= $paket->keterangan; ?>">
                                                         </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer border-0">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
+                                                    </div>
+                                                    <div class="modal-footer border-0">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -146,8 +146,8 @@
 
 
                                     <!-- Button Hapus -->
-                                    <button type="button" class="btn btnhapus" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
-                                    <div id="hapusModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <button type="button" class="btn btnhapus" data-bs-toggle="modal" data-bs-target="#hapusModal<?= $paket->id_pengujian; ?>">Hapus</button>
+                                    <div id="hapusModal<?= $paket->id_pengujian; ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-confirm modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header flex-column border-0">
@@ -156,10 +156,12 @@
                                                     <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
                                                 </div>
                                                 <div class="modal-body border-0">
-                                                    <p>Paket yang telah dihapus, tidak dapat dikembalikan kembali</p>
+                                                    <p>Jika <?= $paket->nama_pengujian; ?> telah dihapus, tidak dapat dikembalikan kembali</p>
                                                 </div>
                                                 <div class="modal-footer justify-content-center border-0">
-                                                    <button type="button" class="btn btn-danger">Delete</button>
+                                                    <form action="/Admin/deletePaket/<?= $paket->id_pengujian; ?>" method="post">
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
@@ -168,9 +170,10 @@
 
                                     <!-- Button Tambah Parameter -->
                                     <br>
-                                    <form action="/Admin/parameter/<?= $paket->id_pengujian; ?>" method="post">
+                                    <!-- <form action="/Admin/parameter/" method="post">
                                         <button type="submit" class="btn btnparameter">Parameter</button>
-                                    </form>
+                                    </form> -->
+                                    <a href="/listParameter/<?= $paket->id_pengujian; ?>" class="btn btnparameter">Parameter</a>
 
                                 </td>
                             </tr>
