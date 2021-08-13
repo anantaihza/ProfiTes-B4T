@@ -37,7 +37,12 @@ class Admin extends BaseController
         return view('admin/dashboardAdmin', $data);
     }
 
+    // Admin
+    public function admin()
+    {
 
+        return view('admin/listAdmin');
+    }
 
     // Paket
     public function paket()

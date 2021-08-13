@@ -21,8 +21,8 @@ class TrPengiriman extends Migration
 				'unsigned'	 => TRUE
 			],
 			'nomor_resi' => [
-				'type'		 => 'INT',
-				'constraint' => 32,
+				'type'		 => 'VARCHAR',
+				'constraint' => '128',
 			],
 			'catatan_pengiriman' => [
 				'type'		 => 'VARCHAR',
