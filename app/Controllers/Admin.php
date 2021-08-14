@@ -40,9 +40,66 @@ class Admin extends BaseController
     // Admin
     public function admin()
     {
-
-        return view('admin/listAdmin');
+        $data = [
+            'admins'        => $this->users->getAdmin()
+        ];
+        return view('admin/listAdmin', $data);
     }
+
+    public function insertAdmin()
+    {
+        $username = $this->request->getVar('username');
+        $email = $this->request->getVar('email');
+        $password = password_hash($this->request->getVar('password'), PASSWORD_BCRYPT);
+        $nama_user = $this->request->getVar('nama_lengkap');
+        $detail_alamat = $this->request->getVar('alamat');
+        $no_telepon = $this->request->getVar('telepon');
+
+        $this->users->addAdmin($username, $email, $password, $nama_user, $detail_alamat, $no_telepon);
+        return redirect()->to("/listAdmin");
+    }
+
+    public function editAdmin($id_user)
+    {
+        $valid = [
+            'repassword' => [
+                'rules' => 'matches[password_new]',
+                'errors' => [
+                    'matches' => '{field} tidak sama dengan Password'
+                ]
+            ],
+        ];
+        if (!$this->validate($valid)) {
+            session()->setFlashdata('error', $this->validator->listErrors());
+            return redirect()->back();
+        }
+
+        if ($this->request->getVar('password_new')) {
+            $data = [
+                'username' => $this->request->getVar('username'),
+                'nama_user' => $this->request->getVar('nama_lengkap'),
+                'email' => $this->request->getVar('email'),
+                'no_telepon' => $this->request->getVar('no_telepon'),
+                'detail_alamat' => $this->request->getVar('alamat'),
+                'password' => password_hash($this->request->getVar('password_new'), PASSWORD_BCRYPT)
+            ];
+            $this->users->updateAdmin($data, $id_user);
+            session()->setFlashdata('message', 'Password anda berhasil diubah');
+            return redirect()->to('/listAdmin');
+        }
+
+        $data = [
+            'username' => $this->request->getVar('username'),
+            'nama_user' => $this->request->getVar('nama_lengkap'),
+            'email' => $this->request->getVar('email'),
+            'no_telepon' => $this->request->getVar('no_telepon'),
+            'detail_alamat' => $this->request->getVar('alamat')
+        ];
+
+        $this->users->updateAdmin($data, $id_user);
+        return redirect()->to("listAdmin");
+    }
+
 
     // Paket
     public function paket()

@@ -69,60 +69,77 @@
                     <i class="fas fa-plus"></i>
                 </div>
                 <button type="button" class="btn btn-add px-3" data-bs-toggle="modal" data-bs-target="#addAdmin">Tambah Admin</button>
+
                 <!-- Modal -->
                 <div class="modal fade" id="addAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg text-start">
                         <div class="modal-content">
-                            <div class="modal-header border-0">
-                                <h5 class="modal-title" id="exampleModalLabel">
-                                    Tambah Admin
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body border-0">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="mb-3 username">
-                                                <label for="username" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="username" />
+                            <form action="/Admin/insertAdmin" method="POST">
+                                <div class="modal-header border-0">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        Tambah Admin
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body border-0">
+                                    <div class="container">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3 username">
+                                                    <label for="username" class="form-label">Username</label>
+                                                    <input type="text" class="form-control" id="username" name="username" />
+                                                </div>
+                                                <div class="mb-3 email">
+                                                    <label for="email" class="form-label">Email address</label>
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" />
+                                                </div>
+                                                <div class="mb-3 nama">
+                                                    <label for="nama-lengkap" class="form-label">Nama Lengkap</label>
+                                                    <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" />
+                                                </div>
                                             </div>
-                                            <div class="mb-3 email">
-                                                <label for="email" class="form-label">Email address</label>
-                                                <input type="email" class="form-control" id="email" placeholder="name@example.com" />
-                                            </div>
-                                            <div class="mb-3 nama">
-                                                <label for="nama-lengkap" class="form-label">Nama Lengkap</label>
-                                                <input type="text" class="form-control" id="nama-lengkap" />
+                                            <div class="col-md-6">
+                                                <div class="mb-3 telepon">
+                                                    <label for="telepon" class="form-label">No Telepon</label>
+                                                    <input type="number" class="form-control" id="telepon" name="telepon" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" />
+                                                </div>
+                                                <div class="mb-3 password">
+                                                    <label for="password" class="form-label">Password</label>
+                                                    <input type="password" class="form-control" id="password" name="password" />
+                                                </div>
+                                                <div class="mb-3 alamat">
+                                                    <label for="alamat" class="form-label">Alamat</label>
+                                                    <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="mb-3 telepon">
-                                                <label for="telepon" class="form-label">No Telepon</label>
-                                                <input type="number" class="form-control" id="telepon" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" />
-                                            </div>
-                                            <div class="mb-3 password">
-                                                <label for="password" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="password" />
-                                            </div>
-                                            <div class="mb-3 alamat">
-                                                <label for="alamat" class="form-label">Alamat</label>
-                                                <textarea class="form-control" id="alamat" rows="3"></textarea>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer border-0">
-                                <button type="button" class="btn btn-primary">
-                                    Submit
-                                </button>
-                            </div>
+                                <div class="modal-footer border-0">
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <br>
+        <!-- alert -->
+        <?php if (!empty(session()->getFlashdata('error'))) : ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <?php echo session()->getFlashdata('error'); ?>
+            </div>
+        <?php endif; ?>
+        <?php if (!empty(session()->getFlashdata('message'))) : ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <?php echo session()->getFlashdata('message'); ?>
+            </div>
+        <?php endif; ?>
         <!-- Button -->
 
         <br>
@@ -143,80 +160,90 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th class="text-center">1</th>
-                            <td class="text-center">test</td>
-                            <td class="text-center">testing</td>
-                            <td class="text-center">test@gmail.com</td>
-                            <td class="text-center">12345</td>
-                            <td class="text-center">dimana-mana</td>
-                            <td class="text-center">
-                                <!-- Modal Edit -->
-                                <button type="button" class="btn btnedit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
-                                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header border-0">
-                                                <h5 class="modal-title" id="exampleModalLabel">Edit </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form action="" method="post">
-                                                <div class="modal-body border-0">
-                                                    <div class="mb-3" style="text-align: left;">
-                                                        <label class="form-label">Username</label>
-                                                        <input type="text" class="form-control" name="username" id="username" value="">
-                                                        <label class="form-label">Nama Lengkap</label>
-                                                        <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" value="">
-                                                        <label class=" form-label">Email</label>
-                                                        <input type="text" class="form-control" name="email" id="email" value="">
-                                                        <label class="form-label">No Telepon</label>
-                                                        <input type="text" class="form-control" name="no_telepon" id="no_telepon" value="">
-                                                        <label class="form-label">Alamat</label>
-                                                        <input type="text" class="form-control" name="alamat" id="alamat" value="">
-                                                        <label class="form-label">Password</label>
-                                                        <input type="text" class="form-control" name="password_new" id="password_new" value="">
-                                                        <label class="form-label">Konfirmasi Password</label>
-                                                        <input type="text" class="form-control" name="repassword" id="repassword" value="">
+                        <?php $i = 1; ?>
+                        <?php foreach ($admins as $admin) : ?>
+                            <tr>
+                                <th class="text-center"><?= $i ?></th>
+                                <td class="text-center"><?= $admin->username; ?></td>
+                                <td class="text-center"><?= $admin->nama_user; ?></td>
+                                <td class="text-center"><?= $admin->email; ?></td>
+                                <td class="text-center"><?= $admin->no_telepon; ?></td>
+                                <td class="text-center"><?= $admin->detail_alamat; ?></td>
+                                <td class="text-center">
+                                    <!-- Modal Edit -->
+                                    <?php if (session()->get('username') === $admin->username) : ?>
+                                        <button type="button" class="btn btnedit" data-bs-toggle="modal" data-bs-target="#editModal<?= $admin->id_user; ?>">Edit</button>
+                                        <div class="modal fade" id="editModal<?= $admin->id_user; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header border-0">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Edit </h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
+                                                    <form action="/Admin/editAdmin/<?= $admin->id_user; ?>" method="post">
+                                                        <div class="modal-body border-0">
+                                                            <div class="mb-3" style="text-align: left;">
+                                                                <label class="form-label">Username</label>
+                                                                <input type="text" class="form-control" name="username" id="username" value="<?= $admin->username; ?>" required>
+                                                                <label class="form-label">Nama Lengkap</label>
+                                                                <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" value="<?= $admin->nama_user; ?>" required>
+                                                                <label class=" form-label">Email</label>
+                                                                <input type="text" class="form-control" name="email" id="email" value="<?= $admin->email; ?>" required>
+                                                                <label class="form-label">No Telepon</label>
+                                                                <input type="number" class="form-control" name="no_telepon" id="no_telepon" value="<?= $admin->no_telepon; ?>" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14">
+                                                                <label class="form-label">Alamat</label>
+                                                                <input type="text" class="form-control" name="alamat" id="alamat" value="<?= $admin->detail_alamat; ?>" required>
+                                                                <label class="form-label">Password</label>
+                                                                <input type="password" class="form-control" name="password_new" id="password_new" placeholder="Optional">
+                                                                <label class="form-label">Konfirmasi Password</label>
+                                                                <input type="password" class="form-control" name="repassword" id="repassword">
+                                                            </div>
+                                                        </div>
+                                                        <div class=" modal-footer border-0">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
-                                                <div class=" modal-footer border-0">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <!-- Button Hapus -->
-                                <button type="button" class="btn btnhapus" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
-                                <div id="hapusModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-confirm modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header flex-column border-0">
-
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
-                                            </div>
-                                            <div class="modal-body border-0">
-                                                <p>Jika telah dihapus, tidak dapat dikembalikan kembali</p>
-                                            </div>
-                                            <div class="modal-footer justify-content-center border-0">
-                                                <form action="/Admin/deletePaket/" method="post">
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form>
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                                    <?php else : ?>
+                                        <p><i> Tidak Memiliki Akses </i></p>
+                                    <?php endif; ?>
+
+
+
+                                    <!-- Button Hapus -->
+                                    <!-- <button type="button" class="btn btnhapus" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
+                                    <div id="hapusModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-confirm modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header flex-column border-0">
+
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
+                                                </div>
+                                                <div class="modal-body border-0">
+                                                    <p>Jika telah dihapus, tidak dapat dikembalikan kembali</p>
+                                                </div>
+                                                <div class="modal-footer justify-content-center border-0">
+                                                    <form action="/Admin/deletePaket/" method="post">
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
+
     </div>
 
     <!-- Footer -->
