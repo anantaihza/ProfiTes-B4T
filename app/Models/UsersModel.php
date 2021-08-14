@@ -39,4 +39,35 @@ class UsersModel extends Model
                 'role' => "user"
             ]);
     }
+
+    public function getAdmin()
+    {
+        return $this->db->table('users')
+            ->where('role', 'admin')
+            ->get()->getResult();
+    }
+
+    public function addAdmin($username, $email, $password, $nama_user, $detail_alamat, $no_telepon)
+    {
+        $now = new Time('now');
+        $this->db->table('users')
+            ->insert([
+                'username' => $username,
+                'email' => $email,
+                'password' => $password,
+                'nama_user' => $nama_user,
+                'detail_alamat' => $detail_alamat,
+                'no_telepon' => $no_telepon,
+                'tgl_user' => $now,
+                'role' => 'admin'
+            ]);
+    }
+
+    public function updateAdmin($data, $id_user)
+    {
+        $this->db->table('users')
+            ->update($data, [
+                'id_user' => $id_user
+            ]);
+    }
 }
