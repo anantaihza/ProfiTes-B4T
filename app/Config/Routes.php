@@ -45,6 +45,7 @@ $routes->get('/inputPengiriman/(:num)', 'Admin::inputPengiriman/$1');
 $routes->get('/detailPengujian/(:num)', 'Admin::detailPengujian/$1');
 $routes->get('/listParameter/(:num)', 'Admin::parameter/$1');
 
+$routes->get('/Home', 'UjiProfisiensi::HomeUser');
 $routes->get('/ujiProfisiensi', 'UjiProfisiensi::index');
 $routes->get('/ujiProfisiensi/pilih-baru', 'UjiProfisiensi::pilihBaru');
 $routes->get('/ujiProfisiensi/profisiensiBaru/(:num)', 'UjiProfisiensi::profisiensiBaru/$1');
