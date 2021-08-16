@@ -162,4 +162,9 @@ class UjiProfisiensi extends BaseController
     {
         return view('ujiProfisiensi/requestPembayaran');
     }
+
+    public function HomeUser()
+    {
+        return view('ujiProfisiensi/HomeUser');
+    }
 }
