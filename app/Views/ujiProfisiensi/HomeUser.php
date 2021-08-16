@@ -17,7 +17,7 @@
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand fw-bold" href="/ujiProfisiensi">UP-<i>tek</i>MIRA</a>
+            <a class="navbar-brand fw-bold" href="/home">UP-<i>tek</i>MIRA</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfites" aria-controls="navbarProfites" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -51,10 +51,63 @@
     </nav>
 
     <div class="container mt-5 pt-5">
-        <h3 class="mb-5"><b>Home</b></h3>
-
+        <!-- Breadcrumb -->
+        <div class="card border-0">
+            <div class="card-body p-1">
+                <nav style="--bs-breadcrumb-divider: '/'" aria-label="breadcrumb">
+                    <ol class="breadcrumb m-2">
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Beranda
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Breadcrumb -->
+        <h3 class="mt-4 mb-5"><b>Home</b></h3>
         <div class="row mt-4">
-            <div class="col-md-8">
+            <div class="col-md-6">
+                <div class="card jml-perusahaan mt-2 mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4 m-auto text-center">
+                                <h2><i class="fas fa-briefcase"></i></h2>
+                            </div>
+                            <div class="col-8 py-2">
+                                <h3><b><?= $admJml; ?></b></h3>
+                                <p class="">Jumlah Pengujian</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card jml-perusahaan mt-2 mb-3">
+                    <div style="padding-left: 35px;" class="card-body">
+                        <div class="row">
+                            <div class="col-8 ">
+                                <h5>UjiProfisiensi</h5>
+                                <a href="/ujiProfisiensi" class=" mt-3 btn btnpilih2">Pilih</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card jml-perusahaan mt-2 mb-3">
+                    <div style="padding-left: 35px;" class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h5>Edit Profil</h5>
+                                <a href="/profile" class=" mt-3 btn btnpilih2">Pilih</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-12">
                 <div class="card py-3 mt-2">
                     <div class="card-body">
                         <div class="container">
@@ -88,37 +141,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="card jml-perusahaan mt-2 mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-4 m-auto text-center">
-                                    <h2><i class="fas fa-briefcase"></i></h2>
-                                </div>
-                                <div class="col-8 py-2">
-                                    <h3><b><?= $admJml; ?></b></h3>
-                                    <p>Jumlah Pengujian</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="card jml-perusahaan mt-2">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-4 m-auto text-center">
-                                    <h2><i class="fas fa-briefcase"></i></h2>
-                                </div>
-                                <div class="col-8 py-2">
-                                    <h3><b>2</b></h3>
-                                    <p>Jumlah Pengujian</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-
             </div>
 
         </div>
