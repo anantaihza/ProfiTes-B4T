@@ -56,7 +56,7 @@ class Admin extends BaseController
         $no_telepon = $this->request->getVar('telepon');
 
         $this->users->addAdmin($username, $email, $password, $nama_user, $detail_alamat, $no_telepon);
-        return redirect()->to("/listAdmin");
+        return redirect()->to(base_url("/listAdmin"));
     }
 
     public function editAdmin($id_user)
@@ -85,7 +85,7 @@ class Admin extends BaseController
             ];
             $this->users->updateAdmin($data, $id_user);
             session()->setFlashdata('message', 'Password anda berhasil diubah');
-            return redirect()->to('/listAdmin');
+            return redirect()->to(base_url('/listAdmin'));
         }
 
         $data = [
@@ -97,7 +97,7 @@ class Admin extends BaseController
         ];
 
         $this->users->updateAdmin($data, $id_user);
-        return redirect()->to("listAdmin");
+        return redirect()->to(base_url("listAdmin"));
     }
 
 
@@ -124,7 +124,7 @@ class Admin extends BaseController
         $keterangan = $this->request->getVar('keterangan');
 
         $this->paket->addPaket($nama_pengujian, $biaya, $biaya_terbilang, $keterangan);
-        return redirect()->to("/listPaket");
+        return redirect()->to(base_url("/listPaket"));
     }
 
     public function editPaket($id_paket)
@@ -137,14 +137,21 @@ class Admin extends BaseController
         ];
 
         $this->paket->updatePengujian($data, $id_paket);
-        return redirect()->to("listPaket");
+        return redirect()->to(base_url("listPaket"));
     }
 
     public function deletePaket($id_paket)
     {
+        $dataAdministrasi = $this->administrasi->getAdministrasiByIdPaket($id_paket);
+
+        foreach ($dataAdministrasi as $adm) {
+            $this->pengiriman->deletePengirimanByIdAdministrasi($adm->id_administrasi);
+            $this->trPengujian->deletePengujianByIdAdministrasi($adm->id_administrasi);
+        }
+        $this->administrasi->deleteAdministrasiByIdPengujian($id_paket);
         $this->parameter->delAllParameterByFk($id_paket);
         $this->paket->delPaket($id_paket);
-        return redirect()->to("listPaket");
+        return redirect()->to(base_url("listPaket"));
     }
 
 
@@ -165,7 +172,7 @@ class Admin extends BaseController
         $satuan = $this->request->getVar('satuan');
 
         $this->parameter->addParameter($id_paket, $nama_parameter, $satuan);
-        return redirect()->to("listParameter/$id_paket");
+        return redirect()->to(base_url("listParameter/$id_paket"));
     }
 
     public function updateParameter($id_parameter, $id_paket)
@@ -177,13 +184,13 @@ class Admin extends BaseController
         ];
 
         $this->parameter->updateParameter($data, $id_parameter);
-        return redirect()->to("listParameter/$id_paket");
+        return redirect()->to(base_url("listParameter/$id_paket"));
     }
 
     public function deleteParameter($id_parameter, $id_paket)
     {
         $this->parameter->delParameter($id_parameter);
-        return redirect()->to("listParameter/$id_paket");
+        return redirect()->to(base_url("listParameter/$id_paket"));
     }
 
 
@@ -201,7 +208,7 @@ class Admin extends BaseController
     public function buatLunas($id_administrasi)
     {
         $this->administrasi->updateStatusPembayaran($id_administrasi);
-        return redirect()->to("listPerusahaan");
+        return redirect()->to(base_url("listPerusahaan"));
     }
 
     public function inputPengiriman($id_administrasi)
@@ -220,7 +227,7 @@ class Admin extends BaseController
 
         $this->pengiriman->addPengiriman($id_adm, $nomor_resi, $catatan_pengiriman, $nama_barang->nama_pengujian);
         $this->administrasi->updateStatusResi($id_adm);
-        return redirect()->to("/listPerusahaan");
+        return redirect()->to(base_url("/listPerusahaan"));
     }
 
     public function detailPengujian($id_administrasi)

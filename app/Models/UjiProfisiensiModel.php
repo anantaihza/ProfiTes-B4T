@@ -15,6 +15,13 @@ class UjiProfisiensiModel extends Model
         'hasilUji_B', 'rerata', 'u95', 'standar_acuan', 'tgl_pengujian'
     ];
 
+    public function getTeknik()
+    {
+        return $this->db->table('mas_mas_teknik')->get()->getResult();
+    }
+
+
+    // GET
     public function getTrPengujian($id_administrasi)
     {
         return $this->db->table('tr_pengujian')
@@ -24,11 +31,7 @@ class UjiProfisiensiModel extends Model
             ->get()->getResult();
     }
 
-    public function getTeknik()
-    {
-        return $this->db->table('mas_mas_teknik')->get()->getResult();
-    }
-
+    // ADD
     public function addPengujian($id_administrasi, $idParam, $tgl_pengujian, $hasilUji_A, $hasilUji_B, $rerata, $u95, $standar_acuan)
     {
         $this->db->table('tr_pengujian')
@@ -41,6 +44,15 @@ class UjiProfisiensiModel extends Model
                 'rerata' => $rerata,
                 'u95' => $u95,
                 'standar_acuan' => $standar_acuan,
+            ]);
+    }
+
+    // DELETE
+    public function deletePengujianByIdAdministrasi($id_administrasi)
+    {
+        return $this->db->table('tr_pengujian')
+            ->delete([
+                'id_administrasi' => $id_administrasi
             ]);
     }
 }

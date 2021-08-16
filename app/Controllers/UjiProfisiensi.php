@@ -7,6 +7,7 @@ use App\Models\AdministrasiModel;
 use App\Models\ParameterModel;
 use App\Models\UjiProfisiensiModel;
 use App\Models\PengirimanModel;
+use App\Models\UsersModel;
 
 class UjiProfisiensi extends BaseController
 {
@@ -23,9 +24,21 @@ class UjiProfisiensi extends BaseController
         $this->ujiprofisiensi = new UjiProfisiensiModel();
         $this->parameter = new ParameterModel();
         $this->pengiriman = new PengirimanModel();
+        $this->users = new UsersModel();
     }
 
     public function index()
+    {
+        $id_user = session()->get('id');
+        $administrasi = $this->administrasi->getMasPengujian($id_user);
+        $data = [
+            'administrasi' => $administrasi,
+            'admJml' => count($administrasi)
+        ];
+        return view('ujiProfisiensi/HomeUser', $data);
+    }
+
+    public function ujiProfisiensi()
     {
         session()->remove('dataAdministrasi');
         $id_user = session()->get('id');
@@ -35,10 +48,17 @@ class UjiProfisiensi extends BaseController
         return view('ujiProfisiensi/landing', $data);
     }
 
+
     public function pilihBaru()
     {
-        $data['pengujian'] = $this->pengujian->findAll();
-        return view('ujiProfisiensi/ujiProfisiensiBaruPilih', $data);
+        $id_user = session()->get('id');
+        $user = $this->users->getUserById($id_user);
+        if ($user->nama_user != null) {
+            $data['pengujian'] = $this->pengujian->getPaket();
+            return view('ujiProfisiensi/ujiProfisiensiBaruPilih', $data);
+        } else {
+            return redirect()->to(base_url('/profilku'));
+        }
     }
 
     public function pengujian($id_administrasi)
@@ -64,7 +84,7 @@ class UjiProfisiensi extends BaseController
         $penerima = $this->request->getVar('penerima');
 
         $this->pengiriman->updatePenerimaan($id_tr_pengiriman, $kondisiBarang, $keterangan, $penerima);
-        return redirect()->to("UjiProfisiensi/pengujian/$id_administrasi");
+        return redirect()->to(base_url("UjiProfisiensi/pengujian/$id_administrasi"));
     }
 
     public function insertPengujian($id_administrasi)
@@ -95,7 +115,7 @@ class UjiProfisiensi extends BaseController
         }
         $this->administrasi->updateStatusPengujian($id_administrasi);
 
-        return redirect()->to("UjiProfisiensi/pengujian/$id_administrasi");
+        return redirect()->to(base_url("UjiProfisiensi/pengujian/$id_administrasi"));
     }
 
     public function profisiensiBaru($id)
@@ -117,7 +137,7 @@ class UjiProfisiensi extends BaseController
         session()->set([
             'dataAdministrasi' => $dataAdministrasi
         ]);
-        return redirect()->to('/ujiProfisiensi/requestPembayaran');
+        return redirect()->to(base_url('/ujiProfisiensi/requestPembayaran'));
     }
 
     public function administrasi($id, $id_pengujian)
@@ -155,16 +175,11 @@ class UjiProfisiensi extends BaseController
         session()->set([
             'dataAdministrasi' => $dataAdministrasi
         ]);
-        return redirect()->to('/ujiProfisiensi/requestPembayaran');
+        return redirect()->to(base_url('/ujiProfisiensi/requestPembayaran'));
     }
 
     public function requestPembayaran()
     {
         return view('ujiProfisiensi/requestPembayaran');
-    }
-
-    public function HomeUser()
-    {
-        return view('ujiProfisiensi/HomeUser');
     }
 }

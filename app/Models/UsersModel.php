@@ -18,6 +18,13 @@ class UsersModel extends Model
     ];
 
 
+    public function getUserById($id_user)
+    {
+        return $this->db->table('users')
+            ->where('id_user', $id_user)
+            ->get()->getRow();
+    }
+
     public function getUser()
     {
         $now = date("Y");
