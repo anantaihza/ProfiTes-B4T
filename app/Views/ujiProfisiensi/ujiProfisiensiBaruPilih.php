@@ -24,6 +24,14 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarProfites">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/ujiProfisiensi">Uji Profisiensi</a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,7 +79,7 @@
 
         <!-- main -->
         <p>Silahkan pilih Produk yang hendak dilakukan Uji Profisiensi</p>
-        <div class="row">
+        <div class="row pb-5 mb-5">
 
             <?php foreach ($pengujian as $row) { ?>
                 <div class="col-lg-4 col-md-6 col-12 mt-3">

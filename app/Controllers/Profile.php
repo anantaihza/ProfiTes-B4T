@@ -85,10 +85,10 @@ class Profile extends BaseController
                     'no_fax'        => $no_fax
                 ]);
                 session()->setFlashdata('message', 'Update Data Anda Berhasil');
-                return redirect()->to('/profilku');
+                return redirect()->to(base_url('/profilku'));
             } else {
                 session()->setFlashdata('message', 'Periksa kembali password lama anda');
-                return redirect()->to('/profilku');
+                return redirect()->to(base_url('/profilku'));
             }
         }
 
@@ -100,6 +100,6 @@ class Profile extends BaseController
             'no_fax'        => $no_fax
         ]);
         session()->setFlashdata('message', 'Update Data Anda Berhasil');
-        return redirect()->to('/profilku');
+        return redirect()->to(base_url('/profilku'));
     }
 }

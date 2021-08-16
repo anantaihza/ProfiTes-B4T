@@ -69,4 +69,13 @@ class PengirimanModel extends Model
             ->where('id_tr_pengiriman', $id_tr_pengiriman)
             ->update($data);
     }
+
+    // DELETE
+    public function deletePengirimanByIdAdministrasi($id_administrasi)
+    {
+        return $this->db->table('tr_pengiriman')
+            ->delete([
+                'id_administrasi' => $id_administrasi
+            ]);
+    }
 }

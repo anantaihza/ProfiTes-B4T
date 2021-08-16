@@ -103,6 +103,13 @@ class AdministrasiModel extends Model
             ->get()->getResult();
     }
 
+    public function getAdministrasiByIdPaket($id_pengujian)
+    {
+        return $this->db->table('tr_administrasi')
+            ->where('id_pengujian', $id_pengujian)
+            ->get()->getResult();
+    }
+
 
     // Function ADD
     public function addAdministrasi($id_pengujian, $id, $penanggung_jawab_lab, $status_akreditasi, $nama_laboratorium, $telpon_laboratorium, $fax_laboratorium, $alamat_laboratorium, $alamat_pengiriman, $nama_pic, $jabatan_pic, $telpon_pic, $email_pic)
@@ -157,5 +164,13 @@ class AdministrasiModel extends Model
         $this->db->table('tr_administrasi')
             ->where('id_administrasi', $id_administrasi)
             ->update($data);
+    }
+
+    public function deleteAdministrasiByIdPengujian($id_pengujian)
+    {
+        return $this->db->table('tr_administrasi')
+            ->delete([
+                'id_pengujian' => $id_pengujian
+            ]);
     }
 }

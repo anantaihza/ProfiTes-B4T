@@ -14,27 +14,32 @@
 </head>
 
 <body>
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand fw-bold" href="/dashboard">UP-<i>tek</i>MIRA</a>
+            <a class="navbar-brand fw-bold" href="/ujiProfisiensi">UP-<i>tek</i>MIRA</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfites" aria-controls="navbarProfites" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarProfites">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/Home">Home</a>
+                        <a class="nav-link" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Uji Profisiensi</a>
+                        <a class="nav-link" aria-current="page" href="/ujiProfisiensi">Uji Profisiensi</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="badge rounded-pill bg-primary">User</span>
+                            <span class="badge rounded-pill bg-primary"><?= session()->get('username'); ?></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/profile">Pengaturan Profil</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
                             <li>
                                 <a class="dropdown-item" href="/Login/logout">Logout</a>
                             </li>
@@ -66,24 +71,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="text-center">
-                                                <th class="align-middle" scope="row">1</th>
-                                                <td class="align-middle">Batubara</td>
-                                                <td class="align-middle">Laboratorium A</td>
-                                                <td class="align-middle">28/08/2021</td>
-                                            </tr>
-                                            <tr class="text-center">
-                                                <th class="align-middle" scope="row">2</th>
-                                                <td class="align-middle">Batubara</td>
-                                                <td class="align-middle">Laboratorium A</td>
-                                                <td class="align-middle">28/08/2021</td>
-                                            </tr>
-                                            <tr class="text-center">
-                                                <th class="align-middle" scope="row">3</th>
-                                                <td class="align-middle">Batubara</td>
-                                                <td class="align-middle">Laboratorium A</td>
-                                                <td class="align-middle">28/08/2021</td>
-                                            </tr>
+                                            <?php $i = 1; ?>
+                                            <?php foreach ($administrasi as $adm) : ?>
+                                                <tr class="text-center">
+                                                    <th class="align-middle" scope="row"><?= $i; ?></th>
+                                                    <td class="align-middle"><?= $adm->nama_pengujian; ?></td>
+                                                    <td class="align-middle"><?= $adm->nama_laboratorium; ?></td>
+                                                    <td class="align-middle"><?= $adm->tgl_administrasi; ?></td>
+                                                </tr>
+                                                <?php $i++; ?>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -101,13 +98,13 @@
                                     <h2><i class="fas fa-briefcase"></i></h2>
                                 </div>
                                 <div class="col-8 py-2">
-                                    <h3><b>2</b></h3>
+                                    <h3><b><?= $admJml; ?></b></h3>
                                     <p>Jumlah Pengujian</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card jml-perusahaan mt-2">
+                    <!-- <div class="card jml-perusahaan mt-2">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-4 m-auto text-center">
@@ -119,7 +116,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
