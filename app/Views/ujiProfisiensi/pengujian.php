@@ -16,7 +16,7 @@
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand fw-bold" href="/ujiProfisiensi">UP-<i>tek</i>MIRA</a>
+            <a class="navbar-brand fw-bold" href="/home">UP-<i>tek</i>MIRA</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfites" aria-controls="navbarProfites" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -53,7 +53,7 @@
         <div class="breadcrumb1" style="margin-top: 80px;">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                    <li class="breadcrumb-item"><a href="/ujiProfisiensi" style="text-decoration: none;">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="/home" style="text-decoration: none;">Beranda</a></li>
                     <li class="breadcrumb-item gray" aria-current="page">Pengujian</li>
                 </ol>
             </nav>

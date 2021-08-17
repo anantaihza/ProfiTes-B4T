@@ -128,7 +128,7 @@
                                                             <label class="form-label">Biaya Terbilang</label>
                                                             <input type="text" class="form-control" name="biaya_terbilang" id="biaya_terbilang" value="<?= $paket->biaya_terbilang; ?>">
                                                             <label class="form-label">Keterangan</label>
-                                                            <input type="text" class="form-control" name="keterangan" id="keterangan" value="<?= $paket->keterangan; ?>">
+                                                            <textarea style="height: 130px;" class="form-control" name="keterangan" id="keterangan"><?= $paket->keterangan; ?></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer border-0">

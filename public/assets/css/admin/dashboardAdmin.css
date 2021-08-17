@@ -50,6 +50,17 @@ p {
   padding-left: 20px;
   padding-right: 20px;
 }
+.btnpilih2 {
+  background-color: #0d6efd;
+  border: none;
+  color: #ffffff;
+  border-radius: 0;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .btnpilih:hover {
   color: #ffffff;
   background-color: #0d4eaf;
