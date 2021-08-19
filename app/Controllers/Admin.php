@@ -33,6 +33,10 @@ class Admin extends BaseController
             'diterimaJml'            => count($this->pengiriman->getStatusPengirimanDiterima()),
             'administrasiBelumLunas' => count($this->administrasi->getAdministrasiBelumLunas()),
             'hasilUjiJml'            => count($this->administrasi->getAdministrasiStatusPengujian()),
+
+            'users'                  => $this->users->getUser(),
+            'pengiriman'             => $this->pengiriman->getPengiriman(),
+            'administrasi'           => $this->administrasi->getAdministrasiPengujian()
         ];
         return view('admin/dashboardAdmin', $data);
     }
@@ -195,20 +199,11 @@ class Admin extends BaseController
 
 
     // Perusahaan
-    public function perusahaan()
-    {
-        $data = [
-            'users'        => $this->users->getUser(),
-            'pengiriman'   => $this->pengiriman->getPengiriman(),
-            'administrasi' => $this->administrasi->getAdministrasiPengujian()
-        ];
-        return view('admin/lihatPerusahaan', $data);
-    }
 
     public function buatLunas($id_administrasi)
     {
         $this->administrasi->updateStatusPembayaran($id_administrasi);
-        return redirect()->to(base_url("listPerusahaan"));
+        return redirect()->to(base_url("dashboard"));
     }
 
     public function inputPengiriman($id_administrasi)
@@ -227,7 +222,7 @@ class Admin extends BaseController
 
         $this->pengiriman->addPengiriman($id_adm, $nomor_resi, $catatan_pengiriman, $nama_barang->nama_pengujian);
         $this->administrasi->updateStatusResi($id_adm);
-        return redirect()->to(base_url("/listPerusahaan"));
+        return redirect()->to(base_url("/dashboard"));
     }
 
     public function detailPengujian($id_administrasi)

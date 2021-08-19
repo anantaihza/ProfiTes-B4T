@@ -144,7 +144,7 @@
                                                     <button class="btn btn-add ">Pengujian</button>
                                                 </form>
                                             <?php else : ?>
-                                                <p class="text-center"><b>Pesanan sedang diproses</b></p>
+                                                <p class="text-center"><b>Terima kasih telah melakukan pembayaran</b></p>
                                             <?php endif; ?>
                                         </div>
                                     </div>
