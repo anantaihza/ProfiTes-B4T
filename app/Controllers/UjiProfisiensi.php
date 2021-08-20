@@ -33,7 +33,8 @@ class UjiProfisiensi extends BaseController
         $administrasi = $this->administrasi->getMasPengujian($id_user);
         $data = [
             'administrasi' => $administrasi,
-            'admJml' => count($administrasi)
+            'admJml'       => count($administrasi),
+            'pengiriman'   => $this->pengiriman->getPengiriman(),
         ];
         return view('ujiProfisiensi/HomeUser', $data);
     }

@@ -221,6 +221,7 @@
                                                                         <th class="align-middle">Paket</th>
                                                                         <th class="align-middle">Biaya</th>
                                                                         <th class="align-middle">Action</th>
+                                                                        <th class="align-middle">Status</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -250,30 +251,19 @@
                                                                                             <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button>
                                                                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                                                                                                 <li>
-                                                                                                    <!-- <form action="/Admin/inputPengiriman/" method="post">
-                                                                                                        <button type="submit" class="dropdown-item">Input Pengiriman</button>
-                                                                                                    </form> -->
                                                                                                     <a class="dropdown-item" href="/inputPengiriman/<?= $adm->id_administrasi; ?>">Input Pengiriman</a>
-
                                                                                                 </li>
                                                                                             </ul>
                                                                                         <?php elseif (($adm->status_pengujian === "Belum") && ($adm->status_resi === "Sudah")) : ?>
                                                                                             <?php foreach ($pengiriman as $kirim) : ?>
                                                                                                 <?php if ($kirim->id_administrasi == $adm->id_administrasi) : ?>
-                                                                                                    <?php if ($kirim->status_pengiriman === "Sedang Dikirim") : ?>
-                                                                                                        <p>Menunggu diterima oleh Penerima</p>
-                                                                                                    <?php elseif ($kirim->status_pengiriman === "Diterima") : ?>
-                                                                                                        <p>Sudah diterima, menunggu pengujian.</p>
-                                                                                                    <?php endif; ?>
+                                                                                                    <p>Tidak ada Action</p>
                                                                                                 <?php endif; ?>
                                                                                             <?php endforeach; ?>
                                                                                         <?php elseif (($adm->status_pengujian === "Sudah") && ($adm->status_resi === "Sudah")) : ?>
                                                                                             <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent; border-color: transparent; color:#757575;" type="button" data-bs-toggle="dropdown">Menu</button>
                                                                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                                                                                                 <li>
-                                                                                                    <!-- <form action="/Admin/detailPengujian/" method="post">
-                                                                                                        <button class="dropdown-item">Lihat Pengujian</button>
-                                                                                                    </form> -->
                                                                                                     <a class="dropdown-item" href="/detailPengujian/<?= $adm->id_administrasi; ?>">Detail Pengujian</a>
                                                                                                 </li>
                                                                                             </ul>
@@ -283,6 +273,29 @@
 
                                                                                     </td>
                                                                                 <?php endif ?>
+                                                                                <td>
+                                                                                    <?php if ($adm->status_pembayaran === "Belum Lunas") : ?>
+                                                                                        <p>Belum Lunas</p>
+                                                                                    <?php elseif ($adm->status_pembayaran === "Sudah Lunas") : ?>
+                                                                                        <?php if ($adm->status_resi === "Belum") : ?>
+                                                                                            <p>Admin belum membuat resi</p>
+                                                                                        <?php elseif ($adm->status_resi === "Sudah") : ?>
+                                                                                            <?php foreach ($pengiriman as $kirim) : ?>
+                                                                                                <?php if ($kirim->id_administrasi == $adm->id_administrasi) : ?>
+                                                                                                    <?php if ($adm->status_pengujian === "Sudah") : ?>
+                                                                                                        <p>Pengujian Selesai</p>
+                                                                                                    <?php else : ?>
+                                                                                                        <?php if ($kirim->status_pengiriman === "Sedang Dikirim") : ?>
+                                                                                                            <p>Sedang dikirim</p>
+                                                                                                        <?php elseif ($kirim->status_pengiriman === "Diterima") : ?>
+                                                                                                            <p>Sudah diterima, menunggu pengujian.</p>
+                                                                                                        <?php endif; ?>
+                                                                                                    <?php endif; ?>
+                                                                                                <?php endif; ?>
+                                                                                            <?php endforeach; ?>
+                                                                                        <?php endif; ?>
+                                                                                    <?php endif; ?>
+                                                                                </td>
                                                                             </tr>
                                                                         <?php else : ?>
                                                                             <?php $j = 0; ?>

@@ -121,6 +121,8 @@
                                                 <th class="align-middle" scope="col">Paket</th>
                                                 <th class="align-middle" scope="col">Laboratorium</th>
                                                 <th class="align-middle" scope="col">Tanggal</th>
+                                                <th class="align-middle" scope="col">Status</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -131,6 +133,29 @@
                                                     <td class="align-middle"><?= $adm->nama_pengujian; ?></td>
                                                     <td class="align-middle"><?= $adm->nama_laboratorium; ?></td>
                                                     <td class="align-middle"><?= $adm->tgl_administrasi; ?></td>
+                                                    <td>
+                                                        <?php if ($adm->status_pembayaran === "Belum Lunas") : ?>
+                                                            <p>Belum Lunas</p>
+                                                        <?php elseif ($adm->status_pembayaran === "Sudah Lunas") : ?>
+                                                            <?php if ($adm->status_resi === "Belum") : ?>
+                                                                <p>Sedang diproses</p>
+                                                            <?php elseif ($adm->status_resi === "Sudah") : ?>
+                                                                <?php foreach ($pengiriman as $kirim) : ?>
+                                                                    <?php if ($kirim->id_administrasi == $adm->id_administrasi) : ?>
+                                                                        <?php if ($adm->status_pengujian === "Sudah") : ?>
+                                                                            <p>Pengujian Selesai</p>
+                                                                        <?php else : ?>
+                                                                            <?php if ($kirim->status_pengiriman === "Sedang Dikirim") : ?>
+                                                                                <p>Sedang dikirim</p>
+                                                                            <?php elseif ($kirim->status_pengiriman === "Diterima") : ?>
+                                                                                <p>Belum melakukan pengujian</p>
+                                                                            <?php endif; ?>
+                                                                        <?php endif; ?>
+                                                                    <?php endif; ?>
+                                                                <?php endforeach; ?>
+                                                            <?php endif; ?>
+                                                        <?php endif; ?>
+                                                    </td>
                                                 </tr>
                                                 <?php $i++; ?>
                                             <?php endforeach; ?>
