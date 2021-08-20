@@ -60,7 +60,7 @@
                 <tr>
                     <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Parameter Uji</th>
                     <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Satuan</th>
-                    <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Kode Teknik *)</th>
+                    <!-- <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Kode Teknik *)</th> -->
                     <th colspan="3" scope="col" style="border: 1px solid #000;">Data Hasil Uji</th>
                     <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Expanded Uncertainty (U95%)</th>
                     <th rowspan="2" scope="col" class="align-middle" style="border: 1px solid #000;">Standar Acuan</th>
@@ -77,13 +77,9 @@
                     <tr>
                         <td style="border: 1px solid #000;"><?= $uji->nama_parameter; ?></td>
                         <td style="border: 1px solid #000;"><?= $uji->satuan; ?></td>
-                        <td style="border: 1px solid #000;">
-                            <?php foreach ($dataTeknik as $teknik) : ?>
-                                <?php if ($uji->id_teknik === $teknik->id_teknik) : ?>
-                                    <?= $teknik->nama_teknik; ?>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        </td>
+                        <!-- <td style="border: 1px solid #000;">
+                            
+                        </td> -->
                         <td style="border: 1px solid #000;"><?= $uji->hasilUji_A; ?></td>
                         <td style="border: 1px solid #000;"><?= $uji->hasilUji_B; ?></td>
                         <td style="border: 1px solid #000;"><?= $uji->rerata; ?></td>

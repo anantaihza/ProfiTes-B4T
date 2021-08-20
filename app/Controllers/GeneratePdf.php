@@ -59,10 +59,9 @@ class GeneratePdf extends BaseController
 
         $idAdministrasi = session()->get('dataAdministrasi')->id_administrasi;
         $dataTrPengujian = $this->trPengujian->getTrPengujian($idAdministrasi);
-        $teknik = $this->trPengujian->getTeknik();
+        // $teknik = $this->trPengujian->getTeknik();
         $data = [
             'dataTrPengujian' => $dataTrPengujian,
-            'dataTeknik'       => $teknik
         ];
 
         return view('ujiProfisiensi/laporanAkhirPDF', $data);
@@ -73,10 +72,9 @@ class GeneratePdf extends BaseController
     {
         $idAdministrasi = session()->get('dataAdministrasi')->id_administrasi;
         $dataTrPengujian = $this->trPengujian->getTrPengujian($idAdministrasi);
-        $teknik = $this->trPengujian->getTeknik();
+        // $teknik = $this->trPengujian->getTeknik();
         $data = [
             'dataTrPengujian' => $dataTrPengujian,
-            'dataTeknik'       => $teknik
         ];
 
         $dompdf = new Dompdf();

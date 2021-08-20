@@ -46,6 +46,10 @@ class TrPengujian extends Migration
 				'constraint' => '128',
 				'default'	 => 'IK-14-LMB08-28'
 			],
+			'nama_teknik' => [
+				'type'		 => 'VARCHAR',
+				'constraint' => '32'
+			],
 			'tgl_pengujian' => [
 				'type'		 => 'DATETIME'
 			],
