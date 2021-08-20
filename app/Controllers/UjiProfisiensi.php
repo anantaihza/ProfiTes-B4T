@@ -101,6 +101,7 @@ class UjiProfisiensi extends BaseController
             $rerata = $this->request->getVar("rerata_$j");
             $u95 = $this->request->getVar("u95_$j");
             $standar_acuan = $this->request->getVar("standar_acuan_$j");
+            $nama_teknik = $this->request->getVar("nama_teknik_$j");
 
             $this->ujiprofisiensi->addPengujian(
                 $id_administrasi,
@@ -110,7 +111,8 @@ class UjiProfisiensi extends BaseController
                 $hasilUji_B,
                 $rerata,
                 $u95,
-                $standar_acuan
+                $standar_acuan,
+                $nama_teknik
             );
         }
         $this->administrasi->updateStatusPengujian($id_administrasi);

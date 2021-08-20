@@ -12,13 +12,10 @@ class UjiProfisiensiModel extends Model
     protected $useTimestamps = false;
     protected $allowedFields = [
         'id_tr_pengujian', 'id_administrasi', 'id_parameter', 'hasilUji_A',
-        'hasilUji_B', 'rerata', 'u95', 'standar_acuan', 'tgl_pengujian'
+        'hasilUji_B', 'rerata', 'u95', 'standar_acuan', 'nama_teknik', 'tgl_pengujian'
     ];
 
-    public function getTeknik()
-    {
-        return $this->db->table('mas_mas_teknik')->get()->getResult();
-    }
+
 
 
     // GET
@@ -32,7 +29,7 @@ class UjiProfisiensiModel extends Model
     }
 
     // ADD
-    public function addPengujian($id_administrasi, $idParam, $tgl_pengujian, $hasilUji_A, $hasilUji_B, $rerata, $u95, $standar_acuan)
+    public function addPengujian($id_administrasi, $idParam, $tgl_pengujian, $hasilUji_A, $hasilUji_B, $rerata, $u95, $standar_acuan, $nama_teknik)
     {
         $this->db->table('tr_pengujian')
             ->insert([
@@ -44,6 +41,7 @@ class UjiProfisiensiModel extends Model
                 'rerata' => $rerata,
                 'u95' => $u95,
                 'standar_acuan' => $standar_acuan,
+                'nama_teknik' => $nama_teknik,
             ]);
     }
 

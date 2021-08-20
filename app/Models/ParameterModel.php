@@ -20,7 +20,6 @@ class ParameterModel extends Model
     {
         return $this->db->table('mas_parameter')
             ->join('mas_pengujian', 'mas_pengujian.id_pengujian=mas_parameter.id_pengujian')
-            ->join('mas_mas_teknik', 'mas_mas_teknik.id_teknik=mas_parameter.id_teknik')
             ->get()->getResult();
     }
     public function getParameterYear()
@@ -32,18 +31,11 @@ class ParameterModel extends Model
             ->get()->getResult();
     }
 
-    // public function getParameterById($id_parameter)
-    // {
-    //     return $this->db->table('mas_parameter')
-    //         ->where("id_parameter", $id_parameter)
-    //         ->get()->getRow();
-    // }
 
     public function getPaketParameter($id_pengujian)
     {
         return $this->db->table('mas_parameter')
             ->join('mas_pengujian', 'mas_pengujian.id_pengujian=mas_parameter.id_pengujian')
-            ->join('mas_mas_teknik', 'mas_mas_teknik.id_teknik=mas_parameter.id_teknik')
             ->where('mas_parameter.id_pengujian', $id_pengujian)
             ->get()->getResult();
     }
@@ -54,7 +46,6 @@ class ParameterModel extends Model
         $this->db->table('mas_parameter')
             ->insert([
                 'id_pengujian' => $id_pengujian,
-                'id_teknik' => 2,
                 'nama_parameter' => $nama_parameter,
                 'satuan' => $satuan,
             ]);

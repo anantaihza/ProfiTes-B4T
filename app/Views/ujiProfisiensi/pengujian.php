@@ -151,149 +151,7 @@
 
                             </div>
                         </form>
-                        <!-- Kedua pengujian -->
-                        <div class="tab-pane fade" id="pills-pengujian" role="tabpanel" aria-labelledby="pills-pengujian-tab">
 
-                            <div class="col info">
-                                <p class="fas fa-info-circle pt-3"></i> Info</p>
-                                <p>untuk lembar hasil pengujian, isi dengan angka 0 untuk setiap data yang tidak
-                                    tersedia.</p>
-                            </div>
-                            <a class=" text-left btn btn4 border" style="width: 100%;">
-                                <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Lembar Hasil
-                                Pengujian Uji Profisiensi <?= $dataAdm->nama_pengujian; ?>
-                            </a>
-
-                            <div class="collapse.show row border" id="LembarHasilP1" style="background-color: white; margin: auto;">
-                                <form action="/UjiProfisiensi/insertPengujian/<?= $dataAdm->id_administrasi; ?>" method="post">
-                                    <div class="row" style="padding: 20px;">
-                                        <div class="col-4">
-                                            <p> <strong>Nama Laboratorium</strong> </p>
-                                            <input class="form-control" type="text" value="<?= $dataAdm->nama_laboratorium; ?>" disabled readonly>
-                                        </div>
-                                        <div class="col-4">
-                                            <p> <strong>Tanggal Pengujian</strong> </p>
-                                            <input name="tgl_pengujian" id="tgl_pengujian" class="form-control" type="date" required>
-                                        </div>
-                                        <div class="table-responsive">
-
-                                            <table class="table table-bordered mt-4" style="text-align: center;">
-                                                <thead style="background-color: slateblue; color: white; text-align: center;">
-                                                    <tr>
-                                                        <th rowspan="2" scope="col" class="align-middle">No</th>
-                                                        <th rowspan="2" scope="col" class="align-middle">Parameter Uji</th>
-                                                        <th rowspan="2" scope="col" class="align-middle">Satuan</th>
-                                                        <th rowspan="2" scope="col" class="align-middle">Kode Teknik *)</th>
-                                                        <th colspan="3" scope="col">Data Hasil Uji</th>
-                                                        <th rowspan="2" scope="col" class="align-middle">Expanded Uncertainty (U95%)</th>
-                                                        <th rowspan="2" scope="col" class="align-middle">Standar Acuan</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="col">A</th>
-                                                        <th scope="col">B</th>
-                                                        <th scope="col">Rata-rata</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <?php
-                                                    $i = 1;
-                                                    foreach ($dataParam as $param) : ?>
-                                                        <tr>
-                                                            <th scope="row"><?= $i; ?></th>
-                                                            <td><?= $param->nama_parameter; ?></td>
-                                                            <td><?= $param->satuan; ?></td>
-                                                            <td>
-                                                                <input type="text" value="<?= $param->nama_teknik; ?>" class="form-control" readonly>
-                                                            </td>
-                                                            <td>
-                                                                <input name="hasilUji_A_<?= $i; ?>" id="hasilUji_A_<?= $i; ?>" type="text" class="form-control" required>
-                                                            </td>
-                                                            <td>
-                                                                <input name="hasilUji_B_<?= $i; ?>" id="hasilUji_B_<?= $i; ?>" type="text" class="form-control" required>
-                                                            </td>
-                                                            <td>
-                                                                <input name="rerata_<?= $i; ?>" id="rerata_<?= $i; ?>" type="text" class="form-control" required>
-                                                            </td>
-                                                            <td>
-                                                                <input name="u95_<?= $i; ?>" id="u95_<?= $i; ?>" type="text" class="form-control" required>
-                                                            </td>
-                                                            <td>
-                                                                <input name="standar_acuan_<?= $i; ?>" id="standar_acuan_<?= $i; ?>" type="text" class="form-control" required>
-                                                            </td>
-                                                        </tr>
-                                                        <?php $i++ ?>
-                                                    <?php endforeach; ?>
-                                                </tbody>
-                                            </table>
-                                            <div style="margin-top: 30px;">
-                                                <!-- <div class="row">
-                                                <div class="col">
-                                                    <p><strong>Diuji oleh</strong></p>
-                                                    <input class="form-control" type="text">
-                                                </div>
-                                                <div class="col">
-                                                    <p><strong>Disetujui oleh</strong></p>
-                                                    <input class="form-control" type="text">
-                                                </div>
-                                            </div> -->
-                                                <div class="row-10 float-end mt-4" style="margin-bottom: 10px;">
-                                                    <button type="submit" class="btnNext2 btn btn-primary "><i class="fas fa-paper-plane"></i>
-                                                        Kirim Hasil Pengujian
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- Ketiga -->
-                        <div class="tab-pane fade" id="pills-Laporan" role="tabpanel" aria-labelledby="pills-Laporan-tab" style="margin-bottom: 400px;">
-                            <div class="row justify-content-md-center" style="margin-top: 30px;">
-                                <a class="btn btn4 border" data-bs-toggle="collapse" href="#LaporanSertifikat" role="button" aria-expanded="false" aria-controls="LaporanSertifikat">
-                                    <i style="font-size:14px; margin-right: 3px;" class="fa">&#xf03a;</i></i>Hasil Pengujian
-                                </a>
-                            </div>
-                            <div class="collapse.show row" id="LaporanSertifikat">
-                                <div>
-                                    <table class="table border" style=" width: 50.8%; margin:
-                                auto;">
-                                        <tbody>
-                                            <tr class="bg-white">
-                                                <th scope="row">Laporan Sementara</th>
-                                                <td>
-                                                    <button class="unduh">
-                                                        <i class="fa fa-download" style="margin-right: 5px;"></i>
-                                                        Unduh
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr class="bg-white">
-                                                <th scope="row">Laporan Akhir</th>
-                                                <td>
-                                                    <button class="unduh">
-                                                        <i class="fa fa-download" style="margin-right: 5px;"></i>
-                                                        Unduh
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr class="bg-white">
-                                                <th scope="row">Sertifikat</th>
-                                                <td>
-                                                    <button class="unduh">
-                                                        <i class="fa fa-download" style="margin-right: 5px;"></i>
-                                                        Unduh
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 <?php elseif (($dataAdm->status_pengujian == 'Belum') && ($dataStatusPengiriman->status_pengiriman == 'Diterima')) : ?>
@@ -362,7 +220,7 @@
                                                             <td><?= $param->nama_parameter; ?></td>
                                                             <td><?= $param->satuan; ?></td>
                                                             <td>
-                                                                <input type="text" value="<?= $param->nama_teknik; ?>" class="form-control" readonly>
+                                                                <input type="text" name="nama_teknik_<?= $i; ?>" id="nama_teknik_<?= $i; ?>" class="form-control" required>
                                                             </td>
                                                             <td>
                                                                 <input name="hasilUji_A_<?= $i; ?>" id="hasilUji_A_<?= $i; ?>" type="text" class="form-control" required>
@@ -385,16 +243,6 @@
                                                 </tbody>
                                             </table>
                                             <div style="margin-top: 30px;">
-                                                <!-- <div class="row">
-                                                <div class="col">
-                                                    <p><strong>Diuji oleh</strong></p>
-                                                    <input class="form-control" type="text">
-                                                </div>
-                                                <div class="col">
-                                                    <p><strong>Disetujui oleh</strong></p>
-                                                    <input class="form-control" type="text">
-                                                </div>
-                                            </div> -->
                                                 <div class="row-10 float-end mt-4" style="margin-bottom: 10px;">
                                                     <button type="submit" class="btnNext2 btn btn-primary "><i class="fas fa-paper-plane"></i>
                                                         Kirim Hasil Pengujian
