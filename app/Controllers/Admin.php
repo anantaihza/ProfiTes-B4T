@@ -52,6 +52,20 @@ class Admin extends BaseController
 
     public function insertAdmin()
     {
+        $valid = [
+            'username' => [
+                'rules' => 'is_unique[users.username]',
+                'errors' => [
+                    'is_unique' => 'username sudah digunakan'
+                ]
+            ]
+        ];
+
+        if (!$this->validate($valid)) {
+            session()->setFlashdata('error', $this->validator->listErrors());
+            return redirect()->back()->withInput();
+        }
+
         $username = $this->request->getVar('username');
         $email = $this->request->getVar('email');
         $password = password_hash($this->request->getVar('password'), PASSWORD_BCRYPT);
